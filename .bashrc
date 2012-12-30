@@ -129,7 +129,10 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-. /mnt/common/scripts/glom.sh master.bots
+
+if [ -f /mnt/common/scripts/glom.sh ]; then
+    . /mnt/common/scripts/glom.sh master.bots
+fi
 
 # set vim as default editor for stuff like git commit messages
 export VISUAL=vim
