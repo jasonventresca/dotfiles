@@ -82,6 +82,9 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# grep recursive with line numbers, case insensitive
+alias grin='grep -Rin'
+
 # some miscellaneous aliases
 alias cdsp='cd /mnt/scrapepipeline/scrapepipeline'
 alias cdweb='cd /mnt/codename/web'
