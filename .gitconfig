@@ -16,3 +16,5 @@
     changed = green
     untracked = cyan
     branch = magenta
+[user]
+	email = jasonventresca@gmail.com
