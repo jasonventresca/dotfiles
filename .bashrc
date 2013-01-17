@@ -96,6 +96,7 @@ alias gencss='/mnt/codename/bin/generate_css.sh'
 alias gencssa='/mnt/codename/bin/generate_css.sh; apacherestart'
 alias cash='~/refresh_caches.sh'
 alias warm_memcached='/mnt/common/scripts/glom_wrapper.sh python /mnt/scrapepipeline/scrapepipeline/potato/warm_memcache.py -e True -H localhost'
+alias toggle='. ~/toggle/toggle.sh'
 
 # git aliases
 alias gits='git status'
