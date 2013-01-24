@@ -12,10 +12,14 @@ files="bashrc gitconfig tmux.conf vim vimrc"
 echo "Installing essential dev tools"
 sudo apt-get -y install vim git-core curl tmux
 
+
+if [ ! -d ~/dotfiles ]; then
+    mkdir ~/dotfiles
+fi
+
 # Install these dotfiles locally
 echo "Cloning dotfiles repo from github"
-cd ~
-git clone https://github.com/jasonventresca/dotfiles
+git clone https://github.com/jasonventresca/dotfiles ~/dotfiles
 
 # Back up existing dotfiles, and then symlink the new dotfiles
 echo "Moving old dotfiles to $old_dir"
@@ -27,7 +31,7 @@ for file in $files; do
 	if [ -e ~/.$file ]; then
     	mv ~/.$file $old_dir/.$file
 	fi
-    echo "Creating symlink ~/.$file  -->  $dir/$file
+    echo "Creating symlink ~/.$file  -->  $dir/$file"
     ln -s $dir/$file ~/.$file
 done
 
