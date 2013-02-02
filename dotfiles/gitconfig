@@ -17,5 +17,16 @@
     untracked = cyan
     branch = magenta
 [user]
-	email = jasonventresca@gmail.com
-	name = Jason Ventresca
+    email = jasonventresca@gmail.com
+    name = Jason Ventresca
+[gc]
+    auto=1
+[merge]
+    summary=true
+[alias]
+    b = branch -v
+    r = remote -v
+    t = tag -l
+    unstage = reset HEAD
+    uncommit = reset --soft HEAD^
+
