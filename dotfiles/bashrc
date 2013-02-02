@@ -115,6 +115,7 @@ alias mysql_cache='mysql codename_cache_20120827 -u codename -h 127.0.0.1 -P 330
 alias mysql_cache_nodb='mysql -u codename -h 127.0.0.1 -P 3307'
 alias mysql_accounts='mysql codename_accounts -u codename -h 127.0.0.1 -P3307'
 alias mysql_qa='mysql codename_qa -u codename -h 127.0.0.1 -P 3307'
+alias box='cat /mnt/.box_name'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
