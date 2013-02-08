@@ -24,6 +24,9 @@ set whichwrap+=<,>,h,l,[,]
 " Mako filetype syntax/indenting support
 au BufRead,BufNewFile *.mak set filetype=mako
 
+highlight MyTodos guifg=red guibg=green
+syntax match MyTodos /TODO/
+
 
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
