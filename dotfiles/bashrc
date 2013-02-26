@@ -40,12 +40,12 @@ esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
     else
-	color_prompt=
+        color_prompt=
     fi
 fi
 
@@ -102,12 +102,12 @@ alias toggle='. ~/toggle/toggle.sh'
 
 # git aliases
 alias gits='git status'
-alias gitsa='pushd .; cdweb; gits; cdsp; gits; popd;'
+alias gitsa='pushd .; cdc; gits; cdsp; gits; popd;'
 alias gitc='git commit -a'
 alias gitco='git checkout'
 alias gitd='git diff'
 alias gitds='git diff --staged'
-alias gitpm='pushd .; cdweb; git checkout master; git pull origin master; cdsp; git checkout master; git pull origin master; popd; gitsa' # pull master for both codename and scrapepipeline
+alias gitpm='pushd .; cdc; git checkout master; git pull origin master; cdsp; git checkout master; git pull origin master; popd; gitsa' # pull master for both codename and scrapepipeline
 
 # some common mysql commands
 alias mysql_hosts='cat /mnt/scrapepipeline/scrapepipeline/potato/moat_hosts/MYSQL_HOSTS.py'
