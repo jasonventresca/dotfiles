@@ -87,7 +87,7 @@ alias grin='grep -Rin'
 
 # some miscellaneous aliases
 alias cdsp='cd /mnt/scrapepipeline/scrapepipeline'
-alias cdweb='cd /mnt/codename/web'
+alias cdc='cd /mnt/codename'
 alias cdlog='cd /mnt/log/apache2'
 alias cdsd='cd /mnt/search-deployment'
 alias cdmt='cd /mnt/moat/search/tasks/mturk'
