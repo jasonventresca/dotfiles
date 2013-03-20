@@ -2,7 +2,7 @@
 set -eux
 
 # dev tools
-sudo apt-get install -y vim git-core tmux build-essential bash-completion sl curl 
+sudo apt-get install -y vim git-core tig tmux build-essential bash-completion sl curl 
 sudo apt-get -y install 
 
 # node.js
