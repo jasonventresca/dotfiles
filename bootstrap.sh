@@ -8,10 +8,10 @@
 dir=~/dotfiles/dotfiles
 old_dir=~/dotfiles.old
 files="bashrc gitconfig tmux.conf vim vimrc"
+install_tools_script="~/dotfiles/install_tools.sh"
 
-echo "Installing essential dev tools"
-sudo apt-get -y install vim git-core curl tmux
-
+echo "Installing dev tools"
+sh $install_tools_script
 
 if [ ! -d ~/dotfiles ]; then
     mkdir ~/dotfiles

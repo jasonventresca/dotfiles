@@ -100,6 +100,9 @@ alias cash='~/refresh_caches.sh'
 alias warm_memcached='/mnt/common/scripts/glom_wrapper.sh python /mnt/scrapepipeline/scrapepipeline/potato/warm_memcache.py -e True -H localhost'
 alias toggle='. ~/toggle/toggle.sh'
 
+# JSON pretty-print utility
+alias jsonp='python -mjson.tool | pygmentize -l javascript;'
+
 # git aliases
 alias gits='git status'
 alias gitsa='pushd .; cdc; gits; cdsp; gits; popd;'
