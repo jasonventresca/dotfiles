@@ -75,12 +75,15 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+    alias cgrep='grep --color=always'
 fi
 
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias lf='ll | grep "^-"' # files
+alias ld='ll | grep "^d"' # directories
 
 # grep recursive with line numbers, case insensitive
 alias grin='grep -Rin'
