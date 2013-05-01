@@ -100,7 +100,7 @@ alias memcachedrestart='sudo /etc/init.d/memcached restart'
 alias gencss='/mnt/codename/bin/generate_css.sh'
 alias gencssa='/mnt/codename/bin/generate_css.sh; apacherestart'
 alias cash='~/refresh_caches.sh'
-alias warm_memcached='/mnt/common/scripts/glom_wrapper.sh python /mnt/scrapepipeline/scrapepipeline/potato/warm_memcache.py -e True -H localhost'
+alias warm_memcached='/mnt/common/scripts/glom_wrapper.sh python /mnt/scrapepipeline/scrapepipeline/potato/warm_memcache.py'
 alias toggle='. ~/toggle/toggle.sh'
 alias instance_id='curl "http://169.254.169.254/latest/meta-data/instance-id"'
 
@@ -124,6 +124,14 @@ alias mysql_cache_nodb='mysql -u codename -h 127.0.0.1 -P 3307'
 alias mysql_accounts='mysql codename_accounts -u codename -h 127.0.0.1 -P3307'
 alias mysql_qa='mysql codename_qa -u codename -h 127.0.0.1 -P 3307'
 alias box='cat /mnt/.box_name'
+
+# ssh aliases
+alias mentus='ssh root@mentusapp.com'
+alias moat='ssh -i ~/.ssh/nov-2010.pem ubuntu@ec2-23-20-228-151.compute-1.amazonaws.com'
+alias staging='ssh -i ~/.ssh/nov-2010.pem ubuntu@moat-pro-staging.moat.co'
+alias irc='ssh -i ~/.ssh/nov-2010.pem ubuntu@pro-staging.moat.co -L 6667:localhost:6667'
+alias prod-mturk-web='ssh -i ~/.ssh/nov-2010.pem ubuntu@ec2-174-129-75-183.compute-1.amazonaws.com'
+alias prod-mturk-jobs='ssh -i ~/.ssh/nov-2010.pem ubuntu@ec2-54-234-188-199.compute-1.amazonaws.com'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
