@@ -53,6 +53,8 @@ echo "Configuring global SSH settings"
 sudo echo "KeepAlive yes" >> /etc/ssh/sshd_config
 sudo echo "ClientAliveInterval 60" >> /etc/ssh/sshd_config
 
+cd $dir && git remote set-url origin git@github.com:jasonventresca/dotfiles.git
+
 # Done!
 echo "All done! Log out of all open sessions to finish installing new env!"
 

@@ -4,7 +4,9 @@ set number
 set cursorline
 
 syntax enable
+set t_Co=16
 colorscheme solarized
+let g:solarized_termcolors=16
 set background=dark
 set list " show invisible characters (e.g. linebreaks, tabs, etc.)
 
