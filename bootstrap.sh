@@ -43,7 +43,7 @@ done
 if [ -e ~/.profile ]; then
     mv .profile $old_dir/.profile
     echo "Creating symlink ~/.profile --> $dir/bashrc"
-    ln -s $dir/.bashrc ~/.profile
+    ln -s $dir/bashrc ~/.profile
 fi
 
 for subdir in $vim_mako_dirs; do
