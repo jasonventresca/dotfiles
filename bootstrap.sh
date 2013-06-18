@@ -42,6 +42,7 @@ done
 # for Mac, symlink ~/.profile to point to ~/.bashrc
 if [ -e ~/.profile ]; then
     mv .profile $old_dir/.profile
+    echo "Creating symlink ~/.profile --> $dir/.bashrc"
     ln -s $dir/.bashrc ~/.profile
 fi
 
