@@ -22,7 +22,7 @@ fi
 
 # Install these dotfiles locally
 echo "Cloning dotfiles repo from github"
-git clone https://github.com/jasonventresca/dotfiles ~/dotfiles
+git clone git@github.com:jasonventresca/dotfiles.git ~/dotfiles
 git clone git://github.com/sophacles/vim-bundle-mako.git ~/dotfiles/vim-bundle-mako
 
 # Back up existing dotfiles, and then symlink the new dotfiles
