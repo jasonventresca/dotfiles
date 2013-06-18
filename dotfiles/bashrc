@@ -127,11 +127,15 @@ alias box='cat /mnt/.box_name'
 
 # ssh aliases
 alias mentus='ssh root@mentusapp.com'
-alias moat='ssh -i ~/.ssh/nov-2010.pem ubuntu@ec2-23-20-228-151.compute-1.amazonaws.com'
+alias moat='ssh -i ~/.ssh/nov-2010.pem ubuntu@ec2-107-21-192-254.compute-1.amazonaws.com'
+alias moat-old='ssh -i ~/.ssh/nov-2010.pem ubuntu@ec2-23-20-228-151.compute-1.amazonaws.com'
 alias staging='ssh -i ~/.ssh/nov-2010.pem ubuntu@moat-pro-staging.moat.co'
+alias pipeline-jobs='ssh -i ~/.ssh/mar-2011.pem ubuntu@50.17.129.223'
 alias irc='ssh -i ~/.ssh/nov-2010.pem ubuntu@pro-staging.moat.co -L 6667:localhost:6667'
 alias prod-mturk-web='ssh -i ~/.ssh/nov-2010.pem ubuntu@ec2-174-129-75-183.compute-1.amazonaws.com'
 alias prod-mturk-jobs='ssh -i ~/.ssh/nov-2010.pem ubuntu@ec2-54-234-188-199.compute-1.amazonaws.com'
+alias dev-mturk-web='ssh -i ~/.ssh/nov-2010.pem ubuntu@184.72.182.38'
+alias dev-mturk-web-2='ssh -i ~/.ssh/nov-2010.pem ubuntu@54.224.32.67'
 
 # discover aliases
 alias discover-prod-ws='/mnt/common/registry/discover.py | grep codename-webserver | grep -i prod'
