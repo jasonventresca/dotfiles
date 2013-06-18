@@ -39,6 +39,12 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
+# for Mac, symlink ~/.profile to point to ~/.bashrc
+if [ -e ~/.profile ]; then
+    mv .profile $old_dir/.profile
+    ln -s $dir/.bashrc ~/.profile
+fi
+
 for subdir in $vim_mako_dirs; do
     if [ -e ~/.vim/$subdir/mako.vim ]; then
         mv ~/.vim/$subdir/mako.vim $old_dir/.vim/$subdir/mako.vim
