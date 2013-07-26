@@ -103,6 +103,7 @@ alias cash='~/refresh_caches.sh'
 alias warm_memcached='/mnt/common/scripts/glom_wrapper.sh python /mnt/scrapepipeline/scrapepipeline/potato/warm_memcache.py'
 alias toggle='. ~/toggle/toggle.sh'
 alias instance_id='curl "http://169.254.169.254/latest/meta-data/instance-id"'
+alias fact="elinks -dump randomfunfacts.com | sed -n '/^| /p' | tr -d \|"
 
 # JSON pretty-print utility
 alias jsonp='python -mjson.tool | pygmentize -l javascript;'
