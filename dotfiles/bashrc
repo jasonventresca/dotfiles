@@ -136,6 +136,7 @@ alias irc='ssh -i ~/.ssh/nov-2010.pem ubuntu@pro-staging.moat.co -L 6667:localho
 alias prod-mturk-web='ssh -i ~/.ssh/nov-2010.pem ubuntu@ec2-174-129-75-183.compute-1.amazonaws.com'
 alias prod-mturk-jobs='ssh -i ~/.ssh/nov-2010.pem ubuntu@ec2-54-234-188-199.compute-1.amazonaws.com'
 alias dev-mturk-jobs='ssh -i ~/.ssh/nov-2010.pem ubuntu@23.20.214.43'
+alias dev-mturk-web='ssh -i ~/.ssh/nov-2010.pem ubuntu@54.211.24.168'
 
 # discover aliases
 alias discover-prod-ws='/mnt/common/registry/discover.py | grep codename-webserver | grep -i prod'
