@@ -96,6 +96,7 @@ alias cdsd='cd /mnt/search-deployment'
 alias cdmt='cd /mnt/moat/search/tasks/mturk'
 alias cdtp='cd /mnt/tagpipeline/tag_pipeline'
 alias apacherestart='sudo /etc/init.d/apache2 restart'
+alias bounce-codename='touch /mnt/codename/*.wsgi'
 alias memcachedrestart='sudo /etc/init.d/memcached restart'
 alias gencss='/mnt/codename/bin/generate_css.sh'
 alias gencssa='/mnt/codename/bin/generate_css.sh; apacherestart'
@@ -139,6 +140,7 @@ alias dev-mturk-web='ssh -i ~/.ssh/nov-2010.pem ubuntu@23.22.57.77'
 alias dev-mturk-jobs='ssh -i ~/.ssh/nov-2010.pem ubuntu@23.20.21.219'
 
 # discover aliases
+alias discover='/mnt/common/registry/discover.py'
 alias discover-prod-ws='/mnt/common/registry/discover.py | grep codename-webserver | grep -i prod'
 
 # Add an "alert" alias for long running commands.  Use like so:
