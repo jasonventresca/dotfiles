@@ -105,6 +105,7 @@ alias warm_memcached='/mnt/common/scripts/glom_wrapper.sh python /mnt/scrapepipe
 alias toggle='. ~/toggle/toggle.sh'
 alias instance_id='curl "http://169.254.169.254/latest/meta-data/instance-id"'
 alias fact="elinks -dump randomfunfacts.com | sed -n '/^| /p' | tr -d \|"
+alias tmux="TERM=screen-256color-bce tmux"
 
 # JSON pretty-print utility
 alias jsonp='python -mjson.tool | pygmentize -l javascript;'
