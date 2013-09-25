@@ -140,6 +140,8 @@ alias prod-mturk-web='ssh -i ~/.ssh/nov-2010.pem ubuntu@ec2-174-129-75-183.compu
 alias prod-mturk-jobs='ssh -i ~/.ssh/nov-2010.pem ubuntu@ec2-54-234-188-199.compute-1.amazonaws.com'
 alias dev-mturk-jobs='ssh -i ~/.ssh/nov-2010.pem ubuntu@23.20.214.43'
 alias dev-mturk-web='ssh -i ~/.ssh/nov-2010.pem ubuntu@54.211.24.168'
+alias monster='ssh -i ~/.ssh/mar-2011.pem ubuntu@ec2-54-234-195-237.compute-1.amazonaws.com'
+alias codename-key-value-store='ssh -i ~/.ssh/nov-2010.pem ubuntu@ec2-54-211-2-130.compute-1.amazonaws.com'
 
 # discover aliases
 alias discover='/mnt/common/registry/discover.py'
