@@ -117,6 +117,7 @@ alias gitc='git commit -a'
 alias gitco='git checkout'
 alias gitd='git diff'
 alias gitds='git diff --staged'
+alias gitdh='git diff HEAD'
 alias gitpm='pushd .; cdc; git checkout master; git pull origin master; cdsp; git checkout master; git pull origin master; popd; gitsa' # pull master for both codename and scrapepipeline
 
 # some common mysql commands
