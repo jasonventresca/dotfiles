@@ -118,7 +118,7 @@ alias gitco='git checkout'
 alias gitd='git diff'
 alias gitds='git diff --staged'
 alias gitdh='git diff HEAD'
-alias gitpm='pushd .; cdc; git checkout master; git pull origin master; cdsp; git checkout master; git pull origin master; popd; gitsa' # pull master for both codename and scrapepipeline
+alias gitp="git push origin `git status | head -n 1 | awk '{print $4}'`"
 
 # some common mysql commands
 alias mysql_hosts='cat /mnt/scrapepipeline/scrapepipeline/potato/moat_hosts/MYSQL_HOSTS.py'
