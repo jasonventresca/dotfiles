@@ -20,6 +20,9 @@ function! DisableCopyMode()
     set list
 endfunction
 
+" Keep 25 lines above/below the cursor when scrolling
+set scrolloff=25
+
 " When pressing left/right cursor keys at start/end of line, move to the previous/next line
 set whichwrap+=<,>,h,l,[,]
 
