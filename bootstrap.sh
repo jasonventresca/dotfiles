@@ -45,8 +45,6 @@ if [ -e $HOME/.profile ]; then
 fi
 
 
-set -eux
-vim_mako_dirs="ftdetect indent syntax"
 for subdir in $vim_mako_dirs; do
     file="/home/ubuntu/.vim/$subdir/mako.vim"
     if [ -e $file ]; then
