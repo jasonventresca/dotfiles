@@ -1,5 +1,5 @@
 #!/bin/sh
-set -eux
+set -eu
 
 # Use this file to (re)build a familiar command line env
 # run "wget --no-check-certificate https://github.com/jasonventresca/dotfiles/raw/master/bootstrap.sh -O - | sh"
