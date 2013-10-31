@@ -11,26 +11,21 @@ dir=~/dotfiles/dotfiles
 old_dir=~/dotfiles.old
 vim_mako_dirs="ftdetect indent syntax"
 files="bashrc gitconfig tmux.conf vim vimrc"
-install_tools_script="~/dotfiles/install_tools.sh"
+
 
 echo "Installing dev tools"
-sh $install_tools_script
+~/dotfiles/install_tools.sh
 
-if [ ! -d ~/dotfiles ]; then
-    mkdir ~/dotfiles
-fi
+mkdir -p ~/dotfiles
 
 # Install these dotfiles locally
 echo "Cloning dotfiles repo from github"
 git clone git@github.com:jasonventresca/dotfiles.git ~/dotfiles
 git clone git://github.com/sophacles/vim-bundle-mako.git ~/dotfiles/vim-bundle-mako
 
-# Back up existing dotfiles, and then symlink the new dotfiles
+# Backup existing dotfiles, and then symlink the new dotfiles
 echo "Moving old dotfiles to $old_dir"
-if [ ! -d $old_dir ]; then
-    mkdir $old_dir
-fi
-
+mkdir -p $old_dir
 for file in $files; do
     if [ -e ~/.$file ]; then
         mv ~/.$file $old_dir/.$file
@@ -41,7 +36,7 @@ done
 
 # for Mac, symlink ~/.profile to point to ~/.bashrc
 if [ -e ~/.profile ]; then
-    mv .profile $old_dir/.profile
+    mv .profile $old_dir/.profile # backup
     echo "Creating symlink ~/.profile --> $dir/bashrc"
     ln -s $dir/bashrc ~/.profile
 fi
@@ -57,8 +52,8 @@ done
 
 # Keep EC2 connections from periodically hanging up
 echo "Configuring global SSH settings"
-sudo echo "KeepAlive yes" >> /etc/ssh/sshd_config
-sudo echo "ClientAliveInterval 60" >> /etc/ssh/sshd_config
+echo "KeepAlive yes" | sudo tee -a /etc/ssh/sshd_config
+echo "ClientAliveInterval 60" | sudo tee -a /etc/ssh/sshd_config
 
 cd $dir && git remote set-url origin git@github.com:jasonventresca/dotfiles.git
 
