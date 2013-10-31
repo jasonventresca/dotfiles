@@ -1,5 +1,5 @@
 #!/bin/sh
-set -eux
+set -eu
 
 # dev tools
 sudo apt-get install -y vim git-core tig tmux build-essential bash-completion \
