@@ -12,9 +12,8 @@ old_dir=~/dotfiles.old
 vim_mako_dirs="ftdetect indent syntax"
 files="bashrc gitconfig tmux.conf vim vimrc"
 
-
-echo "Installing dev tools"
-~/dotfiles/install_tools.sh
+# first install git
+sudo apt-get install -y git-core
 
 mkdir -p ~/dotfiles
 
@@ -22,6 +21,9 @@ mkdir -p ~/dotfiles
 echo "Cloning dotfiles repo from github"
 git clone git@github.com:jasonventresca/dotfiles.git ~/dotfiles
 git clone git://github.com/sophacles/vim-bundle-mako.git ~/dotfiles/vim-bundle-mako
+
+echo "Installing dev tools"
+~/dotfiles/install_tools.sh
 
 # Backup existing dotfiles, and then symlink the new dotfiles
 echo "Moving old dotfiles to $old_dir"
