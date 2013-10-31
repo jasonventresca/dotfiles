@@ -1,4 +1,5 @@
 #!/bin/sh
+set -eux
 
 # Use this file to (re)build a familiar command line env
 # run "wget --no-check-certificate https://github.com/jasonventresca/dotfiles/raw/master/bootstrap.sh -O - | sh"
@@ -44,16 +45,17 @@ if [ -e ~/.profile ]; then
 fi
 
 
-# backup old ~/.vim folder and overwrite
-if [ -e ~/.vim ]; then
-    mv ~/.vim $old_dir/
-    mkdir -p ~/.vim
-fi
-
 for subdir in $vim_mako_dirs; do
-    echo "Creating symlink ~/dotfiles/vim-bundle-mako/$subdir/mako.vim  -->   ~/.vim/$subdir/mako.vim"
-    mkdir -p ~/.vim/$subdir
-    ln -s ~/dotfiles/vim-bundle-mako/$subdir/mako.vim ~/.vim/$subdir/mako.vim
+    file="~/.vim/$subdir/mako.vim"
+    if [ -e $file ]; then
+        mkdir -p $old_dir/.vim/$subdir
+        mv $file $old_dir/.vim/$subdir/mako.vim
+    else
+        mkdir -p ~/.vim/$subdir
+    fi
+
+    echo "Creating symlink ~/.vim/$subdir/mako.vim --> ~/dotfiles/vim-bundle-mako/$subdir/mako.vim"
+    ln -s ~/dotfiles/vim-bundle-mako/$subdir/mako.vim $file
 done
 
 
