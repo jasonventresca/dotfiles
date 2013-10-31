@@ -109,7 +109,7 @@ alias fact="elinks -dump randomfunfacts.com | sed -n '/^| /p' | tr -d \|"
 alias tmux="TERM=screen-256color-bce tmux"
 
 # JSON pretty-print utility
-alias jsonp='python -mjson.tool | pygmentize -l javascript;'
+alias jsonp='python -mjson.tool'
 
 # git aliases
 alias gits='git status'
