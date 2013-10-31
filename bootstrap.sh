@@ -41,11 +41,16 @@ if [ -e ~/.profile ]; then
     ln -s $dir/bashrc ~/.profile
 fi
 
+
+# backup old ~/.vim folder and overwrite
+if [ -e ~/.vim ]; then
+    mv ~/.vim $old_dir/
+    mkdir -p ~/.vim
+fi
+
 for subdir in $vim_mako_dirs; do
-    if [ -e ~/.vim/$subdir/mako.vim ]; then
-        mv ~/.vim/$subdir/mako.vim $old_dir/.vim/$subdir/mako.vim
-    fi
     echo "Creating symlink ~/dotfiles/vim-bundle-mako/$subdir/mako.vim  -->   ~/.vim/$subdir/mako.vim"
+    mkdir -p ~/.vim/$subdir
     ln -s ~/dotfiles/vim-bundle-mako/$subdir/mako.vim ~/.vim/$subdir/mako.vim
 done
 
