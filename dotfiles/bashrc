@@ -95,6 +95,7 @@ alias cdlog='cd /mnt/log/apache2'
 alias cdsd='cd /mnt/search-deployment'
 alias cdmt='cd /mnt/moat/search/tasks/mturk'
 alias cdtp='cd /mnt/tagpipeline/tag_pipeline'
+alias cdpd='cd /usr/local/lib/python2.7/dist-packages/'
 alias apacherestart='sudo /etc/init.d/apache2 restart'
 alias bounce-codename='touch /mnt/codename/*.wsgi'
 alias memcachedrestart='sudo /etc/init.d/memcached restart'
@@ -108,7 +109,7 @@ alias fact="elinks -dump randomfunfacts.com | sed -n '/^| /p' | tr -d \|"
 alias tmux="TERM=screen-256color-bce tmux"
 
 # JSON pretty-print utility
-alias jsonp='python -mjson.tool | pygmentize -l javascript;'
+alias jsonp='python -mjson.tool'
 
 # git aliases
 alias gits='git status'
@@ -118,7 +119,7 @@ alias gitco='git checkout'
 alias gitd='git diff'
 alias gitds='git diff --staged'
 alias gitdh='git diff HEAD'
-alias gitpm='pushd .; cdc; git checkout master; git pull origin master; cdsp; git checkout master; git pull origin master; popd; gitsa' # pull master for both codename and scrapepipeline
+alias gitp="git push origin `git status | head -n 1 | awk '{print $4}'`"
 
 # some common mysql commands
 alias mysql_hosts='cat /mnt/scrapepipeline/scrapepipeline/potato/moat_hosts/MYSQL_HOSTS.py'
@@ -131,17 +132,21 @@ alias box='cat /mnt/.box_name'
 
 # ssh aliases
 alias mentus='ssh root@mentusapp.com'
-alias moat='ssh -i ~/.ssh/nov-2010.pem ubuntu@ec2-107-21-192-254.compute-1.amazonaws.com'
+alias moat='ssh -i ~/.ssh/nov-2010.pem ubuntu@jason.moat.co'
 alias staging='ssh -i ~/.ssh/nov-2010.pem ubuntu@moat-pro-staging.moat.co'
 alias pipeline-jobs='ssh -i ~/.ssh/mar-2011.pem ubuntu@50.17.129.223'
 alias buildbot='ssh -i ~/.ssh/nov-2010.pem ubuntu@50.17.6.133'
 alias irc='ssh -i ~/.ssh/nov-2010.pem ubuntu@pro-staging.moat.co -L 6667:localhost:6667'
 alias prod-mturk-web='ssh -i ~/.ssh/nov-2010.pem ubuntu@ec2-174-129-75-183.compute-1.amazonaws.com'
 alias prod-mturk-jobs='ssh -i ~/.ssh/nov-2010.pem ubuntu@ec2-54-234-188-199.compute-1.amazonaws.com'
-alias dev-mturk-jobs='ssh -i ~/.ssh/nov-2010.pem ubuntu@23.20.214.43'
-alias dev-mturk-web='ssh -i ~/.ssh/nov-2010.pem ubuntu@54.211.24.168'
+alias dev-mturk-jobs='ssh -i ~/.ssh/nov-2010.pem ubuntu@204.236.214.55'
 alias monster='ssh -i ~/.ssh/mar-2011.pem ubuntu@ec2-54-234-195-237.compute-1.amazonaws.com'
-alias codename-key-value-store='ssh -i ~/.ssh/nov-2010.pem ubuntu@ec2-54-211-2-130.compute-1.amazonaws.com'
+alias codename-key-value-store='ssh -i ~/.ssh/mar-2011.pem ubuntu@107.22.20.137'
+alias dev-search-admin='ssh -i ~/.ssh/nov-2010.pem ubuntu@54.226.53.165'
+alias dev-codename-cache='ssh -i ~/.ssh/nov-2010.pem ubuntu@54.221.130.224'
+alias dev-cachebuild-worker-1='ssh -i ~/.ssh/nov-2010.pem ubuntu@67.202.24.115'
+alias dev-codename-webserver-load-codename-cache='ssh -i ~/.ssh/nov-2010.pem ubuntu@54.234.154.151'
+alias dev-monster-data='ssh -i ~/.ssh/nov-2010.pem ubuntu@54.242.4.58'
 
 # discover aliases
 alias discover='/mnt/common/registry/discover.py'

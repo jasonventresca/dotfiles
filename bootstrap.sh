@@ -1,4 +1,5 @@
 #!/bin/sh
+set -eu
 
 # Use this file to (re)build a familiar command line env
 # run "wget --no-check-certificate https://github.com/jasonventresca/dotfiles/raw/master/bootstrap.sh -O - | sh"
@@ -7,58 +8,61 @@
 # Need to sudo to sucessfully apt-get
 
 # Vars
-dir=~/dotfiles/dotfiles
-old_dir=~/dotfiles.old
+dir=$HOME/dotfiles/dotfiles
+old_dir=$HOME/dotfiles.old
 vim_mako_dirs="ftdetect indent syntax"
 files="bashrc gitconfig tmux.conf vim vimrc"
-install_tools_script="~/dotfiles/install_tools.sh"
 
-echo "Installing dev tools"
-sh $install_tools_script
+# first install git
+sudo apt-get install -y git-core
 
-if [ ! -d ~/dotfiles ]; then
-    mkdir ~/dotfiles
-fi
+mkdir -p $HOME/dotfiles
 
 # Install these dotfiles locally
 echo "Cloning dotfiles repo from github"
-git clone git@github.com:jasonventresca/dotfiles.git ~/dotfiles
-git clone git://github.com/sophacles/vim-bundle-mako.git ~/dotfiles/vim-bundle-mako
+git clone git@github.com:jasonventresca/dotfiles.git $HOME/dotfiles
+git clone git://github.com/sophacles/vim-bundle-mako.git $HOME/dotfiles/vim-bundle-mako
 
-# Back up existing dotfiles, and then symlink the new dotfiles
+echo "Installing dev tools"
+$HOME/dotfiles/install_tools.sh
+
+# Backup existing dotfiles, and then symlink the new dotfiles
 echo "Moving old dotfiles to $old_dir"
-if [ ! -d $old_dir ]; then
-    mkdir $old_dir
-fi
-
+mkdir -p $old_dir
 for file in $files; do
-    if [ -e ~/.$file ]; then
-        mv ~/.$file $old_dir/.$file
+    if [ -e $HOME/.$file ]; then
+        mv $HOME/.$file $old_dir/.$file
     fi
-    echo "Creating symlink ~/.$file  -->  $dir/$file"
-    ln -s $dir/$file ~/.$file
+    echo "Creating symlink $HOME/.$file  -->  $dir/$file"
+    ln -s $dir/$file $HOME/.$file
 done
 
 # for Mac, symlink ~/.profile to point to ~/.bashrc
-if [ -e ~/.profile ]; then
-    mv .profile $old_dir/.profile
-    echo "Creating symlink ~/.profile --> $dir/bashrc"
-    ln -s $dir/bashrc ~/.profile
+if [ -e $HOME/.profile ]; then
+    mv .profile $old_dir/.profile # backup
+    echo "Creating symlink $HOME/.profile --> $dir/bashrc"
+    ln -s $dir/bashrc $HOME/.profile
 fi
 
+
 for subdir in $vim_mako_dirs; do
-    if [ -e ~/.vim/$subdir/mako.vim ]; then
-        mv ~/.vim/$subdir/mako.vim $old_dir/.vim/$subdir/mako.vim
+    file="/home/ubuntu/.vim/$subdir/mako.vim"
+    if [ -e $file ]; then
+        mkdir -p $old_dir/.vim/$subdir
+        mv $file $old_dir/.vim/$subdir/mako.vim
+    else
+        mkdir -p /home/ubuntu/.vim/$subdir
     fi
-    echo "Creating symlink ~/dotfiles/vim-bundle-mako/$subdir/mako.vim  -->   ~/.vim/$subdir/mako.vim"
-    ln -s ~/dotfiles/vim-bundle-mako/$subdir/mako.vim ~/.vim/$subdir/mako.vim
+
+    echo "Creating symlink $HOME/.vim/$subdir/mako.vim --> $HOME/dotfiles/vim-bundle-mako/$subdir/mako.vim"
+    ln -s /home/ubuntu/dotfiles/vim-bundle-mako/$subdir/mako.vim $file
 done
 
 
 # Keep EC2 connections from periodically hanging up
 echo "Configuring global SSH settings"
-sudo echo "KeepAlive yes" >> /etc/ssh/sshd_config
-sudo echo "ClientAliveInterval 60" >> /etc/ssh/sshd_config
+echo "KeepAlive yes" | sudo tee -a /etc/ssh/sshd_config
+echo "ClientAliveInterval 60" | sudo tee -a /etc/ssh/sshd_config
 
 cd $dir && git remote set-url origin git@github.com:jasonventresca/dotfiles.git
 
