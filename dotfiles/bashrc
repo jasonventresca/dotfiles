@@ -132,6 +132,7 @@ alias box='cat /mnt/.box_name'
 
 # ssh aliases
 alias mentus='ssh root@mentusapp.com'
+alias neuraltip='ssh -i ~/.ssh/dev.pem ubuntu@ec2-184-73-116-251.compute-1.amazonaws.com'
 alias moat='ssh -i ~/.ssh/nov-2010.pem ubuntu@jason.moat.co'
 alias staging='ssh -i ~/.ssh/nov-2010.pem ubuntu@moat-pro-staging.moat.co'
 alias pipeline-jobs='ssh -i ~/.ssh/mar-2011.pem ubuntu@50.17.129.223'
