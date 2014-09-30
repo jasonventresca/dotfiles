@@ -137,6 +137,9 @@ alias nssh='ssh -i ~/.ssh/nov-2010.pem'
 alias nscp='scp -i ~/.ssh/nov-2010.pem'
 alias mbssh='ssh -i ~/.ssh/moatbot.pem'
 alias mbscp='scp -i ~/.ssh/moatbot.pem'
+alias npssh="parallel-ssh -vP -O IdentityFile='/home/ubuntu/.ssh/nov-2010.pem' -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
+alias mpssh="parallel-ssh -vP -O IdentityFile='/home/ubuntu/.ssh/mar-2011.pem' -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
+alias mbpssh="parallel-ssh -vP -O IdentityFile='/home/ubuntu/.ssh/moatbot.pem' -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
 alias neuraltip='ssh -i ~/.ssh/dev.pem ubuntu@ec2-184-73-116-251.compute-1.amazonaws.com'
 alias moat='nssh ubuntu@jason.moat.co'
 alias staging='mssh ubuntu@moat-pro-staging.moat.co'
