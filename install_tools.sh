@@ -1,8 +1,15 @@
-#!/bin/sh
+#!/bin/bash
 set -eu
 
-# dev tools
-tools='vim git-core tig tmux build-essential bash-completion sl curl ipython python-setuptools python-dev python-pip'
-error_msg="ERROR: at least of the following were not installed: $tools"
-sudo apt-get install -y $tools || echo $error_msg
+install_deb(){
+    sudo apt-get install -y vim git-core tig tmux build-essential bash-completion sl curl ipython python-setuptools python-dev python-pip
+}
+
+install_mac(){
+    brew install vim git tig tmux bash-completion sl curl
+    sudo easy_install pip
+}
+
+error_msg="ERROR: not all dev tools were installed!"
+install_deb || install_mac || echo $error_msg
 
