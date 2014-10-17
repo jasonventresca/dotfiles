@@ -11,7 +11,7 @@ set -eu
 dir=$HOME/dotfiles/dotfiles
 old_dir=$HOME/dotfiles.old
 vim_mako_dirs="ftdetect indent syntax"
-files="bashrc gitconfig tmux.conf vim vimrc"
+dotfiles=$(ls $dir)
 
 # first install git
 sudo apt-get install -y git-core
@@ -29,25 +29,25 @@ $HOME/dotfiles/install_tools.sh
 # Backup existing dotfiles, and then symlink the new dotfiles
 echo "Moving old dotfiles to $old_dir"
 mkdir -p $old_dir
-for file in $files; do
-    if [ -e $HOME/.$file ]; then
+for file in $dotfiles ; do
+    if [ -e $HOME/.$file ] ; then
         mv $HOME/.$file $old_dir/.$file
     fi
     echo "Creating symlink $HOME/.$file  -->  $dir/$file"
     ln -s $dir/$file $HOME/.$file
 done
 
-# for Mac, symlink ~/.profile to point to ~/.bashrc
-if [ -e $HOME/.profile ]; then
-    mv .profile $old_dir/.profile # backup
-    echo "Creating symlink $HOME/.profile --> $dir/bashrc"
-    ln -s $dir/bashrc $HOME/.profile
-fi
+## for Mac, symlink ~/.profile to point to ~/.bashrc
+#if [ -e $HOME/.profile ] ; then
+#    mv .profile $old_dir/.profile # backup
+#    echo "Creating symlink $HOME/.profile --> $dir/bashrc"
+#    ln -s $dir/profile $HOME/.profile
+#fi
+#
 
-
-for subdir in $vim_mako_dirs; do
+for subdir in $vim_mako_dirs ; do
     file="/home/ubuntu/.vim/$subdir/mako.vim"
-    if [ -e $file ]; then
+    if [ -e $file ] ; then
         mkdir -p $old_dir/.vim/$subdir
         mv $file $old_dir/.vim/$subdir/mako.vim
     else

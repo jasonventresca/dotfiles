@@ -1,0 +1,12 @@
+# executed on the Mac for bash configuration
+
+#############################################
+##### BEGIN: Mac-specific configuration #####
+#############################################
+alias parallel-ssh="$(which pssh)"
+#############################################
+###### END: Mac-specific configuration ######
+#############################################
+
+source ~/.bashrc
+
