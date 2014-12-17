@@ -148,17 +148,20 @@ alias prod-mturk-web='mssh ubuntu@mturk.moat.com'
 alias prod-mturk-jobs='nssh ubuntu@ec2-54-234-188-199.compute-1.amazonaws.com'
 alias dev-mturk-jobs='nssh ubuntu@204.236.214.55'
 alias dev-mturk-web='mssh ubuntu@54.82.83.243'
+alias kill-ssh-agent='ps aux | grep ssh-agent | grep -v grep | awk "{print \$2}" | xargs sudo kill'
 
 ssh_agent_ps=$(ps x | grep ssh-agent | grep -v grep | awk '{ print $1 }')
 if [ "$ssh_agent_ps" == "" ]; then
    eval `ssh-agent -s`
-   ssh-add 
-   ssh-add ~/.ssh/mar-2011.pem
-   ssh-add ~/.ssh/nov-2010.pem
-   ssh-add ~/.ssh/moatbot.pem
 else
    export SSH_AGENT_PID=$ssh_agent_ps
 fi
+
+ssh-add 
+ssh-add ~/.ssh/mar-2011.pem
+ssh-add ~/.ssh/nov-2010.pem
+ssh-add ~/.ssh/id_rsa_github_personal
+#ssh-add ~/.ssh/moatbot.pem # this is "moat-deploy" user on git@github.com
 
 # discover aliases
 alias discover='/mnt/common/registry/discover.py'
