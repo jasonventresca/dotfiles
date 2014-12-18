@@ -6,7 +6,7 @@ install_deb(){
 }
 
 install_mac(){
-    brew install vim git tig tmux bash-completion sl curl
+    brew install vim git tig tmux bash-completion sl curl coreutils
     sudo easy_install pip
 }
 
