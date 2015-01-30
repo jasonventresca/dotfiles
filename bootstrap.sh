@@ -50,6 +50,9 @@ for subdir in $vim_mako_dirs ; do
     ln -s $HOME/dotfiles/vim-bundle-mako/$subdir/mako.vim $file
 done
 
+# install user ssh config
+mkdir -p $HOME/.ssh
+ln -s $dir/../other_dotfiles/ssh-config $HOME/.ssh/config # ln -s ~/dotfiles/other_dotfiles/ssh-config ~/.ssh/config
 
 # Keep EC2 connections from periodically hanging up
 echo "Configuring global SSH settings"
