@@ -1,8 +1,10 @@
 Host github.com
     StrictHostKeyChecking no
 
-Host 10.*
+Host *
     ForwardAgent yes
+
+Host 10.*
     ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@gateway.moat.com nc -q0 %h 22
     SendEnv AWS_*
     SendEnv GIT_*
