@@ -54,6 +54,7 @@ done
 mkdir -p $HOME/.ssh
 if [ -e $HOME/.$file ] ; then
     mv $HOME/.ssh/config $old_dir/ssh-config
+    rm -f $HOME/.ssh/config # in case it's a symlink, the mv command above is useless
 fi
 ln -s $dir/../other_dotfiles/ssh-config $HOME/.ssh/config # ln -s ~/dotfiles/other_dotfiles/ssh-config ~/.ssh/config
 
