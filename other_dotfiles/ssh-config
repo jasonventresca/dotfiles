@@ -6,3 +6,4 @@ Host 10.*
     ForwardAgent yes
     SendEnv AWS_*
     SendEnv GIT_*
+    User ubuntu
