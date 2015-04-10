@@ -140,8 +140,8 @@ alias mpssh="parallel-ssh -vP -O IdentityFile='~/.ssh/mar-2011.pem' -O StrictHos
 alias mbpssh="parallel-ssh -vP -O IdentityFile='~/.ssh/moatbot.pem' -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
 alias moat='nssh ubuntu@jason.moat.co'
 alias staging='mssh ubuntu@moat-pro-staging.moat.co'
-alias pipeline-jobs='mssh ubuntu@54.242.197.228'
-alias etl-jobs='mssh ubuntu@107.22.91.109'
+alias pipeline-jobs='ssh ubuntu@10.6.125.60'
+alias etl-jobs='ssh ubuntu@10.42.118.168'
 alias buildbot='mssh ubuntu@50.17.6.133'
 alias irc='mssh ubuntu@pro-staging.moat.co -L 6667:localhost:6667'
 alias prod-mturk-web='mssh ubuntu@mturk.moat.com'
