@@ -201,3 +201,5 @@ export PATH="/usr/local/heroku/bin:$PATH"
 echo ""
 whatis $(ls -1 /usr/share/man/man?/ | shuf -n1 | cut -d. -f1)
 echo ""
+
+export REPOS='/mnt/scrapepipeline/ /mnt/codename/ /mnt/search-deployment/ /mnt/moatbot/ /mnt/tagpipeline/'
