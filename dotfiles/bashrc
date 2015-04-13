@@ -133,12 +133,10 @@ alias nssh='ssh -i ~/.ssh/nov-2010.pem'
 alias nscp='scp -i ~/.ssh/nov-2010.pem'
 alias mbssh='ssh -i ~/.ssh/moatbot.pem'
 alias mbscp='scp -i ~/.ssh/moatbot.pem'
-alias npssh="parallel-ssh -vP -O IdentityFile='~/.ssh/nov-2010.pem' -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
-alias pssh="parallel-ssh -vP -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
+alias pssh="parallel-ssh -iv -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
+alias mbpssh="parallel-ssh -iv -O IdentityFile='~/.ssh/moatbot.pem' -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
 alias pscp="parallel-scp -v -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
-alias mpssh="parallel-ssh -vP -O IdentityFile='~/.ssh/mar-2011.pem' -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
-alias mbpssh="parallel-ssh -vP -O IdentityFile='~/.ssh/moatbot.pem' -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
-alias moat='nssh ubuntu@jason.moat.co'
+alias moat='ssh ubuntu@10.186.57.33'
 alias staging='mssh ubuntu@moat-pro-staging.moat.co'
 alias pipeline-jobs='ssh ubuntu@10.6.125.60'
 alias etl-jobs='ssh ubuntu@10.42.118.168'
