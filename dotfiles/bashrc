@@ -91,10 +91,11 @@ alias grin='grep -Rin'
 # some miscellaneous aliases
 alias cdsp='cd /mnt/scrapepipeline/scrapepipeline'
 alias cdc='cd /mnt/codename'
-alias cdlog='cd /mnt/log/apache2'
 alias cdsd='cd /mnt/search-deployment'
 alias cdmt='cd /mnt/moat/search/tasks/mturk'
 alias cdtp='cd /mnt/tagpipeline/tag_pipeline'
+alias cdmb='cd /mnt/moatbot'
+alias cdlog='cd /mnt/log/apache2'
 alias cdpd='cd /usr/local/lib/python2.7/dist-packages/'
 alias apacherestart='sudo /etc/init.d/apache2 restart'
 alias bounce-codename='touch /mnt/codename/*.wsgi'
@@ -107,6 +108,7 @@ alias toggle='. ~/toggle/toggle.sh'
 alias instance_id='curl "http://169.254.169.254/latest/meta-data/instance-id"'
 alias fact="elinks -dump randomfunfacts.com | sed -n '/^| /p' | tr -d \|"
 alias tmux="TERM=screen-256color-bce tmux"
+alias ufilext='xargs -n1 basename | cut -d. -f2 | sort | uniq' # unique file extensions among a list of file paths, e.g. $ grep -rl 'DBSession' $REPOS | ufilext
 
 # JSON pretty-print utility
 alias jsonp='python -mjson.tool'
