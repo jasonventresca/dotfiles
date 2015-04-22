@@ -208,7 +208,7 @@ whatis $(ls -1 /usr/share/man/man?/ | shuf -n1 | cut -d. -f1) || \ # Debian
     whatis $(ls -1 /usr/share/man/man?/ | gshuf -n1 | cut -d. -f1) # Mac OS X
 echo ""
 
-export REPOS='/mnt/scrapepipeline/ /mnt/codename/ /mnt/search-deployment/ /mnt/moatbot/ /mnt/tagpipeline/ /mnt/mqueue/ /mnt/common/ /mnt/mocktool/ /mnt/swfshots/'
+export REPOS='/mnt/scrapepipeline /mnt/codename /mnt/search-deployment /mnt/moatbot /mnt/tagpipeline /mnt/mqueue /mnt/common /mnt/mocktool /mnt/swfshots'
 
 function ssh-reagent () {
     export SSH_AUTH_SOCK=$( find /tmp/ssh-* -user `whoami` -name agent\* -printf '%T@ %p\n' 2>/dev/null | \
