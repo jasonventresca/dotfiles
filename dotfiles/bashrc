@@ -138,7 +138,7 @@ alias mbscp='scp -i ~/.ssh/moatbot.pem'
 alias pssh="parallel-ssh -iv -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
 alias mbpssh="parallel-ssh -iv -O IdentityFile='~/.ssh/moatbot.pem' -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
 alias pscp="parallel-scp -v -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
-alias moat='ssh ubuntu@10.186.57.33'
+alias moat='ssh ubuntu@10.154.20.202'
 alias staging='mssh ubuntu@moat-pro-staging.moat.co'
 alias pipeline-jobs='ssh ubuntu@10.6.125.60'
 alias etl-jobs='ssh ubuntu@10.42.118.168'
