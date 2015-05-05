@@ -139,15 +139,15 @@ alias pssh="parallel-ssh -iv -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
 alias mbpssh="parallel-ssh -iv -O IdentityFile='~/.ssh/moatbot.pem' -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
 alias pscp="parallel-scp -v -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
 alias moat='ssh ubuntu@10.154.20.202'
+alias single-purpose1='ssh ubuntu@10.235.6.30'
+alias single-purpose0='ssh ubuntu@10.151.12.44'
 alias staging='mssh ubuntu@moat-pro-staging.moat.co'
 alias pipeline-jobs='ssh ubuntu@10.6.125.60'
 alias etl-jobs='ssh ubuntu@10.42.118.168'
 alias buildbot='mssh ubuntu@50.17.6.133'
 alias irc='mssh ubuntu@pro-staging.moat.co -L 6667:localhost:6667'
-alias prod-mturk-web='mssh ubuntu@mturk.moat.com'
+alias prod-mturk-web='ssh ubuntu@mturk.moat.com'
 alias prod-mturk-jobs='nssh ubuntu@ec2-54-234-188-199.compute-1.amazonaws.com'
-alias dev-mturk-jobs='nssh ubuntu@204.236.214.55'
-alias dev-mturk-web='mssh ubuntu@54.82.83.243'
 alias kill-ssh-agent='ps aux | grep ssh-agent | grep -v grep | awk "{print \$2}" | xargs sudo kill'
 
 ssh_agent_ps=$(ps x | grep ssh-agent | grep -v grep | awk '{ print $1 }')
