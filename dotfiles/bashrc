@@ -147,7 +147,7 @@ alias etl-jobs='ssh ubuntu@10.42.118.168'
 alias buildbot='mssh ubuntu@50.17.6.133'
 alias irc='mssh ubuntu@pro-staging.moat.co -L 6667:localhost:6667'
 alias prod-mturk-web='ssh ubuntu@mturk.moat.com'
-alias prod-mturk-jobs='nssh ubuntu@ec2-54-234-188-199.compute-1.amazonaws.com'
+alias prod-mturk-jobs='ssh ubuntu@10.151.85.220'
 alias kill-ssh-agent='ps aux | grep ssh-agent | grep -v grep | awk "{print \$2}" | xargs sudo kill'
 
 ssh_agent_ps=$(ps x | grep ssh-agent | grep -v grep | awk '{ print $1 }')
