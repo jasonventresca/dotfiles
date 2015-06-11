@@ -149,6 +149,7 @@ alias irc='mssh ubuntu@pro-staging.moat.co -L 6667:localhost:6667'
 alias prod-mturk-web='ssh ubuntu@mturk.moat.com'
 alias prod-mturk-jobs='ssh ubuntu@10.151.85.220'
 alias kill-ssh-agent='ps aux | grep ssh-agent | grep -v grep | awk "{print \$2}" | xargs sudo kill'
+alias notes='cd ~/Dropbox/moat_notes && ls -lht | head -n20'
 
 ssh_agent_ps=$(ps x | grep ssh-agent | grep -v grep | awk '{ print $1 }')
 if [ "$ssh_agent_ps" == "" ]; then
