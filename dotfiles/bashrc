@@ -118,8 +118,8 @@ alias gits='git status'
 alias gitsa='pushd .; cdc; gits; cdsp; gits; popd;'
 alias gitc='git commit -a'
 alias gitco='git checkout'
-alias gitd='git diff'
-alias gitds='git diff --staged'
+alias gitd='git diff --find-renames'
+alias gitds='git diff --staged --find-renames'
 alias gitdh='git diff HEAD'
 
 # some common mysql commands
