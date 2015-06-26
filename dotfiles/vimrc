@@ -17,7 +17,6 @@ endfunction
 
 function! DisableCopyMode()
     set number
-    set list
 endfunction
 
 " Keep 25 lines above/below the cursor when scrolling
