@@ -31,4 +31,5 @@
     t = tag -l
     unstage = reset HEAD
     uncommit = reset --soft HEAD^
-
+    logpuma = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%C(cyan)\\ [%cn]" --decorate --date=relative
+    logr = log --date=relative
