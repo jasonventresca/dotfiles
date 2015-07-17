@@ -137,8 +137,9 @@ alias nscp='scp -i ~/.ssh/nov-2010.pem'
 alias mbssh='ssh -i ~/.ssh/moatbot.pem'
 alias mbscp='scp -i ~/.ssh/moatbot.pem'
 alias pssh="parallel-ssh -iv -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
-alias mbpssh="parallel-ssh -iv -O IdentityFile='~/.ssh/moatbot.pem' -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
 alias pscp="parallel-scp -v -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
+alias mbpssh="parallel-ssh -iv -p8 --timeout=10 -O IdentityFile=~/.ssh/moatbot.pem -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
+alias mbpscp="parallel-scp -v -p8 --timeout=10 -O IdentityFile=~/.ssh/moatbot.pem -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
 alias moat='ssh ubuntu@10.154.20.202'
 alias single-purpose1='ssh ubuntu@10.235.6.30'
 alias single-purpose0='ssh ubuntu@10.151.12.44'
