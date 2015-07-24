@@ -7,3 +7,5 @@ Host 10.*
     SendEnv AWS_*
     SendEnv GIT_*
     User ubuntu
+    PermitLocalCommand yes
+    LocalCommand ~/dotfiles/remote_install_dotfiles.sh %h

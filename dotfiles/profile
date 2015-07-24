@@ -4,6 +4,7 @@
 ##### BEGIN: Mac-specific configuration #####
 #############################################
 alias parallel-ssh="$(which pssh)"
+alias parallel-scp="$(which pscp)"
 #############################################
 ###### END: Mac-specific configuration ######
 #############################################
