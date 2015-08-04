@@ -25,9 +25,6 @@ endfunction
 " When pressing left/right cursor keys at start/end of line, move to the previous/next line
 set whichwrap+=<,>,h,l,[,]
 
-" Mako filetype syntax/indenting support
-au BufRead,BufNewFile *.mak set filetype=mako
-
 highlight MyTodos guifg=red guibg=green
 syntax match MyTodos /TODO/
 
