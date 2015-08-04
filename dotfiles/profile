@@ -1,13 +1,8 @@
-# executed on the Mac for bash configuration
-
-#############################################
-##### BEGIN: Mac-specific configuration #####
-#############################################
+# Mac-specific configuration
 alias parallel-ssh="$(which pssh)"
 alias parallel-scp="$(which pscp)"
-#############################################
-###### END: Mac-specific configuration ######
-#############################################
+
+export LC_jason_ventresca=yes
 
 source ~/.bashrc
 
