@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 set -eu
 
-DOTFILES=$HOME/dotfiles/dotfiles
+DOTFILES=$HOME/dotfiles.jason_ventresca
 
 echo "Installing dev tools"
-$DOTFILES/../install_tools.sh
+$DOTFILES/install_tools.sh
 
 cd $DOTFILES && git remote set-url origin git@github.com:jasonventresca/dotfiles.git
 
