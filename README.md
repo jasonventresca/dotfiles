@@ -12,5 +12,5 @@ wget --no-check-certificate https://github.com/jasonventresca/dotfiles/raw/maste
 
 Mac OS X:
 ```
-curl https://raw.githubusercontent.com/jasonventresca/dotfiles/master/bootstrap.sh | vim -
+curl https://raw.githubusercontent.com/jasonventresca/dotfiles/master/bootstrap.sh | bash
 ```
