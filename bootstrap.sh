@@ -7,4 +7,4 @@ git --version 1>/dev/null 2>/dev/null || \
 
 git clone git@github.com:jasonventresca/dotfiles.git $HOME/dotfiles.jason_ventresca
 
-$HOME/dotfiles/install.sh
+$HOME/dotfiles.jasonventresca/install.sh
