@@ -5,7 +5,7 @@ dir=$HOME/dotfiles/dotfiles
 old_dir=$HOME/dotfiles.old
 
 echo "Installing dev tools"
-#$HOME/dotfiles/install_tools.sh
+$HOME/dotfiles/install_tools.sh
 
 cd $dir && git remote set-url origin git@github.com:jasonventresca/dotfiles.git
 
