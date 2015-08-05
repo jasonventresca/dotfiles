@@ -15,5 +15,3 @@ if uname | grep -i darwin >/dev/null ; then
 fi
 
 echo "[[ -n \$LC_jason_ventresca ]] && source \$HOME/dotfiles.jason_ventresca/dotfiles/bashrc" >>$HOME/.bashrc
-
-echo "All done! Log out of all open sessions to finish installing new env!"
