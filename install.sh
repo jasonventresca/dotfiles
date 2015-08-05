@@ -14,4 +14,8 @@ if uname | grep -i darwin >/dev/null ; then
     ln -s $REPO/dotfiles/profile $HOME/.profile
 fi
 
-echo "[[ -n \$LC_jason_ventresca ]] && source \$HOME/dotfiles.jason_ventresca/dotfiles/bashrc" >>$HOME/.bashrc
+append_str='[[ -n $LC_jason_ventresca ]] && source $HOME/dotfiles.jason_ventresca/dotfiles/bashrc'
+if ! grep -F "$append_str" $HOME/.bashrc >/dev/null ; then
+    echo "Appending magic to $HOME/.bashrc..."
+    echo $append_str >>$HOME/.bashrc
+fi
