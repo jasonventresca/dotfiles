@@ -1,7 +1,5 @@
 export DOTFILES=$HOME/dotfiles.jason_ventresca/dotfiles
 
-export LC_jason_ventresca=yes
-
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
