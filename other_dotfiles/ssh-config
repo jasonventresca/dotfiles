@@ -1,12 +1,14 @@
 Host github.com
     StrictHostKeyChecking no
 
+Host *
+    SendEnv LC_jason_ventresca
+
 Host 10.*
     ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@gateway.moat.com nc -q0 %h 22
     ForwardAgent yes
     SendEnv AWS_*
     SendEnv GIT_*
-    SendEnv LC_jason_ventresca
     User ubuntu
     PermitLocalCommand yes
     LocalCommand $DOTFILES/../remote_install_dotfiles.sh %h
