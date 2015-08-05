@@ -6,7 +6,7 @@ Host 10.*
     ForwardAgent yes
     SendEnv AWS_*
     SendEnv GIT_*
-    SendEnv LC_jason_ventresca
+    SendEnv THIS_IS_JASON_VENTRESCA
     User ubuntu
     PermitLocalCommand yes
     LocalCommand $DOTFILES/../remote_install_dotfiles.sh %h
