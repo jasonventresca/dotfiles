@@ -16,6 +16,7 @@ if [ -d $DOTFILES ] ; then
     echo "Dotfiles already installed. Checking for updates..."
     cd $DOTFILES && git pull origin master
 else
+    echo "Dotfiles not yet installed. Downloading now..."
     # install git if not already
     if ! git --version 1>/dev/null 2>/dev/null ; then
         install_git

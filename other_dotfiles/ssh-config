@@ -9,4 +9,4 @@ Host 10.*
     SendEnv LC_jason_ventresca
     User ubuntu
     PermitLocalCommand yes
-    LocalCommand ~/dotfiles/remote_install_dotfiles.sh %h
+    LocalCommand $DOTFILES/../remote_install_dotfiles.sh %h
