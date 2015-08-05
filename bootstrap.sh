@@ -1,10 +1,29 @@
 #!/bin/bash
 set -eu
+DOTFILES=$HOME/dotfiles.jason_ventresca
 
-git --version 1>/dev/null 2>/dev/null || \
-    sudo apt-get install -y git-core || \ # git is not installed, try Ubuntu
-    brew install git # try Mac OS X
+install_git() {
+    if uname | grep -i darwin >/dev/null ; then
+        # Mac OS X
+        brew install git
+    else
+        # Ubuntu
+        sudo apt-get install -y git-core
+    fi
+}
 
-git clone git@github.com:jasonventresca/dotfiles.git $HOME/dotfiles.jason_ventresca
+if [ -d $DOTFILES ] ; then
+    echo "Dotfiles already installed. Checking for updates..."
+    cd $DOTFILES && git pull origin master
+else
+    # install git if not already
+    if ! git --version 1>/dev/null 2>/dev/null ; then
+        install_git
+    fi
 
-$HOME/dotfiles.jason_ventresca/install.sh
+    git clone git@github.com:jasonventresca/dotfiles.git $DOTFILES
+
+    $DOTFILES/install.sh
+fi
+
+echo "OK, done!"
