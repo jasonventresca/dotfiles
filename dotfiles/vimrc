@@ -3,6 +3,14 @@ nmap U <C-R>
 set number
 set cursorline
 
+" begin: from Carl
+let vim_home = $DOTFILES
+
+let $VIMRUNTIME = vim_home . '/.vim'
+
+let &rtp = substitute(&rtp, $HOME, vim_home, 'g')
+" end: from Carl
+
 syntax enable
 set t_Co=16
 colorscheme solarized

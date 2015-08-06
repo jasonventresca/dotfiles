@@ -197,7 +197,8 @@ fi
 # set vim as default editor for stuff like git commit messages
 export VISUAL=vim
 export EDITOR=vim
-alias vim="HOME=$DOTFILES vim"
+alias vim="vim -u $DOTFILES/.vimrc"
+alias view="view -u $DOTFILES/.vimrc"
 
 INPUTRC=$DOTFILES/inputrc
 
