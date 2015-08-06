@@ -1,9 +1,7 @@
 dotfiles
 ========
 
-my dev environment
-
-run this to bootstrap your environment:
+Run this to bootstrap your environment.
 
 Linux:
 ```
