@@ -110,6 +110,8 @@ alias ufilext='xargs -n1 basename | cut -d. -f2 | sort | uniq' # unique file ext
 # JSON pretty-print utility
 alias jsonp='python -mjson.tool'
 
+alias epoch='date +%s'
+
 # git aliases
 alias git="HOME=$DOTFILES git"
 alias gits='git status'

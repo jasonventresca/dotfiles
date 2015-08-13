@@ -118,8 +118,8 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 
-set ai "Auto indent
-set si "Smart indent
+set smartindent
+inoremap # X<BS># "http://vim.wikia.com/wiki/Restoring_indent_after_typing_hash
 set wrap "Wrap lines
 
 
