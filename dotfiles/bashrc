@@ -129,10 +129,7 @@ alias mysql_accounts='mysql -h codename-accounts.moat.co -u codename -pbigmoat12
 alias box='cat /mnt/.box_name'
 
 # ssh aliases
-alias mssh='ssh -i ~/.ssh/mar-2011.pem'
-alias mscp='scp -i ~/.ssh/mar-2011.pem'
-alias nssh='ssh -i ~/.ssh/nov-2010.pem'
-alias nscp='scp -i ~/.ssh/nov-2010.pem'
+alias scp='scp -o PermitLocalCommand=no'
 alias mbssh='ssh -i ~/.ssh/moatbot.pem'
 alias mbscp='scp -i ~/.ssh/moatbot.pem'
 alias pssh="parallel-ssh -iv -O PermitLocalCommand=no -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
