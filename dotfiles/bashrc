@@ -166,10 +166,10 @@ else
 fi
 
 ssh-add 
+ssh-add ~/.ssh/id_rsa_github_personal
 ssh-add ~/.ssh/mar-2011.pem
 ssh-add ~/.ssh/nov-2010.pem
-ssh-add ~/.ssh/id_rsa_github_personal
-#ssh-add ~/.ssh/moatbot.pem # this is "moat-deploy" user on git@github.com
+ssh-add ~/.ssh/moatbot.pem # this is "moat-deploy" user on git@github.com
 
 # discover aliases
 alias discover='/mnt/common/registry/discover.py'

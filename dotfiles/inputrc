@@ -2,11 +2,9 @@ set editing-mode vi
 
 $if mode=vi
     set keymap vi-insert       # notice how the "jj" movement is
-    "jj": vi-movement-mode     # after 'set keymap vi-insert'?
+    "jj": vi-movement-mode
+    "rr": reverse-search-history
     #"\C-w": backward-kill-word
     #"\C-p": history-search-backward
 
-    #set keymap vi-command
-    #"gg": beginning-of-history
-    #"G": end-of-history
 $endif
