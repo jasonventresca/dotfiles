@@ -120,7 +120,9 @@ set tabstop=4
 
 set smartindent
 set backspace=indent,eol,start
-inoremap # X<BS># "http://vim.wikia.com/wiki/Restoring_indent_after_typing_hash
+inoremap # X<BS>#
+" ^-- http://vim.wikia.com/wiki/Restoring_indent_after_typing_hash
+
 set wrap "Wrap lines
 
 

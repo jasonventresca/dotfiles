@@ -206,7 +206,13 @@ export VISUAL=vim
 export EDITOR=vim
 alias vim="HOME=$DOTFILES vim"
 
-alias repos-installed='cat /mnt/search-deployment/$(cat /mnt/.installed_role)/REPOS | cut -f 2 -d "/" | cut -f 1 -d "."'
+alias repos-installed='echo common ; echo search-deployment ; cat /mnt/search-deployment/$(cat /mnt/.installed_role)/REPOS | cut -f 2 -d "/" | cut -f 1 -d "."'
+alias repos-branches='for repo in $(repos-installed) ; do echo repo = $repo ; cd /mnt/$repo ; git branch | grep "^*" ; done'
+
+# for working on the moatbot
+alias start-moatbot-video='sudo god -c /mnt/search-deployment/moatbot-video/configs/moatbot-video.god'
+alias stop-moatbot-video='sudo god terminate ; sleep 3 ; pkill -f chromedriver'
+
 INPUTRC=$DOTFILES/inputrc
 
 ### Added by the Heroku Toolbelt
