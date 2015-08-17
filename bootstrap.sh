@@ -1,6 +1,7 @@
 #!/bin/bash
 set -eu
-DOTFILES=$HOME/dotfiles.jason_ventresca
+REPO=$HOME/dotfiles.jason_ventresca
+REMOTE='git@github.com:jasonventresca/dotfiles.git'
 
 install_git() {
     if uname | grep -i darwin >/dev/null ; then
@@ -12,9 +13,9 @@ install_git() {
     fi
 }
 
-if [ -d $DOTFILES ] ; then
+if [ -d $REPO ] ; then
     echo "Dotfiles already installed. Checking for updates..."
-    cd $DOTFILES && git pull origin master
+    cd $REPO && git pull origin master
 else
     echo "Dotfiles not installed yet."
     # install git if not already
@@ -23,13 +24,12 @@ else
     fi
 
     echo "Downloading dotfiles now..."
-    local REMOTE='git@github.com:jasonventresca/dotfiles.git'
 
-    git clone $REMOTE $DOTFILES
+    git clone $REMOTE $REPO
 
-    cd $DOTFILES && git remote set-url origin $REMOTE
+    cd $REPO && git remote set-url origin $REMOTE
 fi
 
-$DOTFILES/install.sh
+$REPO/install.sh
 
 echo "OK, done!"
