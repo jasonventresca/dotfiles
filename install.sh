@@ -6,8 +6,6 @@ REPO=$HOME/dotfiles.jason_ventresca
 echo "Installing dev tools"
 $REPO/install_tools.sh
 
-cd $REPO && git remote set-url origin git@github.com:jasonventresca/dotfiles.git
-
 if uname | grep -i darwin >/dev/null ; then
     echo "Mac OS X detected. Symlinking $HOME/.profile => $REPO/dotfiles/profile"
     rm -f $HOME/.profile
