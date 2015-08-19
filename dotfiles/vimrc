@@ -3,6 +3,12 @@ nmap U <C-R>
 set number
 set cursorline
 
+" We set $HOME=$DOTFILES before running vim,
+"   to trick vim into sourcing $DOTFILES/vimrc.
+" Reset $HOME to the real home directory,
+"   now that we're done importing config.
+let $HOME = $REAL_HOME
+
 syntax enable
 set t_Co=16
 colorscheme solarized

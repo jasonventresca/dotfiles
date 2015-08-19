@@ -204,7 +204,7 @@ fi
 # set vim as default editor for stuff like git commit messages
 export VISUAL=vim
 export EDITOR=vim
-alias vim="HOME=$DOTFILES vim"
+alias vim='REAL_HOME=$HOME HOME=$DOTFILES vim'
 
 alias repos-installed='echo -e "common\nsearch-deployment" | cat /dev/stdin /mnt/search-deployment/$(cat /mnt/.installed_role)/REPOS | cut -f 2 -d "/" | cut -f 1 -d "."'
 alias repos-branches='for repo in $(repos-installed) ; do echo repo = $repo ; cd /mnt/$repo ; git branch | grep "^*" ; done'
