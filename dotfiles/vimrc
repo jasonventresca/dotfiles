@@ -7,7 +7,9 @@ set cursorline
 "   to trick vim into sourcing $DOTFILES/vimrc.
 " Reset $HOME to the real home directory,
 "   now that we're done importing config.
-let $HOME = $REAL_HOME
+if !empty($REAL_HOME)
+    let $HOME = $REAL_HOME
+endif
 
 syntax enable
 set t_Co=16
