@@ -132,12 +132,6 @@ alias box='cat /mnt/.box_name'
 
 # ssh aliases
 alias scp='scp -o PermitLocalCommand=no'
-alias mbssh='ssh -i ~/.ssh/moatbot.pem'
-alias mbscp='scp -i ~/.ssh/moatbot.pem'
-alias pssh="parallel-ssh -iv -O PermitLocalCommand=no -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
-alias pscp="parallel-scp -v -O PermitLocalCommand=no -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
-alias mbpssh="parallel-ssh -iv -p8 --timeout=10 -O PermitLocalCommand=no -O IdentityFile=~/.ssh/moatbot.pem -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
-alias mbpscp="parallel-scp -v -p8 --timeout=10 -O PermitLocalCommand=no -O IdentityFile=~/.ssh/moatbot.pem -O StrictHostKeyChecking=no -h ~/list_of_hosts.txt"
 alias moat='ssh ubuntu@10.154.20.202'
 alias single-purpose1='ssh ubuntu@10.235.6.30'
 alias single-purpose0='ssh ubuntu@10.151.12.44'
@@ -151,6 +145,13 @@ alias prod-mturk-jobs='ssh ubuntu@10.151.85.220'
 alias nagios='ssh mhp@nagios.moat.com'
 alias kill-ssh-agent='ps aux | grep ssh-agent | grep -v grep | awk "{print \$2}" | xargs sudo kill'
 alias notes='cd ~/Dropbox/moat_notes && ls -lht | head -n20'
+
+# parallel-ssh/scp aliases
+PSSH_ARGS='-v -O PermitLocalCommand=no -O StrictHostKeyChecking=no'
+alias pssh="parallel-ssh -i $PSSH_ARGS"
+alias pscp="parallel-scp $PSSH_ARGS"
+alias pssh-h="parallel-ssh -i $PSSH_ARGS -h ~/hosts"
+alias pscp-h="parallel-scp $PSSH_ARGS -h ~/hosts"
 
 editconfig() {
     # for editing dotfiles
