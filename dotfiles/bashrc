@@ -208,7 +208,7 @@ alias vim='REAL_HOME=$HOME HOME=$DOTFILES vim'
 
 alias repos-installed='echo -e "common\nsearch-deployment" | cat /dev/stdin /mnt/search-deployment/$(cat /mnt/.installed_role)/REPOS | cut -f 2 -d "/" | cut -f 1 -d "."'
 alias repos-installed-paths='repos-installed | xargs -I{} echo /mnt/{}'
-alias repos-branches='for repo in $(repos-installed) ; do echo repo = $repo ; cd /mnt/$repo ; git branch | grep "^*" ; done'
+alias repos-branches='for repo in $(repos-installed) ; do cd /mnt/$repo ; echo "$repo : $(git branch | grep '"'"'^*'"'"' | cut -f 2 -d '"'"' '"'"' )" ; done'
 
 # for working on the moatbot
 alias start-moatbot-video='sudo god -c /mnt/search-deployment/moatbot-video/configs/moatbot-video.god'
