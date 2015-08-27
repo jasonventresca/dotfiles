@@ -106,6 +106,7 @@ alias instance_id='curl "http://169.254.169.254/latest/meta-data/instance-id"'
 alias fact="elinks -dump randomfunfacts.com | sed -n '/^| /p' | tr -d \|"
 alias tmux="TERM=screen-256color-bce tmux -f $DOTFILES/tmux.conf"
 alias ufilext='xargs -n1 basename | cut -d. -f2 | sort | uniq' # unique file extensions among a list of file paths, e.g. $ grep -rl 'DBSession' $REPOS | ufilext
+alias elb_hosts='source /mnt/common/keys/IAM-jason.ventresca-aws.sh ; /mnt/search-deployment/_common/elb_hosts.py'
 
 # JSON pretty-print utility
 alias jsonp='python -mjson.tool'
@@ -147,7 +148,7 @@ alias kill-ssh-agent='ps aux | grep ssh-agent | grep -v grep | awk "{print \$2}"
 alias notes='cd ~/Dropbox/moat_notes && ls -lht | head -n20'
 
 # parallel-ssh/scp aliases
-PSSH_ARGS='-v -O PermitLocalCommand=no -O StrictHostKeyChecking=no'
+PSSH_ARGS='-v -p8 --timeout=10 -O PermitLocalCommand=no -O StrictHostKeyChecking=no'
 alias pssh="parallel-ssh -i $PSSH_ARGS"
 alias pscp="parallel-scp $PSSH_ARGS"
 alias pssh-h="parallel-ssh -i $PSSH_ARGS -h ~/hosts"
