@@ -2,6 +2,7 @@ Host github.com
     StrictHostKeyChecking no
 
 Host *
+    User ubuntu
     SendEnv LC_jason_ventresca
 
 Host 10.*
@@ -9,6 +10,5 @@ Host 10.*
     ForwardAgent yes
     SendEnv AWS_*
     SendEnv GIT_*
-    User ubuntu
     PermitLocalCommand yes
     LocalCommand $DOTFILES/../remote_install_dotfiles.sh %h
