@@ -2,6 +2,7 @@ imap jj <Esc>
 nmap U <C-R>
 set number
 set cursorline
+set backspace=indent,eol,start
 
 " We set $HOME=$DOTFILES before running vim,
 "   to trick vim into sourcing $DOTFILES/vimrc.
@@ -239,4 +240,3 @@ function! HasPaste()
     en
     return ''
 endfunction
-
