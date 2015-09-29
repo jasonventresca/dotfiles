@@ -83,8 +83,6 @@ alias l='ls -CF'
 alias lf='ll | grep "^-"' # files
 alias ld='ll | grep "^d"' # directories
 
-# grep recursive with line numbers, case insensitive
-alias grin='grep -Rin'
 
 # some miscellaneous aliases
 alias cdsp='cd /mnt/scrapepipeline/scrapepipeline'
@@ -110,6 +108,9 @@ alias elb_hosts='source /mnt/common/keys/IAM-jason.ventresca-aws.sh ; /mnt/searc
 
 # JSON pretty-print utility
 alias jsonp='python -mjson.tool'
+
+# cat file with syntax-highlighting. the -g attempts to guess the lexer from the file contents
+alias pcat='pygmentize -g'
 
 alias epoch='date +%s'
 

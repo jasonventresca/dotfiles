@@ -2,12 +2,14 @@
 set -eu
 
 install_deb(){
-    sudo apt-get install -y vim git-core tmux build-essential bash-completion sl curl
+    sudo apt-get install -y vim git-core tmux build-essential bash-completion sl curl python-pip
+    sudo pip install Pygments
 }
 
 install_mac(){
     brew install vim git tmux bash-completion sl curl coreutils
     sudo easy_install pip
+    sudo pip install Pygments
 }
 
 ERROR_MSG="ERROR: not all dev tools were installed!"
