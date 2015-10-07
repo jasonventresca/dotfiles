@@ -206,6 +206,7 @@ fi
 export VISUAL=vim
 export EDITOR=vim
 alias vim='REAL_HOME=$HOME HOME=$DOTFILES vim'
+alias sudovim='sudo REAL_HOME=$HOME HOME=$DOTFILES vim'
 
 alias repos-installed='echo -e "common\nsearch-deployment" | cat /dev/stdin /mnt/search-deployment/$(cat /mnt/.installed_role)/REPOS | cut -f 2 -d "/" | cut -f 1 -d "."'
 alias repos-installed-paths='repos-installed | xargs -I{} echo /mnt/{}'
