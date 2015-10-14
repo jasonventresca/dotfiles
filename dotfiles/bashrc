@@ -245,3 +245,9 @@ function ssh-reagent () {
         echo "Cannot find ssh agent - maybe you should reconnect and forward it?"
     fi
 }
+
+function pssh-results () {
+    local results_file=$1 # e.g. ~/pssh.txt
+    echo "success: $(grep -c SUCCESS $results_file)"
+    echo "failure: $(grep -c FAILURE $results_file)"
+}
