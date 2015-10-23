@@ -132,6 +132,7 @@ alias box='cat /mnt/.box_name'
 
 # ssh aliases
 alias scp='scp -o PermitLocalCommand=no'
+alias nssh='ssh -o PermitLocalCommand=no'
 alias moat='ssh ubuntu@10.154.20.202'
 alias single-purpose1='ssh ubuntu@10.235.6.30'
 alias single-purpose0='ssh ubuntu@10.151.12.44'
