@@ -4,6 +4,9 @@ set number
 set cursorline
 set backspace=indent,eol,start
 
+" From Carl - rebalance split-panes after window resizing and/or text display resizing
+au VimResized * wincmd =
+
 " We set $HOME=$DOTFILES before running vim,
 "   to trick vim into sourcing $DOTFILES/vimrc.
 " Reset $HOME to the real home directory,
