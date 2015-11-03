@@ -73,6 +73,7 @@ fi
 
 alias grep='grep --color=auto'
 alias cgrep='grep --color=always'
+alias grep_src_nojs="grep --include='*.py' --include='*.sh' --include='*.god' --include='*.rb' --include='*.mak' --include='*.conf'"
 
 # some more ls aliases
 alias ll='ls -alF'
