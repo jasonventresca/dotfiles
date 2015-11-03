@@ -180,6 +180,12 @@ alias discover-prod-ws='/mnt/common/registry/discover.py | grep codename-webserv
 alias pls_ec2='source /mnt/common/keys/prod.sh ; /mnt/common/registry/ls_ec2.py'
 alias bls_ec2='source /mnt/common/keys/bots.sh ; /mnt/common/registry/ls_ec2.py'
 
+# aliases for sourcing AWS IAM User keys
+alias iam-jason0="source /mnt/common/keys/IAM-jason.ventresca-aws.sh"
+alias iam-jason1="source /mnt/common/keys/IAM-jason.ventresca-aws1.sh"
+alias iam-pro0="source /mnt/common/keys/moat.pro.box.sh"
+alias iam-pro1="source /mnt/common/keys/moat.pro.box.aws1.sh"
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
