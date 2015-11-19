@@ -13,7 +13,7 @@ if uname | grep -i darwin >/dev/null ; then
 fi
 
 append_str='[[ -n $LC_jason_ventresca ]] && source $HOME/dotfiles.jason_ventresca/dotfiles/bashrc'
-if ! grep -F "$append_str" $HOME/.bashrc >/dev/null ; then
-    echo "Appending magic to $HOME/.bashrc..."
-    echo $append_str >>$HOME/.bashrc
+if ! grep -F "$append_str" $HOME/.bash_profile >/dev/null ; then
+    echo "Appending magic to $HOME/.bash_profile..."
+    echo $append_str >>$HOME/.bash_profile
 fi
