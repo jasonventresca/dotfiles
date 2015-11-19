@@ -2,4 +2,6 @@
 alias parallel-ssh="$(which pssh)"
 alias parallel-scp="$(which pscp)"
 
+export LC_jason_ventresca=yes
+
 source $HOME/dotfiles.jason_ventresca/dotfiles/bashrc
