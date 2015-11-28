@@ -126,6 +126,9 @@ alias gitd='git diff --find-renames'
 alias gitds='git diff --staged --find-renames'
 alias gitdh='git diff HEAD'
 
+alias uc="/mnt/search-deployment/_common/update_code.py"
+alias luc="/mnt/search-deployment/_common/local_update_code.py"
+
 # some common mysql commands
 alias mysql_hosts='cat /mnt/scrapepipeline/scrapepipeline/potato/moat_hosts/MYSQL_HOSTS.py'
 alias mysql_search='mysql -h db.moat.co -u codename -pbigmoat126 search'
