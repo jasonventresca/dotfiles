@@ -13,10 +13,28 @@ Host *
     User ubuntu
     SendEnv LC_jason_ventresca
 
-Host 10.*
+Host 10.* moat-*
     ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@gateway.moat.com nc -q0 %h 22
     ForwardAgent yes
     SendEnv AWS_*
     SendEnv GIT_*
     PermitLocalCommand yes
     LocalCommand $DOTFILES/../remote_install_dotfiles.sh %h
+
+Host moat-jason
+    HostName 10.154.20.202
+
+Host moat-pipeline-jobs
+    HostName 10.6.125.60
+
+Host moat-etl-jobs
+    HostName 10.42.118.168
+
+Host moat-mturk-web
+    HostName 10.102.152.242
+
+Host moat-mturk-jobs
+    HostName 10.151.85.220
+
+Host moat-nagios
+    HostName 10.153.240.121

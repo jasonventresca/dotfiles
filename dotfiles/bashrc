@@ -126,6 +126,9 @@ alias gitd='git diff --find-renames'
 alias gitds='git diff --staged --find-renames'
 alias gitdh='git diff HEAD'
 
+alias uc="/mnt/search-deployment/_common/update_code.py"
+alias luc="/mnt/search-deployment/_common/local_update_code.py"
+
 # some common mysql commands
 alias mysql_hosts='cat /mnt/scrapepipeline/scrapepipeline/potato/moat_hosts/MYSQL_HOSTS.py'
 alias mysql_search='mysql -h db.moat.co -u codename -pbigmoat126 search'
@@ -135,17 +138,6 @@ alias box='cat /mnt/.box_name'
 # ssh aliases
 alias scp='scp -o PermitLocalCommand=no'
 alias nssh='ssh -o PermitLocalCommand=no'
-alias moat='ssh ubuntu@10.154.20.202'
-alias single-purpose1='ssh ubuntu@10.235.6.30'
-alias single-purpose0='ssh ubuntu@10.151.12.44'
-alias staging='mssh ubuntu@moat-pro-staging.moat.co'
-alias pipeline-jobs='ssh ubuntu@10.6.125.60'
-alias etl-jobs='ssh ubuntu@10.42.118.168'
-alias buildbot='mssh ubuntu@50.17.6.133'
-alias irc='mssh ubuntu@pro-staging.moat.co -L 6667:localhost:6667'
-alias prod-mturk-web='ssh ubuntu@mturk.moat.com'
-alias prod-mturk-jobs='ssh ubuntu@10.151.85.220'
-alias nagios='ssh mhp@nagios.moat.com'
 alias kill-ssh-agent='ps aux | grep ssh-agent | grep -v grep | awk "{print \$2}" | xargs sudo kill'
 alias notes='cd ~/Dropbox/moat_notes && ls -lht | head -n20'
 
