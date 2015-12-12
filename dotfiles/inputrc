@@ -4,6 +4,7 @@ $if mode=vi
     set keymap vi-insert       # notice how the "jj" movement is
     "jj": vi-movement-mode
     "jrr": reverse-search-history
+    "jae": alias-expand-line
     #"\C-w": backward-kill-word
     #"\C-p": history-search-backward
 
