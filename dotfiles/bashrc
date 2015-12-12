@@ -140,6 +140,7 @@ alias scp='scp -o PermitLocalCommand=no'
 alias nssh='ssh -o PermitLocalCommand=no'
 alias kill-ssh-agent='ps aux | grep ssh-agent | grep -v grep | awk "{print \$2}" | xargs sudo kill'
 alias notes='cd ~/Dropbox/moat_notes && ls -lht | head -n20'
+alias notes40='cd ~/Dropbox/moat_notes && ls -lht | head -n40'
 
 # parallel-ssh/scp aliases
 PSSH_ARGS='-v -p8 --timeout=10 -O PermitLocalCommand=no -O StrictHostKeyChecking=no'
@@ -172,6 +173,11 @@ alias discover='/mnt/common/registry/discover.py'
 alias discover-prod-ws='/mnt/common/registry/discover.py | grep codename-webserver | grep -i prod'
 alias pls_ec2='source /mnt/common/keys/prod.sh ; /mnt/common/registry/ls_ec2.py'
 alias bls_ec2='source /mnt/common/keys/bots.sh ; /mnt/common/registry/ls_ec2.py'
+function als_ec2 () {
+    # ls_ec2 for both aws@ and aws1@
+    pls_ec2
+    bls_ec2
+}
 
 # aliases for sourcing AWS IAM User keys
 alias iam-jason0="source /mnt/common/keys/IAM-jason.ventresca-aws.sh"
