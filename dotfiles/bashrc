@@ -141,6 +141,7 @@ alias nssh='ssh -o PermitLocalCommand=no'
 alias kill-ssh-agent='ps aux | grep ssh-agent | grep -v grep | awk "{print \$2}" | xargs sudo kill'
 alias notes='cd ~/Dropbox/moat_notes && ls -lht | head -n20'
 alias notes40='cd ~/Dropbox/moat_notes && ls -lht | head -n40'
+alias clockout='head -n40 ~/Dropbox/moat_notes/status'
 
 # parallel-ssh/scp aliases
 PSSH_ARGS='-v -p8 --timeout=10 -O PermitLocalCommand=no -O StrictHostKeyChecking=no'

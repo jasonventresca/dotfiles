@@ -1,11 +1,15 @@
 set editing-mode vi
 
 $if mode=vi
-    set keymap vi-insert       # notice how the "jj" movement is
+    set keymap vi-insert
     "jj": vi-movement-mode
     "jrr": reverse-search-history
     "jae": alias-expand-line
+    "\C-l": clear-screen
     #"\C-w": backward-kill-word
     #"\C-p": history-search-backward
+
+    set keymap vi-command
+    "\C-l": clear-screen
 
 $endif
