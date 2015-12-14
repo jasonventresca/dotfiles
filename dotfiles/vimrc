@@ -34,6 +34,7 @@ endfunction
 """"""""""""""""" macros """""""""""""""""
 " hyphenate notes
 let @h = '0whhr-$l0'
+let @p = 'ywoprint "jjpa=", jjpa€kbjj0wwaDEBUG: jjk0w'
 
 " Keep 25 lines above/below the cursor when scrolling
 " set scrolloff=5
