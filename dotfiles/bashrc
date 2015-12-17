@@ -180,6 +180,10 @@ function als_ec2 () {
     bls_ec2
 }
 
+# aliases for obtaining external and internal ip
+alias ip-ext='curl jsonip.com 2>/dev/null | sed '"'"'s/.*"\([0-9.]*\)".*/\1\n/'"'"''
+alias ip-int='ifconfig | grep --color=never -o "inet addr:10[^ ]*" | grep --color=never -o "10.*"'
+
 # aliases for sourcing AWS IAM User keys
 alias iam-jason0="source /mnt/common/keys/IAM-jason.ventresca-aws.sh"
 alias iam-jason1="source /mnt/common/keys/IAM-jason.ventresca-aws1.sh"
