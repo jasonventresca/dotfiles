@@ -136,6 +136,7 @@ alias mysql_hosts='cat /mnt/scrapepipeline/scrapepipeline/potato/moat_hosts/MYSQ
 alias mysql_search='mysql -h db.moat.co -u codename -pbigmoat126 search'
 alias mysql_accounts='mysql -h codename-accounts.moat.co -u codename -pbigmoat126 codename_accounts'
 alias box='cat /mnt/.box_name'
+alias role='cat /mnt/.installed_role'
 
 # ssh aliases
 alias scp='scp -o PermitLocalCommand=no'
@@ -181,6 +182,10 @@ function als_ec2 () {
     pls_ec2
     bls_ec2
 }
+
+# aliases for obtaining external and internal ip
+alias ip-ext='curl jsonip.com 2>/dev/null | sed '"'"'s/.*"\([0-9.]*\)".*/\1\n/'"'"''
+alias ip-int='ifconfig | grep --color=never -o "inet addr:10[^ ]*" | grep --color=never -o "10.*"'
 
 # aliases for sourcing AWS IAM User keys
 alias iam-jason0="source /mnt/common/keys/IAM-jason.ventresca-aws.sh"
