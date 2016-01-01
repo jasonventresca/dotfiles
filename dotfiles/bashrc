@@ -116,6 +116,8 @@ alias epoch='date +%s'
 
 alias svc-which='ps aux | grep -i -e apache -e python -e couch -e memcache -e mysql -e postgres -e pgpool -e nrpe -e nagios -e nginx -e redis -e que -e ruby -e god -e redsocks -e vim -e emacs -e tmux -e rabbit'
 
+alias ip-ext='curl jsonip.com 2>/dev/null | sed '"'"'s/.*"\([0-9.]*\)".*/\1\n/'"'"''
+
 # git aliases
 alias git="HOME=$DOTFILES git"
 alias gits='git status'
