@@ -7,7 +7,7 @@ Host bingo.local
     SendEnv AWS_*
     SendEnv GIT_*
     PermitLocalCommand yes
-    LocalCommand $DOTFILES/../remote_install_dotfiles.sh %h
+    LocalCommand $DOTFILES/../remote_install_dotfiles.sh %h %p
 
 Host *
     User ubuntu
@@ -19,7 +19,7 @@ Host 10.* moat-*
     SendEnv AWS_*
     SendEnv GIT_*
     PermitLocalCommand yes
-    LocalCommand $DOTFILES/../remote_install_dotfiles.sh %h
+    LocalCommand $DOTFILES/../remote_install_dotfiles.sh %h %p
 
 Host moat-jason
     HostName 10.154.20.202
