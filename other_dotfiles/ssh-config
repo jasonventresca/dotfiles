@@ -41,4 +41,4 @@ Host moat-nagios
     HostName 10.153.240.121
 
 Host moat-web-traffic-cache
-    HostName 10.153.240.121
+    HostName 10.165.87.173
