@@ -12,6 +12,7 @@ Host bingo.local
 Host *
     User ubuntu
     SendEnv LC_jason_ventresca
+    UseRoaming no
 
 Host 10.* moat-*
     ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@gateway.moat.com nc -q0 %h 22
@@ -37,4 +38,7 @@ Host moat-mturk-jobs
     HostName 10.151.85.220
 
 Host moat-nagios
+    HostName 10.153.240.121
+
+Host moat-web-traffic-cache
     HostName 10.153.240.121
