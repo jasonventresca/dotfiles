@@ -4,10 +4,12 @@ set -eu
 diff_highlight_raw_src_url='https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight'
 diff_highlight_script=$REPO/bin/diff-highlight
 
+mkdir -p $REPO/bin # in case it's not there yet
+
 install_deb(){
     sudo apt-get install -y vim git-core tmux build-essential bash-completion sl curl python-pip
     sudo pip install Pygments
-    wget --no-check-certificate $diff_highlight_raw_src_url -O $diff_highlight_script
+    wget --no-check-certificate $diff_highlight_raw_src_url -O - >$diff_highlight_script
     chmod u+x $diff_highlight_script
 }
 
