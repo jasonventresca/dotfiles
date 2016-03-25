@@ -144,6 +144,9 @@ alias role='cat /mnt/.installed_role'
 alias scp='scp -o PermitLocalCommand=no'
 alias nssh='ssh -o PermitLocalCommand=no'
 alias kill-ssh-agent='ps aux | grep ssh-agent | grep -v grep | awk "{print \$2}" | xargs sudo kill'
+
+alias ssh-vagrant-cachebuild-worker="cd ~/vagrant/cachebuild-worker && ssh ubuntu@127.0.0.1 -p 2222 -o ForwardAgent=yes -o 'SendEnv AWS_\*' -o 'SendEnv GIT_\*' -o Compression=yes -o DSAAuthentication=yes -o LogLevel=FATAL -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -i /Users/jasonventresca/.vagrant.d/boxes/cachebuild-worker/0/virtualbox/vagrant_private_key"
+
 alias notes='cd ~/Dropbox/moat_notes && ls -lht | head -n20'
 alias notes40='cd ~/Dropbox/moat_notes && ls -lht | head -n40'
 alias clockout='head -n40 ~/Dropbox/moat_notes/status'
