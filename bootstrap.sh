@@ -1,6 +1,6 @@
 #!/bin/bash
 set -eu
-REPO=$HOME/dotfiles.jason_ventresca
+export REPO=$HOME/dotfiles.jason_ventresca
 REMOTE='git@github.com:jasonventresca/dotfiles.git'
 
 install_git() {

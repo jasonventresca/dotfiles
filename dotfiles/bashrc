@@ -1,4 +1,6 @@
-export DOTFILES=$HOME/dotfiles.jason_ventresca/dotfiles
+DOT_JV='dotfiles.jason_ventresca'
+export DOTFILES=$HOME/$DOT_JV/dotfiles
+export PATH=$PATH:$HOME/$DOT_JV/bin
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return

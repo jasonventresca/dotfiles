@@ -33,3 +33,7 @@
     uncommit = reset --soft HEAD^
     logpuma = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%C(cyan)\\ [%cn]" --decorate --date=relative
     logr = log --date=relative
+[pager]
+    log = diff-highlight | less
+    show = diff-highlight | less
+    diff = diff-highlight | less
