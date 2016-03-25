@@ -266,3 +266,10 @@ function pssh-results () {
     echo "success: $(grep -c SUCCESS $results_file)"
     echo "failure: $(grep -c FAILURE $results_file)"
 }
+
+function rebase() {
+    n_commits="$1"
+    echo "rebasing last $n_commits commits... (replace 'pick' with 'fixup' or 'squash')"
+    sleep 1
+    git rebase -i $(git rev-parse HEAD~${n_commits})
+}
