@@ -278,3 +278,21 @@ function rebase() {
     sleep 1
     git rebase -i $(git rev-parse HEAD~${n_commits})
 }
+
+function pro-etc-hosts() {
+    ip=$1 # e.g. 1.2.5.4
+    # validate the ipv4 address
+    # *note* this is not at all a perfect validity check
+    # we really just care that next time, the sed regex will match
+    if echo $ip | grep -E '^[0-9.]+$' >/dev/null ; then
+        sudo sed -i -E 's@^[0-9.]+([ ]+(www|pro)\.moat\.com)$@'$ip'\1@' /etc/hosts
+        echo "changed to $ip :)"
+    else
+        echo "FATAL: invalid ip '$ip'"
+        return 1
+    fi
+}
+
+function dusort() {
+    sudo du -sh $@ 2>/dev/null | sort -hr
+}
