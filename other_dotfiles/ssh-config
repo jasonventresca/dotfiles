@@ -9,6 +9,10 @@ Host bingo.local
     PermitLocalCommand yes
     LocalCommand $DOTFILES/../remote_install_dotfiles.sh %h %p
 
+Host foodieland
+    HostName aliceinfoodieland.com
+    User aliceinf
+
 Host *
     User ubuntu
     SendEnv LC_jason_ventresca
