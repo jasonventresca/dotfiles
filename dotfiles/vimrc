@@ -248,3 +248,15 @@ function! HasPaste()
     en
     return ''
 endfunction
+
+
+" Prevent <Esc> from deleting indentation
+" See http://stackoverflow.com/a/10380793
+set autoindent
+set indentexpr=GetIndent()
+
+function GetIndent()
+   let lnum = prevnonblank(v:lnum - 1)
+   let ind = indent(lnum)
+   return ind
+endfunction
