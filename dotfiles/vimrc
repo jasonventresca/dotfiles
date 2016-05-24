@@ -34,7 +34,10 @@ endfunction
 """"""""""""""""" macros """""""""""""""""
 " hyphenate notes
 let @h = '0whhr-$l0'
-let @p = 'veyoprint "DEBUG: jjpA =", jjp0w'
+
+" (Python) After you've yanked whatever expr into the default register (i.e. ^"),
+"          insert a print line below to print the yanked expr's name and contents
+let @p = 'A*&*&*jjp?*&*&*vhhhhdiprint "DEBUG: jjwy$A =", jjp0kw'
 
 " Keep 25 lines above/below the cursor when scrolling
 " set scrolloff=5
@@ -250,13 +253,14 @@ function! HasPaste()
 endfunction
 
 
+
 " Prevent <Esc> from deleting indentation
 " See http://stackoverflow.com/a/10380793
-set autoindent
-set indentexpr=GetIndent()
-
-function GetIndent()
-   let lnum = prevnonblank(v:lnum - 1)
-   let ind = indent(lnum)
-   return ind
-endfunction
+" set autoindent
+" set indentexpr=GetIndent()
+"
+" function GetIndent()
+"    let lnum = prevnonblank(v:lnum - 1)
+"    let ind = indent(lnum)
+"    return ind
+" endfunction
