@@ -135,6 +135,7 @@ alias luc="/mnt/search-deployment/_common/local_update_code.py"
 
 # some common mysql commands
 alias mamp_mysql=/Applications/MAMP/Library/bin/mysql
+alias mamp_mysql_root='/Applications/MAMP/Library/bin/mysql -u root -proot'
 alias mysql_hosts='cat /mnt/scrapepipeline/scrapepipeline/potato/moat_hosts/MYSQL_HOSTS.py'
 alias mysql_search='mysql -h db.moat.co -u codename -pbigmoat126 search'
 alias mysql_accounts='mysql -h codename-accounts.moat.co -u codename -pbigmoat126 codename_accounts'
