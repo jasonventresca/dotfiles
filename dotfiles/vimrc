@@ -16,10 +16,19 @@ if !empty($REAL_HOME)
 endif
 
 syntax enable
-set t_Co=16
-colorscheme solarized
-let g:solarized_termcolors=16
-set background=dark
+
+
+""" solarized color scheme
+"set t_Co=16
+"colorscheme solarized
+"let g:solarized_termcolors=16
+"set background=dark
+
+
+""" molokai color scheme
+set background=light
+
+
 " set list " show invisible characters (e.g. linebreaks, tabs, etc.)
 
 function! EnableCopyMode()
