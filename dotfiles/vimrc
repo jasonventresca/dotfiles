@@ -48,6 +48,7 @@ let @h = '0whhr-$l0'
 "          insert a print line below to print the yanked expr's name and contents
 let @p = 'A*&*&*jjp?*&*&*vhhhhdiprint "DEBUG: jjwy$A =", jjp0kw'
 let @i = 'veyoprint "DEBUG: jjpa:"for _ in jjpa:print "    {}".format(_)jjojj:€kb'
+let @y = 'oprint "DEBUG: jjpa:"import pprintpprint.pprint()jjhpa, indent=2€kb4jj0wkk'
 
 " Keep 25 lines above/below the cursor when scrolling
 " set scrolloff=5
