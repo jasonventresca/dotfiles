@@ -7,7 +7,7 @@ Host bingo.local
     SendEnv AWS_*
     SendEnv GIT_*
     PermitLocalCommand yes
-    LocalCommand $DOTFILES/../remote_install_dotfiles.sh %h %p
+    LocalCommand $DOTFILES/../remote_install_dotfiles.sh %n %p
 
 Host foodieland
     HostName aliceinfoodieland.com
@@ -24,7 +24,7 @@ Host 10.* moat-*
     SendEnv AWS_*
     SendEnv GIT_*
     PermitLocalCommand yes
-    LocalCommand $DOTFILES/../remote_install_dotfiles.sh %h %p
+    LocalCommand $DOTFILES/../remote_install_dotfiles.sh %n %p
 
 Host pro-gateway.moat.com pro-classic-gateway.moat.com
     ForwardAgent yes
@@ -44,6 +44,8 @@ Host codename-cache-c4-4xlarge
     ForwardAgent yes
     SendEnv AWS_*
     SendEnv GIT_*
+    PermitLocalCommand yes
+    LocalCommand $DOTFILES/../remote_install_dotfiles.sh %n %p
 
 Host moat-jason
     HostName 10.154.20.202
