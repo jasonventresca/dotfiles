@@ -22,6 +22,18 @@ install_mac(){
     chmod u+x $diff_highlight_script
 }
 
+install_platform_agnostic(){
+    local VIM_DIR=$REPO/dotfiles/vim
+
+    # install pathogen for Vim
+    # https://github.com/tpope/vim-pathogen
+    mkdir -p $VIM_DIR/{autoload,bundle} && \
+        curl -LSso $VIM_DIR/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+    # install Vim plugin for rope python tools
+    cd $VIM_DIR/bundle && git clone 'https://github.com/python-rope/ropevim.git'
+}
+
 ERROR_MSG="ERROR: not all dev tools were installed!"
 
 if uname | grep -i darwin >/dev/null ; then
@@ -29,3 +41,5 @@ if uname | grep -i darwin >/dev/null ; then
 else
     install_deb || echo $ERROR_MSG
 fi
+
+install_platform_agnostic || echo $ERROR_MSG

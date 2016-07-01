@@ -29,6 +29,9 @@ syntax enable
 set background=light
 
 
+" https://github.com/tpope/vim-pathogen
+execute pathogen#infect()
+
 " set list " show invisible characters (e.g. linebreaks, tabs, etc.)
 
 function! EnableCopyMode()
