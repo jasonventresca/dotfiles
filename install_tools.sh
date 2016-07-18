@@ -34,8 +34,8 @@ install_platform_agnostic(){
     # https://github.com/python-rope/rope
     sudo pip install rope ropevim
 
-    # install Vim plugin for rope python tools
-    cd $VIM_DIR/bundle && git clone 'https://github.com/python-rope/ropevim.git'
+    ## install Vim plugin for rope python tools
+    #cd $VIM_DIR/bundle && git clone 'https://github.com/python-rope/ropevim.git'
 }
 
 ERROR_MSG="ERROR: not all dev tools were installed!"
