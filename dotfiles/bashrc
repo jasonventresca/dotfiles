@@ -283,15 +283,24 @@ function rebase() {
 }
 
 function pro-etc-hosts() {
-    ip=$1 # e.g. 1.2.5.4
-    # validate the ipv4 address
-    # *note* this is not at all a perfect validity check
-    # we really just care that next time, the sed regex will match
-    if echo $ip | grep -E '^[0-9.]+$' >/dev/null ; then
-        sudo sed -i -E 's@^[0-9.]+([ ]+(www|pro)\.moat\.com)$@'$ip'\1@' /etc/hosts
-        echo "changed to $ip :)"
+    local ip="$1" # e.g. 1.2.5.4
+    local hosts_file='/etc/hosts'
+    # Validate the ipv4 address.
+    # *NOTE* This is not at all a perfect validity check.
+    if echo $ip | grep -E '^[0-9.]+$' 1>/dev/null ; then
+        sudo cp $hosts_file{,.bak}
+        echo "## The following entries were added automatically by" | sudo tee -a $hosts_file 1>/dev/null
+        echo "## the bash function pro-etc-hosts (check your .bashrc)." | sudo tee -a $hosts_file 1>/dev/null
+        for name in pro.moat.com www.moat.com moat.com ; do
+            echo "$ip $name" | sudo tee -a $hosts_file 1>/dev/null
+        done
+        echo "Setup /etc/hosts entries for $ip."
+
+        read -p "Hit ENTER when you're done to revert /etc/hosts back to normal."
+        sudo mv $hosts_file{.bak,}
+        echo "Reverted. Good bye!"
     else
-        echo "FATAL: invalid ip '$ip'"
+        echo "FATAL: Invalid IP '$ip'." 1>&2
         return 1
     fi
 }
