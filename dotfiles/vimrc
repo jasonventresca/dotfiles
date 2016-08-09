@@ -1,5 +1,6 @@
 imap jj <Esc>
 nmap U <C-R>
+cmap <C-O> <C-R>
 set number
 set cursorline
 set backspace=indent,eol,start
