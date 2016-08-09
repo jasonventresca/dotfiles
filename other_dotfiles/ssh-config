@@ -43,7 +43,7 @@ Host moat-pipeline-jobs
     HostName 10.6.125.60
 
 Host moat-etl-jobs
-    HostName 10.146.175.198
+    HostName 10.0.8.145
 
 Host moat-mturk-web
     HostName 10.102.152.242
