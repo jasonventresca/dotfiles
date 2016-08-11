@@ -146,6 +146,7 @@ alias role='cat /mnt/.installed_role'
 alias scp='scp -o PermitLocalCommand=no'
 alias nssh='ssh -o PermitLocalCommand=no'
 alias kill-ssh-agent='ps aux | grep ssh-agent | grep -v grep | awk "{print \$2}" | xargs sudo kill'
+alias mqueue-tunnel='nssh -L 4321:127.0.0.1:80 10.159.169.84'
 
 alias ssh-vagrant-cachebuild-worker="cd ~/vagrant/cachebuild-worker && ssh ubuntu@127.0.0.1 -p 2222 -o ForwardAgent=yes -o 'SendEnv AWS_\*' -o 'SendEnv GIT_\*' -o Compression=yes -o DSAAuthentication=yes -o LogLevel=FATAL -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -i /Users/jasonventresca/.vagrant.d/boxes/cachebuild-worker/0/virtualbox/vagrant_private_key"
 
@@ -182,8 +183,8 @@ ssh-add ~/.ssh/moatbot.pem # this is "moat-deploy" user on git@github.com
 alias discover='/mnt/common/registry/discover.py'
 alias discover-prod-ws='/mnt/common/registry/discover.py | grep codename-webserver | grep "PRODUCTION REGIONS"'
 alias prod-ws-hosts-py='nssh $(discover-prod-ws | grep "\tpro.moat.com" | head -1 | cut -f6) cat /mnt/hosts.json'
-alias pls_ec2='source /mnt/common/keys/prod.sh ; /mnt/common/registry/ls_ec2.py'
-alias bls_ec2='source /mnt/common/keys/bots.sh ; /mnt/common/registry/ls_ec2.py'
+alias pls_ec2='iam0 && /mnt/common/registry/ls_ec2.py'
+alias bls_ec2='iam1 && /mnt/common/registry/ls_ec2.py'
 function als_ec2 () {
     # ls_ec2 for both aws@ and aws1@
     pls_ec2
@@ -195,10 +196,8 @@ alias ip-ext='curl jsonip.com 2>/dev/null | sed '"'"'s/.*"\([0-9.]*\)".*/\1\n/'"
 alias ip-int='ifconfig | grep --color=never -o "inet addr:10[^ ]*" | grep --color=never -o "10.*"'
 
 # aliases for sourcing AWS IAM User keys
-alias iam-jason0="source /mnt/common/keys/IAM-jason.ventresca-aws.sh"
-alias iam-jason1="source /mnt/common/keys/IAM-jason.ventresca-aws1.sh"
-alias iam-pro0="source /mnt/common/keys/moat.pro.box.sh"
-alias iam-pro1="source /mnt/common/keys/moat.pro.box.aws1.sh"
+alias iam0="source /mnt/common/keys/IAM-jason.ventresca-aws.sh"
+alias iam1="source /mnt/common/keys/IAM-jason.ventresca-aws1.sh"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
