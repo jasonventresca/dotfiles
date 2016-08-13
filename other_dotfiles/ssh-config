@@ -2,7 +2,7 @@ Host github.com
     StrictHostKeyChecking no
 
 Host moat-jason
-    HostName 10.154.20.202
+    HostName 10.0.25.180
     ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@pro-classic-gateway.moat.com nc -q0 %h 22
 
 Host moat-etl-jobs
