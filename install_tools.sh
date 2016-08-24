@@ -11,10 +11,16 @@ install_deb(){
     sudo pip install Pygments
     wget --no-check-certificate $diff_highlight_raw_src_url -O - >$diff_highlight_script
     chmod u+x $diff_highlight_script
+
+    $REPO/install_fpp_ubuntu.sh
 }
 
 install_mac(){
-    brew install vim git tmux bash-completion sl curl coreutils jq
+    # install Homebrew if not already (http://brew.sh)
+    which brew >/dev/null || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+    brew update
+    brew install vim git tmux bash-completion sl curl coreutils jq fpp
     brew install gnu-sed --with-default-names # sed on Mac OS X sucks
     sudo easy_install pip
     sudo pip install Pygments
