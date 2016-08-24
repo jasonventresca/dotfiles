@@ -12,7 +12,7 @@ install_deb(){
     wget --no-check-certificate $diff_highlight_raw_src_url -O - >$diff_highlight_script
     chmod u+x $diff_highlight_script
 
-    $REPO/install_fpp_ubuntu.sh
+    sudo $REPO/install_fpp_ubuntu.sh
 }
 
 install_mac(){
