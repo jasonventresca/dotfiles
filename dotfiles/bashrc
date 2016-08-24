@@ -182,7 +182,7 @@ ssh-add ~/.ssh/moatbot.pem # this is "moat-deploy" user on git@github.com
 # discover aliases
 alias discover='/mnt/common/registry/discover.py'
 alias discover-prod-ws='/mnt/common/registry/discover.py | grep codename-webserver | grep "PRODUCTION REGIONS"'
-alias prod-ws-hosts-py='nssh $(discover-prod-ws | grep "\tpro.moat.com" | head -1 | cut -f6) cat /mnt/hosts.json'
+alias prod-ws-hosts-py='nssh $(pls_ec2 | grep codename-webserver\\s\*prod | grep prod-\\d  | head -n1 | cut -f 2) cat /mnt/hosts.json'
 alias pls_ec2='iam0 && /mnt/common/registry/ls_ec2.py'
 alias bls_ec2='iam1 && /mnt/common/registry/ls_ec2.py'
 function als_ec2 () {

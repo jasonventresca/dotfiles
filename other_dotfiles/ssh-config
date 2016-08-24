@@ -17,6 +17,10 @@ Host moat-web-traffic-cache
     HostName 10.165.87.173
     ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@pro-classic-gateway.moat.com nc -q0 %h 22
 
+Host moat-mturk-jobs
+    HostName 10.0.43.205
+    ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@pro-gateway.moat.com nc -q0 %h 22
+
 Host bingo.local
     User mike
     ForwardAgent yes
