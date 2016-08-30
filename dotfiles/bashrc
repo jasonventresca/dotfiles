@@ -265,7 +265,10 @@ function ssh-reagent () {
 }
 
 function pssh-results () {
-    local results_file=$1 # e.g. ~/pssh.txt
+    local results_file="$1" # e.g. ~/pssh.txt
+    if [[ -z $results_file ]] ; then
+        results_file=$HOME/pssh.txt
+    fi
     echo "success: $(grep -c SUCCESS $results_file)"
     echo "failure: $(grep -c FAILURE $results_file)"
 }
@@ -302,6 +305,11 @@ function pro-etc-hosts() {
 
 function dusort() {
     sudo du -sh $@ 2>/dev/null | sort -hr
+}
+
+function join-lines() {
+    local replacement="$1"
+    sed -e ':a' -e 'N' -e '$!ba' -e "s/\\n/${replacement}/g"
 }
 
 man() {
