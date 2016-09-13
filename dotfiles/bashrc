@@ -253,6 +253,8 @@ export GIT_AUTHOR_EMAIL=jasonventresca@gmail.com
 
 export REPOS='/mnt/scrapepipeline /mnt/codename /mnt/search-deployment /mnt/moatbot /mnt/tagpipeline /mnt/mqueue /mnt/common /mnt/mocktool /mnt/swfshots'
 
+shopt -s histverify
+
 function ssh-reagent () {
     export SSH_AUTH_SOCK=$( find /tmp/ssh-* -user `whoami` -name agent\* -printf '%T@ %p\n' 2>/dev/null | \
                             sort -k 1 -nr | sed 's/^[^ ]* //' | head -n 1 )
