@@ -47,6 +47,8 @@ endfunction
 """"""""""""""""" macros """""""""""""""""
 " hyphenate notes
 let @h = '0whhr-$l0'
+" convert file from 2-space indents to 4-space indents
+let @c = 's/^\( \+\)/\1\1/g'
 
 " (Python) After you've yanked whatever expr into the default register (i.e. ^"),
 "          insert a print line below to print the yanked expr's name and contents
