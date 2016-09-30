@@ -56,6 +56,9 @@ let @p = 'A*&*&*jjp?*&*&*vhhhhdiprint "DEBUG: jjwy$A =", jjp0kw'
 let @i = 'veyoprint "DEBUG: jjpa:"for _ in jjpa:print "    {}".format(_)jjojj:€kb'
 let @y = 'oprint "DEBUG: jjpa:"import pprintpprint.pprint()jjhpa, indent=2€kb4jj0wkk'
 
+" Remove trailing whitespace - paste this into normal mode
+let @w = '%s/ \+$//gc'
+
 " Keep 25 lines above/below the cursor when scrolling
 " set scrolloff=5
 
@@ -66,6 +69,16 @@ highlight MyTodos guifg=red guibg=green
 syntax match MyTodos /TODO/
 
 highlight Folded ctermbg=Black
+
+" Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+" apply said highlighting upon opening a new buffer
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+" disable said highlighting while typing in insert mode
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
@@ -94,23 +107,23 @@ set hid
 " Ignore case when searching
 set ignorecase
 
-" When searching try to be smart about cases 
+" When searching try to be smart about cases
 set smartcase
 
 " Highlight search results
 set hlsearch
 
 " Makes search act like search in modern browsers
-set incsearch 
+set incsearch
 
 " Don't redraw while executing macros (good performance config)
-set lazyredraw 
+set lazyredraw
 
 " For regular expressions turn magic on
 set magic
 
 " Show matching brackets when text indicator is over them
-set showmatch 
+set showmatch
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
@@ -188,7 +201,7 @@ map <c-space> ?
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 
-" Specify the behavior when switching between buffers 
+" Specify the behavior when switching between buffers
 try
   set switchbuf=useopen,usetab,newtab
   set stal=2
@@ -239,7 +252,7 @@ function! CmdLine(str)
     exe "menu Foo.Bar :" . a:str
     emenu Foo.Bar
     unmenu Foo
-endfunction 
+endfunction
 
 function! VisualSelection(direction, extra_filter) range
     let l:saved_reg = @"
