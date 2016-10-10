@@ -36,12 +36,15 @@ install_platform_agnostic(){
     mkdir -p $VIM_DIR/{autoload,bundle} && \
         curl -LSso $VIM_DIR/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
-    # install python libraries that the rope vim plugin will import
-    # https://github.com/python-rope/rope
-    sudo pip install rope ropevim
+    # install Vim plugin for aligning text (Tabular.vim)
+    cd $VIM_DIR/bundle && git clone git://github.com/godlygeek/tabular.git
 
-    ## install Vim plugin for rope python tools
-    #cd $VIM_DIR/bundle && git clone 'https://github.com/python-rope/ropevim.git'
+#    # install python libraries that the rope vim plugin will import
+#    # https://github.com/python-rope/rope
+#    sudo pip install rope ropevim
+#
+#    # install Vim plugin for rope python tools
+#    cd $VIM_DIR/bundle && git clone 'https://github.com/python-rope/ropevim.git'
 }
 
 ERROR_MSG="ERROR: not all dev tools were installed!"
