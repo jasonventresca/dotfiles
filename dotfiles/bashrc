@@ -175,7 +175,10 @@ else
 fi
 
 ssh-add ~/.ssh/id_rsa_github_personal
-ssh-add ~/.ssh/id_rsa
+if [[ $(uname) = 'Darwin' ]] ; then
+    # Only add this ssh key if we're on the Mac.
+    ssh-add ~/.ssh/id_rsa
+fi
 ssh-add ~/.ssh/mar-2011.pem
 ssh-add ~/.ssh/nov-2010.pem
 ssh-add ~/.ssh/moatbot.pem # this is "moat-deploy" user on git@github.com
