@@ -318,6 +318,22 @@ function join-lines() {
     sed -e ':a' -e 'N' -e '$!ba' -e "s/\\n/${replacement}/g"
 }
 
+function h() {
+    # Is the supplied argument an IP address?
+    if echo $@ | grep -E '^[0-9.]+$' >/dev/null ; then
+        pls_ec2 | grep $@ | cut -f 2
+        return
+    fi
+
+    # If it's not an IP address, let's assume it's a DNS name that we can lookup.
+    local res=$(nslookup $@ | grep Address | tail -n1 | cut -f 2 -d ' ')
+    if echo $res | grep '^10\.' >/dev/null ; then
+        echo $res
+    else
+        pls_ec2 | grep $res | cut -f 2
+    fi
+}
+
 man() {
     env \
         LESS_TERMCAP_mb=$(printf "\e[1;31m") \
