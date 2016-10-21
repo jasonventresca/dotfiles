@@ -57,7 +57,7 @@ let @i = 'veyoprint "DEBUG: jjpa:"for _ in jjpa:print "    {}".format(_)jjojj:
 let @y = 'oprint "DEBUG: jjpa:"import pprintpprint.pprint()jjhpa, indent=2€kb4jj0wkk'
 
 " Remove trailing whitespace - paste this into normal mode
-let @w = '%s/ \+$//gc'
+let @w = ':%s/ \+$//gc'
 
 " Keep 25 lines above/below the cursor when scrolling
 " set scrolloff=5
