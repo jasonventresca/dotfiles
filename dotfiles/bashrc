@@ -340,7 +340,7 @@ function h() {
     fi
 }
 
-man() {
+function man() {
     env \
         LESS_TERMCAP_mb=$(printf "\e[1;31m") \
         LESS_TERMCAP_md=$(printf "\e[1;31m") \
@@ -350,4 +350,23 @@ man() {
         LESS_TERMCAP_ue=$(printf "\e[0m") \
         LESS_TERMCAP_us=$(printf "\e[1;32m") \
             man "$@"
+}
+
+
+function decode-aws-auth-failure-message {
+    if [ $# -ne 1 ] || [ "$1" = -h ] || [ "$1" = --help ]; then
+        cat <<'EOT'
+Usage: decode-authorization-failure-message <message>
+Use this when Amazon gives you an "Encoded authorization failure message" and
+you need to turn it into something readable.
+EOT
+        return 1
+    fi
+
+    aws sts decode-authorization-message --encoded-message "$1" |
+        jq '.["DecodedMessage"]' |
+        sed 's/\\"/"/g' |
+        sed 's/^"//' |
+        sed 's/"$//' |
+        jsonp
 }
