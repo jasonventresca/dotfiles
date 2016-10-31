@@ -189,7 +189,7 @@ ssh-add ~/.ssh/moatbot.pem # this is "moat-deploy" user on git@github.com
 # discover aliases
 alias discover='/mnt/common/registry/discover.py'
 alias prod-ws='pls_ec2 | grep codename-webserver\\s\*prod | grep prod-\\d'
-alias prod-ws-hosts-json='nssh $(prod-ws  | head -n1 | cut -f 2) cat /mnt/hosts.json'
+alias prod-hot-db-hosts='iam0 && aws s3 cp s3://search-archives/db_hosts_registry/prod/codename_hosts.json - | jq ".host_groups.prod_cache_readers_group"'
 alias pls_ec2='iam0 && /mnt/common/registry/ls_ec2.py'
 alias bls_ec2='iam1 && /mnt/common/registry/ls_ec2.py'
 
