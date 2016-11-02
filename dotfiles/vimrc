@@ -284,6 +284,11 @@ function! HasPaste()
     return ''
 endfunction
 
+function! TsvEditor()
+    execute "%!column -t"
+    setlocal nowrap
+endfunction
+
 
 
 " Prevent <Esc> from deleting indentation
