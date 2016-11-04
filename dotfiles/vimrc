@@ -285,7 +285,7 @@ function! HasPaste()
 endfunction
 
 function! TsvEditor()
-    execute "%!column -t"
+    execute "%!column -t -s '\t'"
     setlocal nowrap
 endfunction
 
