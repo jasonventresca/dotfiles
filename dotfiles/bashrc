@@ -370,3 +370,10 @@ EOT
         sed 's/"$//' |
         jsonp
 }
+
+function py-workon() {
+    local version=$1
+    export WORKON_HOME=/mnt/virtual_envs
+    source /usr/local/bin/virtualenvwrapper.sh
+    workon py${version}
+}
