@@ -377,3 +377,7 @@ function py-workon() {
     source /usr/local/bin/virtualenvwrapper.sh
     workon py${version}
 }
+
+function ivim() {
+    vim - -c "setl filetype=$1"
+}
