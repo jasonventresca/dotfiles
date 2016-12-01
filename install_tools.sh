@@ -39,6 +39,11 @@ install_platform_agnostic(){
     # install Vim plugin for aligning text (Tabular.vim)
     cd $VIM_DIR/bundle && git clone git://github.com/godlygeek/tabular.git
 
+    # install fugitive Vim plugin
+    cd $VIM_DIR/bundle
+    git clone git://github.com/tpope/vim-fugitive.git
+    vim -u NONE -c "helptags vim-fugitive/doc" -c q
+
 #    # install python libraries that the rope vim plugin will import
 #    # https://github.com/python-rope/rope
 #    sudo pip install rope ropevim
