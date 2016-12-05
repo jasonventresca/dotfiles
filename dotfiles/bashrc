@@ -87,7 +87,8 @@ alias ld='ll | grep "^d"' # directories
 
 # some miscellaneous aliases
 alias cdsp='cd /mnt/scrapepipeline/scrapepipeline'
-alias cdc='cd /mnt/codename'
+alias cdc='echo "(assuming you meant \`cdw\`)" ; cdw'
+alias cdw='cd /mnt/scrapepipeline/moatpro_web/moatpro/web'
 alias cdcm='cd /mnt/common'
 alias cdsd='cd /mnt/search-deployment'
 alias cdmt='cd /mnt/moat/search/tasks/mturk'
