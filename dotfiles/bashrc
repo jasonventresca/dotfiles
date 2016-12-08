@@ -142,6 +142,7 @@ alias ms-accounts='mysql -h codename-accounts.moat.co -u codename -pbigmoat126 c
 alias pg-cn='PGPASSWORD=bigmoat126 psql -d codename_cache -U codename -h '
 alias pg-cnl='PGPASSWORD=bigmoat126 psql -d codename_cache -U codename -h $(ip-int)'
 alias pg-u='psql -d codename_cache -U ubuntu'
+WEB_TRAFFIC='psql --dbname=postgres://codeload:bigpass126@10.165.87.173:5432/pro'
 
 alias box='cat /mnt/.box_name'
 alias role='cat /mnt/.installed_role'
