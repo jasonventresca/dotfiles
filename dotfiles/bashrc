@@ -326,6 +326,18 @@ function join-lines() {
     sed -e ':a' -e 'N' -e '$!ba' -e "s/\\n/${replacement}/g"
 }
 
+function grep_multi() {
+    # Ex 1: cat data.txt | grep_multi one two three
+    #    => cat data.txt | grep -e one -e two -e three
+    cmd_args=$(echo $@ | python -c 'import sys; print "-e " + " -e ".join(sys.stdin.read().split())')
+    cat | grep $cmd_args
+
+    # This one isn't supported yet
+    ### Ex 2: echo 'one\ntwo three\nfour' >~/file.txt
+    ###       grep_multi_f ~/file.txt
+    ###    => grep -e one -e 'two three' -e four
+}
+
 function h() {
     # Is the supplied argument an IP address?
     if echo $@ | grep -E '^[0-9.]+$' >/dev/null ; then
