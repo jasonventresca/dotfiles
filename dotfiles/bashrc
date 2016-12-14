@@ -263,7 +263,7 @@ export GIT_AUTHOR_EMAIL=jasonventresca@gmail.com
 #    whatis $(ls -1 /usr/share/man/man?/ | gshuf -n1 | cut -d. -f1) # Mac OS X
 #echo ""
 
-export REPOS='/mnt/scrapepipeline /mnt/codename /mnt/search-deployment /mnt/moatbot /mnt/tagpipeline /mnt/mqueue /mnt/common /mnt/mocktool /mnt/swfshots'
+export REPOS='/mnt/scrapepipeline /mnt/search-deployment /mnt/moatbot /mnt/tagpipeline /mnt/mqueue /mnt/common /mnt/mocktool /mnt/swfshots'
 
 shopt -s histverify
 
