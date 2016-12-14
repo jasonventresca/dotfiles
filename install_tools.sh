@@ -7,7 +7,7 @@ diff_highlight_script=$REPO/bin/diff-highlight
 mkdir -p $REPO/bin # in case it's not there yet
 
 install_deb(){
-    sudo apt-get install -y vim git-core tmux build-essential bash-completion sl curl python-pip
+    sudo apt-get install -y vim git-core tmux build-essential bash-completion sl curl python-pip xclip
     sudo pip install Pygments
     wget --no-check-certificate $diff_highlight_raw_src_url -O - >$diff_highlight_script
     chmod u+x $diff_highlight_script
@@ -50,6 +50,7 @@ install_platform_agnostic(){
 #
 #    # install Vim plugin for rope python tools
 #    cd $VIM_DIR/bundle && git clone 'https://github.com/python-rope/ropevim.git'
+
 }
 
 ERROR_MSG="ERROR: not all dev tools were installed!"
