@@ -29,6 +29,7 @@
     b = branch -v
     r = remote -v
     t = tag -l
+    co = checkout
     unstage = reset HEAD
     uncommit = reset --soft HEAD^
     logpuma = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%C(cyan)\\ [%cn]" --decorate --date=relative

@@ -4,6 +4,11 @@ cmap <C-O> <C-R>
 set number
 set cursorline
 set backspace=indent,eol,start
+set colorcolumn=101
+hi ColorColumn ctermbg=DarkGray
+
+
+cmap fl call Flake8()
 
 " From Carl - rebalance split-panes after window resizing and/or text display resizing
 au VimResized * wincmd =
