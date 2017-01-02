@@ -30,8 +30,11 @@ Host bingo.local
     LocalCommand $DOTFILES/../remote_install_dotfiles.sh %n %p
 
 Host foodieland
-    HostName aliceinfoodieland.com
-    User aliceinf
+    HostName 54.92.201.41
+    User ubuntu
+    IdentityFile ~/.ssh/foodieland.pem
+    PermitLocalCommand yes
+    LocalCommand $DOTFILES/../remote_install_dotfiles.sh %n %p
 
 Host *
     User ubuntu
