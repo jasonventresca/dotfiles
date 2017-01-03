@@ -47,6 +47,9 @@ install_platform_agnostic(){
     sudo pip install flake8
     cd $VIM_DIR/bundle && git clone git://github.com/nvie/vim-flake8.git
 
+    # install Vim plugin for surrounding text with parens, brackets, quotes, xml tags and more
+    cd $VIM_DIR/bundle && git clone git://github.com/tpope/vim-surround.git
+
 #    # install python libraries that the rope vim plugin will import
 #    # https://github.com/python-rope/rope
 #    sudo pip install rope ropevim

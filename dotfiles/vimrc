@@ -5,7 +5,7 @@ set number
 set cursorline
 set backspace=indent,eol,start
 set colorcolumn=101
-hi ColorColumn ctermbg=DarkGray
+hi ColorColumn ctermbg=Blue
 
 
 cmap fl call Flake8()
@@ -58,6 +58,7 @@ let @c = 's/^\( \+\)/\1\1/g'
 " (Python) After you've yanked whatever expr into the default register (i.e. ^"),
 "          insert a print line below to print the yanked expr's name and contents
 let @p = 'A*&*&*jjp?*&*&*vhhhhdiprint "DEBUG: jjwy$A = {}".format(jjpA)jj0kw'
+let @t = 'A*&*&*jjp?*&*&*vhhhhdiprint("DEBUG: jjwy$A = {}".format(jjpA))jj0kw'
 let @i = 'veyoprint "DEBUG: jjpa:"for _ in jjpa:print "    {}".format(_)jjojj:€kb'
 let @y = 'oprint "DEBUG: jjpa:"import pprintpprint.pprint()jjhpa, indent=2€kb4jj0wkk'
 
