@@ -8,6 +8,12 @@ set colorcolumn=101
 hi ColorColumn ctermbg=Blue
 
 
+" Highlight search term without jumping to the next occurrence
+" http://superuser.com/a/255120
+map * :let @/ = '\<'.expand('<cword>').'\>'\|set hlsearch<C-M>
+map g* :let @/ = expand('<cword>')\|set hlsearch<C-M>
+
+
 cmap fl call Flake8()
 
 " From Carl - rebalance split-panes after window resizing and/or text display resizing
