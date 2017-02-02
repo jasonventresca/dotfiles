@@ -6,7 +6,7 @@ diff_highlight_script=$REPO/bin/diff-highlight
 
 mkdir -p $REPO/bin # in case it's not there yet
 
-install_deb(){
+install_deb() {
     sudo apt-get install -y vim git-core tmux build-essential bash-completion sl curl python-pip xclip
     sudo pip install Pygments
     wget --no-check-certificate $diff_highlight_raw_src_url -O - >$diff_highlight_script
@@ -15,7 +15,7 @@ install_deb(){
     sudo $REPO/install_fpp_ubuntu.sh
 }
 
-install_mac(){
+install_mac() {
     # install Homebrew if not already (http://brew.sh)
     which brew >/dev/null || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
@@ -28,27 +28,34 @@ install_mac(){
     chmod u+x $diff_highlight_script
 }
 
-install_platform_agnostic(){
+install_vim_plugin() {
+    project="$1"
+    cd $VIM_DIR/bundle && git clone git://github.com/$project
+}
+
+install_platform_agnostic() {
     local VIM_DIR=$REPO/dotfiles/vim
 
     # install pathogen for Vim
     # https://github.com/tpope/vim-pathogen
-    mkdir -p $VIM_DIR/{autoload,bundle} && \
-        curl -LSso $VIM_DIR/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+    if ! [[ -e $VIM_DIR/autoload/pathogen.vim ]]; then
+        mkdir -p $VIM_DIR/{autoload,bundle} && \
+            curl -LSso $VIM_DIR/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+    fi
 
     # install Vim plugin for aligning text (Tabular.vim)
-    cd $VIM_DIR/bundle && git clone git://github.com/godlygeek/tabular.git
+    install_vim_plugin "godlygeek/tabular.git"
 
     # install fugitive Vim plugin
-    cd $VIM_DIR/bundle && git clone git://github.com/tpope/vim-fugitive.git
+    install_vim_plugin "tpope/vim-fugitive.git"
     vim -u NONE -c "helptags vim-fugitive/doc" -c q
 
     # install flake8 and Vim plugin
     sudo pip install flake8
-    cd $VIM_DIR/bundle && git clone git://github.com/nvie/vim-flake8.git
+    install_vim_plugin "nvie/vim-flake8.git"
 
     # install Vim plugin for surrounding text with parens, brackets, quotes, xml tags and more
-    cd $VIM_DIR/bundle && git clone git://github.com/tpope/vim-surround.git
+    install_vim_plugin "tpope/vim-surround.git"
 
 #    # install python libraries that the rope vim plugin will import
 #    # https://github.com/python-rope/rope
