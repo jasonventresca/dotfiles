@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eux
+set -eu
 export REPO=$HOME/dotfiles.jason_ventresca
 REMOTE='git@github.com:jasonventresca/dotfiles.git'
 
