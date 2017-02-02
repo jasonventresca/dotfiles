@@ -36,6 +36,9 @@ install_vim_plugin() {
 install_platform_agnostic() {
     local VIM_DIR=$REPO/dotfiles/vim
 
+    [[ -e $REPO/bin/jsonp-multi ]] || \
+            ln -s $REPO/scripts/linewise_json_pretty.py $REPO/bin/jsonp-multi
+
     # install pathogen for Vim
     # https://github.com/tpope/vim-pathogen
     if ! [[ -e $VIM_DIR/autoload/pathogen.vim ]]; then
