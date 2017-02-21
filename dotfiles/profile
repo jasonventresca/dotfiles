@@ -5,3 +5,7 @@ alias parallel-scp="$(which pscp)"
 export LC_jason_ventresca=yes
 
 source $HOME/dotfiles.jason_ventresca/dotfiles/bashrc
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
