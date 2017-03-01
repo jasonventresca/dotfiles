@@ -261,6 +261,10 @@ export GIT_AUTHOR_EMAIL=jasonventresca@gmail.com
 # Ready-to-use <Tab> character via ANSI C quoting (see http://askubuntu.com/a/53096)
 export T=$'\t'
 
+# Cachebuild S3 prefixes, for convenience
+export s3_ident_jason='s3://search-archives/cachebuild_files_jason'
+export s3_ident_prod='s3://search-archives/cachebuild_files_prod'
+
 #echo ""
 #whatis $(ls -1 /usr/share/man/man?/ | shuf -n1 | cut -d. -f1) || \ # Debian
 #    whatis $(ls -1 /usr/share/man/man?/ | gshuf -n1 | cut -d. -f1) # Mac OS X
