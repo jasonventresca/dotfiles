@@ -270,7 +270,11 @@ export s3_ident_prod='s3://search-archives/cachebuild_files_prod'
 #    whatis $(ls -1 /usr/share/man/man?/ | gshuf -n1 | cut -d. -f1) # Mac OS X
 #echo ""
 
-export REPOS='/mnt/scrapepipeline /mnt/search-deployment /mnt/moatbot /mnt/tagpipeline /mnt/mqueue /mnt/common /mnt/mocktool /mnt/swfshots'
+export REPOS='/mnt/scrapepipeline /mnt/search-deployment /mnt/moatpanel /mnt/common /mnt/moatbot /mnt/tagpipeline /mnt/swfshots /mnt/moat /mnt/phashist /mnt/mqueue /mnt/mocktool /mnt/videoads /mnt/tagadmin'
+
+# for OSS project
+export IREQ='--include=requirements.txt'
+export PIP_FREEZE=/mnt/oss_tools/pro_repos_pip_deps/pip_freeze
 
 shopt -s histverify
 
@@ -402,4 +406,12 @@ function py-workon() {
 
 function ivim() {
     vim - -c "setl filetype=$1"
+}
+
+function grep_py_imports() {
+    local ident=$1
+    shift
+    local grep_args=$@
+
+    grep -e "import.*${ident}" -e "${ident}.*import" $grep_args
 }
