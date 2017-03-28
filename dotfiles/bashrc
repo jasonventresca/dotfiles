@@ -406,5 +406,9 @@ function grep_py_imports() {
     shift
     local grep_args=$@
 
-    grep -e "import.*${ident}" -e "${ident}.*import" $grep_args
+    grep \
+        --include=\*.{py,sh,sql,god,rb,mak,ini,conf,crontab} \
+        -e "import.*${ident}" \
+        -e "${ident}.*import" \
+        $grep_args
 }
