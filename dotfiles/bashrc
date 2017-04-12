@@ -1,7 +1,7 @@
 DOT_JV='dotfiles.jason_ventresca'
 export DOTFILES=$HOME/$DOT_JV/dotfiles
 export PATH=$PATH:$HOME/$DOT_JV/bin
-export REGISTRY='/mnt/scrapepipeline/moatpro/moatpro/registry'
+export REGISTRY='/mnt/moatpro/moatpro/moatpro/registry'
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -87,12 +87,12 @@ alias ld='ll | grep "^d"' # directories
 
 
 # some miscellaneous aliases
-alias cdsp='cd /mnt/scrapepipeline/scrapepipeline'
-alias cde='cd /mnt/scrapepipeline/scrapepipeline/etl'
+alias cdsp='cd /mnt/moatpro/moatpro'
+alias cde='cd /mnt/moatpro/moatpro/etl'
 alias cdc='echo "(assuming you meant \`cdw\`)" ; cdw'
-alias cdw='cd /mnt/scrapepipeline/moatpro_web/moatpro/web'
-alias cdo='cd /mnt/scrapepipeline/ops'
-alias cdr='cd /mnt/scrapepipeline/moatpro/moatpro/registry'
+alias cdw='cd /mnt/moatpro/moatpro_web/moatpro/web'
+alias cdo='cd /mnt/moatpro/ops'
+alias cdr='cd /mnt/moatpro/moatpro/moatpro/registry'
 alias cdmt='cd /mnt/moat/search/tasks/mturk'
 alias cdtp='cd /mnt/tagpipeline/tag_pipeline'
 alias cdmb='cd /mnt/moatbot'
@@ -110,7 +110,7 @@ alias instance_id='curl "http://169.254.169.254/latest/meta-data/instance-id"'
 alias fact="elinks -dump randomfunfacts.com | sed -n '/^| /p' | tr -d \|"
 alias tmux="TERM=screen-256color-bce tmux -f $DOTFILES/tmux.conf"
 alias ufilext='xargs -n1 basename | cut -d. -f2 | sort | uniq' # unique file extensions among a list of file paths, e.g. $ grep -rl 'DBSession' $REPOS | ufilext
-alias elb_hosts='iam0 && /mnt/scrapepipeline/ops/_common/elb_hosts.py'
+alias elb_hosts='iam0 && /mnt/moatpro/ops/_common/elb_hosts.py'
 
 # JSON pretty-print utility
 alias jsonp='python -mjson.tool'
@@ -132,8 +132,8 @@ alias gitd='git diff --find-renames'
 alias gitds='git diff --staged --find-renames'
 alias gitdh='git diff HEAD'
 
-alias uc="/mnt/scrapepipeline/ops/_common/update_code.py"
-alias luc="/mnt/scrapepipeline/ops/_common/local_update_code.py"
+alias uc="/mnt/moatpro/ops/_common/update_code.py"
+alias luc="/mnt/moatpro/ops/_common/local_update_code.py"
 
 # some common RDBMS commands
 alias mamp_mysql=/Applications/MAMP/Library/bin/mysql
@@ -238,7 +238,7 @@ export EDITOR=vim
 alias vim='REAL_HOME=$HOME HOME=$DOTFILES vim'
 alias sudovim='sudo REAL_HOME=$HOME HOME=$DOTFILES vim'
 
-alias repos-installed='cat /mnt/scrapepipeline/ops/$(cat /mnt/.installed_role)/REPOS | cut -f 2 -d "/" | cut -f 1 -d "."'
+alias repos-installed='cat /mnt/moatpro/ops/$(cat /mnt/.installed_role)/REPOS | cut -f 2 -d "/" | cut -f 1 -d "."'
 alias repos-installed-paths='repos-installed | xargs -I{} echo /mnt/{}'
 alias repos-branches='for repo in $(repos-installed) ; do cd /mnt/$repo ; echo "$repo : $(git branch | grep '"'"'^*'"'"' | cut -f 2 -d '"'"' '"'"' )" ; done'
 
@@ -263,7 +263,7 @@ export s3_ident_prod='s3://search-archives/cachebuild_files_prod'
 #    whatis $(ls -1 /usr/share/man/man?/ | gshuf -n1 | cut -d. -f1) # Mac OS X
 #echo ""
 
-export REPOS='/mnt/scrapepipeline /mnt/moatpanel /mnt/moatbot /mnt/tagpipeline /mnt/swfshots /mnt/moat /mnt/phashist /mnt/mqueue /mnt/mocktool /mnt/videoads /mnt/tagadmin'
+export REPOS='/mnt/moatpro /mnt/moatpanel /mnt/moatbot /mnt/tagpipeline /mnt/swfshots /mnt/moat /mnt/phashist /mnt/mqueue /mnt/mocktool /mnt/videoads /mnt/tagadmin'
 
 # for OSS project
 export IREQ='--include=requirements.txt'
