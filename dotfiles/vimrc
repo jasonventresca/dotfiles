@@ -74,7 +74,7 @@ let @y = 'oprint "DEBUG: jjpa:"import pprintpprint.pprint()jjhpa, indent=2€kb4
 let @w = ':%s/ \+$//gc'
 
 " While resolving merge conflicts, search for merge markers
-let @m = '/<<<\|===\|>>>'
+let @m = '/^\(<<<\|===\|>>>\)'
 
 " Keep 25 lines above/below the cursor when scrolling
 " set scrolloff=5
