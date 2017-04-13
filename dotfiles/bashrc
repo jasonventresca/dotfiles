@@ -88,6 +88,7 @@ alias ld='ll | grep "^d"' # directories
 
 # some miscellaneous aliases
 alias cdsp='cd /mnt/moatpro/moatpro'
+alias cdmp='cd /mnt/moatpro/moatpro'
 alias cde='cd /mnt/moatpro/moatpro/etl'
 alias cdc='echo "(assuming you meant \`cdw\`)" ; cdw'
 alias cdw='cd /mnt/moatpro/moatpro_web/moatpro/web'
@@ -125,7 +126,7 @@ alias svc-which='ps aux | grep -i -e apache -e python -e couch -e memcache -e my
 # git aliases
 alias git="HOME=$DOTFILES git"
 alias gits='git status'
-alias gitsa='pushd .; cdc; gits; cdsp; gits; popd;'
+alias gitsa='pushd .; cdmp; gits; popd;'
 alias gitc='git commit -a'
 alias gitco='git checkout'
 alias gitd='git diff --find-renames'
