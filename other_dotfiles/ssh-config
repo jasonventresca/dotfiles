@@ -35,6 +35,7 @@ Host foodieland
     IdentityFile ~/.ssh/foodieland.pem
     PermitLocalCommand yes
     LocalCommand $DOTFILES/../remote_install_dotfiles.sh %n %p
+    ForwardAgent yes
 
 Host *
     User ubuntu
