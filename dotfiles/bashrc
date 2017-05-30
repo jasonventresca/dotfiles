@@ -195,7 +195,7 @@ ssh-add ~/.ssh/moatbot.pem # this is "moat-deploy" user on git@github.com
 
 # aliases for discovery of ec2 instances
 alias prod-ws='pls_ec2 | grep codename-webserver\\s\*prod | grep prod-\\d'
-alias prod-hot-db-hosts='iam0 && aws s3 cp s3://search-archives/db_hosts_registry/prod/codename_hosts.json - | jq ".host_groups.prod_cache_readers_group"'
+alias prod-hot-db-hosts='iam0 && /mnt/moatpro/moatpro.db/moatpro/db/lib/host_util.py get | jq ".host_groups.prod_cache_readers_group"'
 alias pls_ec2='iam0 && ${REGISTRY}/ls_ec2.py'
 alias bls_ec2='iam1 && ${REGISTRY}/ls_ec2.py'
 
@@ -260,7 +260,7 @@ export T=$'\t'
 
 # Cachebuild S3 prefixes, for convenience
 export s3_ident_jason='s3://search-archives/cachebuild_files_jason'
-export s3_ident_prod='s3://search-archives/cachebuild_files_prod'
+export s3_ident_prod='s3://search-archives/cachebuild_files_tsdb'
 
 #echo ""
 #whatis $(ls -1 /usr/share/man/man?/ | shuf -n1 | cut -d. -f1) || \ # Debian
