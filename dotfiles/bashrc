@@ -144,8 +144,8 @@ alias mamp_mysql=/Applications/MAMP/Library/bin/mysql
 alias mamp_mysql_root='/Applications/MAMP/Library/bin/mysql -u root -proot'
 alias ms-search='mysql -h db.moat.co -u codename -pbigmoat126'
 alias ms-accounts='mysql -h codename-accounts.moat.co -u codename -pbigmoat126 codename_accounts'
-alias pg-cn='PGPASSWORD=bigmoat126 psql -d codename_cache -U codename -h '
-alias pg-cnl='PGPASSWORD=bigmoat126 psql -d codename_cache -U codename -h $(ip-int)'
+alias pg-cn='PGPASSWORD=bigmoat126 psql -d tsdb -U codename -h '
+alias pg-cnl='PGPASSWORD=bigmoat126 psql -d tsdb -U codename -h $(ip-int)'
 alias pg-u='psql -d codename_cache -U ubuntu'
 WEB_TRAFFIC='psql --dbname=postgres://codeload:bigpass126@10.165.87.173:5432/pro'
 
