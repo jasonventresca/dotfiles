@@ -305,6 +305,12 @@ endfunction
 function! TsvEditor()
     execute "%!column -t -s '\t'"
     setlocal nowrap
+    set cc=
+    set scrollbind
+    set scrollopt+=hor
+    set scrollopt-=ver
+    1 split
+    wincmd j
 endfunction
 
 
