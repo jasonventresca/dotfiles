@@ -1,16 +1,13 @@
 #!/bin/bash
 set -eu
 
-diff_highlight_raw_src_url='https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight'
-diff_highlight_script=$REPO/bin/diff-highlight
-
 mkdir -p $REPO/bin # in case it's not there yet
 
 install_deb() {
-    sudo apt-get install -y vim git-core tmux build-essential bash-completion sl curl python-pip xclip
+    sudo apt-get install -y vim git-core tmux build-essential bash-completion \
+                            sl curl python-pip npm
     sudo pip install Pygments
-    wget --no-check-certificate $diff_highlight_raw_src_url -O - >$diff_highlight_script
-    chmod u+x $diff_highlight_script
+    sudo npm install -g diff-so-fancy
 
     sudo $REPO/install_fpp_ubuntu.sh
 }
@@ -20,7 +17,7 @@ install_mac() {
     which brew >/dev/null || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
     brew update
-    brew install vim git tmux bash-completion sl curl coreutils jq fpp
+    brew install vim git tmux bash-completion sl curl coreutils jq fpp diff-so-fancy
     brew install gnu-sed --with-default-names # sed on Mac OS X sucks
     sudo easy_install pip
     sudo pip install Pygments
