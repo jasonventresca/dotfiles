@@ -267,7 +267,7 @@ export s3_ident_prod='s3://search-archives/cachebuild_files_tsdb'
 #    whatis $(ls -1 /usr/share/man/man?/ | gshuf -n1 | cut -d. -f1) # Mac OS X
 #echo ""
 
-export REPOS='/mnt/moatpro /mnt/moatpanel /mnt/moatbot /mnt/tagpipeline /mnt/swfshots /mnt/moat /mnt/phashist /mnt/mqueue /mnt/mocktool /mnt/videoads /mnt/tagadmin'
+export REPOS='/mnt/moatpro /mnt/moatpanel /mnt/swfshots /mnt/tagpipeline /mnt/moat /mnt/mqueue'
 
 # for OSS project
 export IREQ='--include=requirements.txt'
