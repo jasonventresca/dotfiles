@@ -27,6 +27,18 @@ Host moat-web-traffic-cache
 Host moat-mturk-jobs
     HostName 10.0.43.205
 
+Host moat-jira
+    HostName 10.31.98.151
+
+Host moat-confluence
+    HostName 10.181.73.194
+
+Host moat-jira-staging
+    HostName 10.150.77.16
+
+Host moat-confluence-staging
+    HostName 10.51.168.153
+
 Host bingo.local
     User mike
     ForwardAgent yes
