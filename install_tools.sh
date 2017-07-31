@@ -7,7 +7,9 @@ install_deb() {
     sudo apt-get install -y vim git-core tmux build-essential bash-completion \
                             sl curl python-pip npm
     sudo pip install Pygments
-    sudo npm install -g diff-so-fancy
+    # TODO - Remove the version freeze once the issue #251 is fixed.
+    #        https://github.com/so-fancy/diff-so-fancy/issues/251
+    sudo npm install -g diff-so-fancy@1.0.0
 
     sudo $REPO/install_fpp_ubuntu.sh
 }

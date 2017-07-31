@@ -302,8 +302,7 @@ function! HasPaste()
     return ''
 endfunction
 
-function! TsvEditor()
-    execute "%!column -t -n -s '\t'"
+function! StickyHeader()
     setlocal nowrap
     set cc=
     set scrollbind
@@ -313,16 +312,14 @@ function! TsvEditor()
     wincmd j
 endfunction
 
-" TODO: Refactor common parts from TsvEditor + CsvEditor
+function! TsvEditor()
+    execute "%!column -t -n -s '\t'"
+    call StickyHeader()
+endfunction
+
 function! CsvEditor()
     execute "%!column -t -n -s ','"
-    setlocal nowrap
-    set cc=
-    set scrollbind
-    set scrollopt+=hor
-    set scrollopt-=ver
-    1 split
-    wincmd j
+    call StickyHeader()
 endfunction
 
 
