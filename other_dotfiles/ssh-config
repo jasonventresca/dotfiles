@@ -29,15 +29,41 @@ Host moat-mturk-jobs
 
 Host moat-jira
     HostName 10.31.98.151
+    ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@pro-classic-gateway.moat.com nc -q0 %h 22
 
 Host moat-confluence
     HostName 10.181.73.194
+    ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@pro-classic-gateway.moat.com nc -q0 %h 22
 
 Host moat-jira-staging
     HostName 10.150.77.16
+    ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@pro-classic-gateway.moat.com nc -q0 %h 22
 
 Host moat-confluence-staging
     HostName 10.51.168.153
+    ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@pro-classic-gateway.moat.com nc -q0 %h 22
+
+Host moat-integrations
+    ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@gateway.moat.com nc -q0 %h 22
+    User jasonventresca
+    HostName 10.0.59.181
+    SendEnv AWS_*
+    SendEnv GIT_*
+
+Host moat-js-staging
+    HostName 10.181.166.47
+    ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@gateway.moat.com nc -q0 %h 22
+    User ubuntu
+    SendEnv AWS_*
+    SendEnv GIT_*
+
+Host moat-ads2
+    HostName 10.0.99.131
+    ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@gateway.moat.com nc -q0 %h 22
+    User ubuntu
+    SendEnv AWS_*
+    SendEnv GIT_*
+
 
 Host bingo.local
     User mike
@@ -54,6 +80,12 @@ Host foodieland
     PermitLocalCommand yes
     LocalCommand $DOTFILES/../remote_install_dotfiles.sh %n %p
     ForwardAgent yes
+
+Host pro-gateway.moat.com pro-classic-gateway.moat.com gateway.moat.com
+    User jasonventresca
+    ForwardAgent yes
+    SendEnv AWS_*
+    SendEnv GIT_*
 
 Host *
     User ubuntu
@@ -72,8 +104,3 @@ Host 10.*.*.* !10.0.*.*
 
 Host 10.0.*.* moat-*
     ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@pro-gateway.moat.com nc -q0 %h 22
-
-Host pro-gateway.moat.com pro-classic-gateway.moat.com
-    ForwardAgent yes
-    SendEnv AWS_*
-    SendEnv GIT_*
