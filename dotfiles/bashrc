@@ -205,8 +205,9 @@ alias sup='sudo supervisorctl'
 alias ip-ext='curl https://jsonip.com 2>/dev/null | sed '"'"'s/.*"\([0-9.]*\)".*/\1\n/'"'"''
 alias ip-int='ifconfig | grep --color=never -o "inet addr:10[^ ]*" | grep --color=never -o "10.*"'
 
-# aliases for sourcing AWS IAM User keys
-alias iam0="source $HOME/.IAM-jason.ventresca-aws.sh"
+# aliases for sourcing AWS IAM User keys and other secrets
+alias itsme="source $HOME/.secrets.sh"
+alias iam0=itsme
 alias iam1="source $HOME/.IAM-jason.ventresca-aws1.sh"
 
 # aliases for common AWS CLI commands
