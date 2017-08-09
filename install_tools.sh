@@ -23,8 +23,6 @@ install_mac() {
     brew install gnu-sed --with-default-names # sed on Mac OS X sucks
     sudo easy_install pip
     sudo pip install Pygments
-    curl $diff_highlight_raw_src_url >$diff_highlight_script
-    chmod u+x $diff_highlight_script
 }
 
 install_vim_plugin() {
