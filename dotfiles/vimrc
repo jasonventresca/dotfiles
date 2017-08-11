@@ -1,3 +1,12 @@
+" We set $HOME=$DOTFILES before running vim,
+"   to trick vim into sourcing $DOTFILES/vimrc.
+" Reset $HOME to the real home directory,
+"   now that we're done importing config.
+if !empty($REAL_HOME)
+    let $HOME = $REAL_HOME
+endif
+
+
 imap jj <Esc>
 nmap U <C-R>
 cmap <C-O> <C-R>
@@ -10,6 +19,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+set tags=$HOME/.py-ctags
 
 packadd! matchit
 
@@ -24,14 +35,6 @@ map g* :let @/ = expand('<cword>')\|set hlsearch<C-M>
 
 " From Carl - rebalance split-panes after window resizing and/or text display resizing
 au VimResized * wincmd =
-
-" We set $HOME=$DOTFILES before running vim,
-"   to trick vim into sourcing $DOTFILES/vimrc.
-" Reset $HOME to the real home directory,
-"   now that we're done importing config.
-if !empty($REAL_HOME)
-    let $HOME = $REAL_HOME
-endif
 
 syntax enable
 

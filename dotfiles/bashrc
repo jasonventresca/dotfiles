@@ -418,3 +418,7 @@ function grep_py_imports() {
         -e "${ident}.*import" \
         $grep_args
 }
+
+function py-ctags() {
+    find $@ -name "*.py" | ctags-exuberant -L - --language-force=python -f $HOME/.py-ctags
+}
