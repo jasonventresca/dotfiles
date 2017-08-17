@@ -271,7 +271,7 @@ export s3_ident_prod='s3://search-archives/cachebuild_files_tsdb'
 export REPOS='/mnt/moatpro /mnt/moatpanel /mnt/swfshots /mnt/tagpipeline /mnt/moat /mnt/mqueue'
 
 # for OSS project
-export IREQ='--include=requirements.txt'
+export IREQ='--include=requirements.txt --include=setup.py'
 export PIP_FREEZE=/mnt/oss_tools/pro_repos_pip_deps/pip_freeze
 export S3_LIC='s3://prod_an.live.data/licenses'
 
