@@ -5,7 +5,7 @@ mkdir -p $REPO/bin # in case it's not there yet
 
 install_deb() {
     sudo apt-get install -y vim git-core tmux build-essential bash-completion \
-                            sl curl python-pip npm
+                            sl curl python-pip npm exuberant-ctags
     sudo pip install Pygments
     # TODO - Remove the version freeze once the issue #251 is fixed.
     #        https://github.com/so-fancy/diff-so-fancy/issues/251
