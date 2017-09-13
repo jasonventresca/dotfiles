@@ -104,6 +104,7 @@ alias cdmq='cd /mnt/mqueue'
 alias cdsw='cd /mnt/swfshots'
 alias cdlog='cd /mnt/log/apache2'
 alias cdpd='cd /usr/local/lib/python2.7/dist-packages/'
+alias cdu='cd /mnt/moatpro/moatpro/moatpro/util'
 alias apacherestart='sudo /etc/init.d/apache2 restart'
 alias bounce-codename='touch /mnt/codename/*.wsgi'
 alias memcachedrestart='sudo /etc/init.d/memcached restart'
@@ -396,11 +397,7 @@ EOT
 }
 
 function py-workon() {
-    local version=$1
-    export WORKON_HOME=/mnt/virtual_envs
-    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python${version}
-    source /usr/local/bin/virtualenvwrapper.sh
-    workon py${version}
+    source /mnt/moatpro/ops/_common/venv_workon.sh $1
 }
 
 function ivim() {
@@ -422,3 +419,10 @@ function grep_py_imports() {
 function py-ctags() {
     find $@ -name "*.py" | ctags-exuberant -L - --language-force=python -f $HOME/.py-ctags
 }
+
+function ec2-meta() {
+    curl http://169.254.169.254/latest/meta-data/${1}
+    echo
+}
+alias inst-id="ec2-meta instance-id"
+alias iam-info="ec2-meta iam/info"
