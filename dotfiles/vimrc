@@ -75,7 +75,8 @@ let @c = 's/^\( \+\)/\1\1/g'
 let @p = 'A*&*&*jjp?*&*&*vhhhhdiprint "DEBUG: jjwy$A = {}".format(jjpA)jj0kw'
 let @t = 'A*&*&*jjp?*&*&*vhhhhdiprint("DEBUG: jjwy$A = {}".format(jjpA))jj0kw'
 let @i = 'veyoprint "DEBUG: jjpa:"for _ in jjpa:print "    {}".format(_)jjojj:€kb'
-let @y = 'oprint("DEBUG: jjpa:")import pprintpprint.pprint()jjhpa, indent=2€kb4jj0wkk'
+let @y = 'oimport pprintprint("DEBUG: jjpa:")pprint.pprint()jjhpa, indent=2€kb4jj0wkk'
+let @j = 'oimport jsonprint("DEBUG: jjpa (JSON):")print(json.dumps(jjpA, indent=4, sort_keys=True))jj0wkk'
 
 " Remove trailing whitespace - paste this into normal mode
 let @w = ':%s/ \+$//gc'
