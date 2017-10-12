@@ -197,8 +197,8 @@ ssh-add ~/.ssh/moatbot.pem # this is "moat-deploy" user on git@github.com
 # aliases for discovery of ec2 instances
 alias prod-ws='pls_ec2 | grep codename-webserver\\s\*prod | grep prod-\\d'
 alias prod-hot-db-hosts='iam0 && /mnt/moatpro/moatpro.db/moatpro/db/lib/host_util.py get | jq ".host_groups.prod_cache_readers_group"'
-alias pls_ec2='iam0 && ${REGISTRY}/ls_ec2.py'
-alias bls_ec2='iam1 && ${REGISTRY}/ls_ec2.py'
+alias pls_ec2='iam0 && python2 ${REGISTRY}/ls_ec2.py'
+alias bls_ec2='iam1 && python2 ${REGISTRY}/ls_ec2.py'
 
 alias sup='sudo supervisorctl'
 
