@@ -148,6 +148,7 @@ alias ms-accounts='mysql -h codename-accounts.moat.co -u codename -pbigmoat126 c
 alias pg-cn='PGPASSWORD=bigmoat126 psql -d tsdb -U codename -h '
 alias pg-cnl='PGPASSWORD=bigmoat126 psql -d tsdb -U codename -h $(ip-int)'
 alias pg-u='psql -d codename_cache -U ubuntu'
+alias pg-rds='PGPASSWORD=bigmoat126 psql -h search-rds-prod.moat.co -U rcodename -d moatpro'
 WEB_TRAFFIC='psql --dbname=postgres://codeload:bigpass126@10.165.87.173:5432/pro'
 
 alias box='cat /mnt/.box_name'
@@ -421,11 +422,23 @@ function py-ctags() {
 }
 
 function s3-first() {
+    # Either of these are acceptable:
+    #     s3-first s3://search-archives/hello.txt
+    #     s3-first hello.txt
+    # But this is not (only supports the search-archives bucket):
+    #     s3-first s3://some-other-bucket/foo.txt
+
     local prefix_uri="$1"
     shift
     local bucket='s3://search-archives/'
-    if echo $prefix_uri | grep "^${bucket}" >/dev/null ; then
-        local first_key=$(aws s3 ls --recursive ${prefix_uri} | awk '{print $4}')
+    if \
+            echo $prefix_uri | grep "^${bucket}" >/dev/null || \
+            ! echo $prefix_uri | grep "^s3://" >/dev/null
+    then
+        if ! echo $prefix_uri | grep "^s3://" >/dev/null ; then
+            prefix_uri=${bucket}${prefix_uri}
+        fi
+        local first_key=$(aws s3 ls --recursive ${prefix_uri} | head -n1 | awk '{print $4}')
         aws s3 cp ${bucket}${first_key} $@
     else
         echo "FATAL: This bash function assumes you are using the ${bucket} bucket."
