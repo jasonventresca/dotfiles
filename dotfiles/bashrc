@@ -438,11 +438,21 @@ function s3-first() {
         if ! echo $prefix_uri | grep "^s3://" >/dev/null ; then
             prefix_uri=${bucket}${prefix_uri}
         fi
-        local first_key=$(aws s3 ls --recursive ${prefix_uri} | head -n1 | awk '{print $4}')
-        aws s3 cp ${bucket}${first_key} $@
+        local first_line=$(aws s3 ls --recursive ${prefix_uri} | head -n1)
+        local first_s3_key=$(echo $first_line | awk '{print $4}')
+        echo "(stderr) first s3 object is: ${first_line}" 1>&2
+        aws s3 cp ${bucket}${first_s3_key} $@
     else
         echo "FATAL: This bash function assumes you are using the ${bucket} bucket."
     fi
+}
+
+function header() {
+    # example:
+    # $ cat data.tsv | header sort -k3 -nr
+    read -r
+    printf "%s\n" "$REPLY"
+    $@
 }
 
 function ec2-meta() {
