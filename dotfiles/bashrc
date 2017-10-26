@@ -136,6 +136,8 @@ alias gitco='git checkout'
 alias gitd='git diff --find-renames'
 alias gitds='git diff --staged --find-renames'
 alias gitdh='git diff HEAD'
+# temporarily disable diff-so-fancy (e.g. if you want to parse the output of git diff)
+alias git-no-diff-so-fancy='git -c pager.log=less -c pager.show=less -c pager.diff=less'
 
 alias uc="/mnt/moatpro/ops/_common/update_code.py"
 alias luc="/mnt/moatpro/ops/_common/local_update_code.py"
