@@ -94,7 +94,7 @@ alias cdmpo='cd /mnt/moatpro/moatpro/moatpro/ops'
 alias cde='cd /mnt/moatpro/scrapepipeline/scrapepipeline/etl'
 alias cdent='cd /mnt/moatpro/moatpro/moatpro/entities'
 alias cdc='echo "(assuming you meant \`cdw\`)" ; cdw'
-alias cdw='cd /mnt/moatpro/moatpro_web/moatpro/web'
+alias cdw='cd /mnt/moatpro/moatpro.web/moatpro/web'
 alias cdo='cd /mnt/moatpro/ops'
 alias cdr='cd /mnt/moatpro/moatpro/moatpro/registry'
 alias cdmt='cd /mnt/moat/search/tasks/mturk'
@@ -136,6 +136,8 @@ alias gitco='git checkout'
 alias gitd='git diff --find-renames'
 alias gitds='git diff --staged --find-renames'
 alias gitdh='git diff HEAD'
+# temporarily disable diff-so-fancy (e.g. if you want to parse the output of git diff)
+alias git-no-diff-so-fancy='git -c pager.log=less -c pager.show=less -c pager.diff=less'
 
 alias uc="/mnt/moatpro/ops/_common/update_code.py"
 alias luc="/mnt/moatpro/ops/_common/local_update_code.py"
@@ -148,6 +150,7 @@ alias ms-accounts='mysql -h codename-accounts.moat.co -u codename -pbigmoat126 c
 alias pg-cn='PGPASSWORD=bigmoat126 psql -d tsdb -U codename -h '
 alias pg-cnl='PGPASSWORD=bigmoat126 psql -d tsdb -U codename -h $(ip-int)'
 alias pg-u='psql -d codename_cache -U ubuntu'
+alias pg-rds='PGPASSWORD=bigmoat126 psql -h search-rds-prod.moat.co -U rcodename -d moatpro'
 WEB_TRAFFIC='psql --dbname=postgres://codeload:bigpass126@10.165.87.173:5432/pro'
 
 alias box='cat /mnt/.box_name'
@@ -197,8 +200,8 @@ ssh-add ~/.ssh/moatbot.pem # this is "moat-deploy" user on git@github.com
 # aliases for discovery of ec2 instances
 alias prod-ws='pls_ec2 | grep codename-webserver\\s\*prod | grep prod-\\d'
 alias prod-hot-db-hosts='iam0 && /mnt/moatpro/moatpro.db/moatpro/db/lib/host_util.py get | jq ".host_groups.prod_cache_readers_group"'
-alias pls_ec2='iam0 && ${REGISTRY}/ls_ec2.py'
-alias bls_ec2='iam1 && ${REGISTRY}/ls_ec2.py'
+alias pls_ec2='iam0 && python2 ${REGISTRY}/ls_ec2.py'
+alias bls_ec2='iam1 && python2 ${REGISTRY}/ls_ec2.py'
 
 alias sup='sudo supervisorctl'
 
@@ -418,6 +421,40 @@ function grep_py_imports() {
 
 function py-ctags() {
     find $@ -name "*.py" | ctags-exuberant -L - --language-force=python -f $HOME/.py-ctags
+}
+
+function s3-first() {
+    # Either of these are acceptable:
+    #     s3-first s3://search-archives/hello.txt
+    #     s3-first hello.txt
+    # But this is not (only supports the search-archives bucket):
+    #     s3-first s3://some-other-bucket/foo.txt
+
+    local prefix_uri="$1"
+    shift
+    local bucket='s3://search-archives/'
+    if \
+            echo $prefix_uri | grep "^${bucket}" >/dev/null || \
+            ! echo $prefix_uri | grep "^s3://" >/dev/null
+    then
+        if ! echo $prefix_uri | grep "^s3://" >/dev/null ; then
+            prefix_uri=${bucket}${prefix_uri}
+        fi
+        local first_line=$(aws s3 ls --recursive ${prefix_uri} | head -n1)
+        local first_s3_key=$(echo $first_line | awk '{print $4}')
+        echo "(stderr) first s3 object is: ${first_line}" 1>&2
+        aws s3 cp ${bucket}${first_s3_key} $@
+    else
+        echo "FATAL: This bash function assumes you are using the ${bucket} bucket."
+    fi
+}
+
+function header() {
+    # example:
+    # $ cat data.tsv | header sort -k3 -nr
+    read -r
+    printf "%s\n" "$REPLY"
+    $@
 }
 
 function ec2-meta() {
