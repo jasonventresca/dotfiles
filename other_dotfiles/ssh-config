@@ -31,7 +31,7 @@ Host moat-mturk-web
     HostName 10.0.37.213
 
 Host moat-jira
-    HostName 10.169.107.126
+    HostName 10.33.162.138
     ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@pro-classic-gateway.moat.com nc -q0 %h 22
 
 Host moat-confluence
