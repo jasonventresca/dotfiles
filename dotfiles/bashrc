@@ -248,9 +248,9 @@ export EDITOR=vim
 alias vim='REAL_HOME=$HOME HOME=$DOTFILES vim'
 alias sudovim='sudo REAL_HOME=$HOME HOME=$DOTFILES vim'
 
-alias repos-installed='cat /mnt/moatpro/ops/$(cat /mnt/.installed_role)/REPOS | cut -f 2 -d "/" | cut -f 1 -d "."'
+alias repos-installed='echo moatpro ; cat /mnt/moatpro/ops/$(cat /mnt/.installed_role)/REPOS | cut -f 2 -d "/" | cut -f 1 -d "."'
 alias repos-installed-paths='repos-installed | xargs -I{} echo /mnt/{}'
-alias repos-branches='for repo in $(repos-installed) ; do cd /mnt/$repo ; echo "$repo : $(git branch | grep '"'"'^*'"'"' | cut -f 2 -d '"'"' '"'"' )" ; done'
+alias repos-branches='for repo in $(repos-installed) ; do echo "$repo : $(git -C /mnt/$repo branch | grep '"'"'^*'"'"' | cut -f 2 -d '"'"' '"'"' )" ; done'
 
 alias remove_dd_agent='sudo apt-get remove datadog-agent -y'
 
@@ -274,6 +274,7 @@ export s3_ident_prod='s3://search-archives/cachebuild_files_tsdb'
 #echo ""
 
 export REPOS='/mnt/moatpro /mnt/moatpanel /mnt/swfshots /mnt/tagpipeline /mnt/moat /mnt/mqueue'
+export RDS_SEARCH_PATHS='/mnt/tagpipeline /mnt/moat/search/tasks/mturk /mnt/moat/search/turk-reviewer /mnt/swfshots /mnt/moatpro /mnt/mqueue'
 
 # for OSS project
 export IREQ='--include=requirements.txt --include=setup.py'
@@ -456,6 +457,15 @@ function header() {
     read -r
     printf "%s\n" "$REPLY"
     $@
+}
+
+function tsv_delete_column() {
+    # Delete the n'th column from a delimited stream (default is tab-delimited)
+    # See https://stackoverflow.com/a/12717796/2503100
+    local col_num="$1"
+    local delim="${2:-$T}"
+    cat | sed "s/[^${delim}]*${delim}//${col_num}"
+
 }
 
 function ec2-meta() {
