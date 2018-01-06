@@ -57,6 +57,9 @@ install_platform_agnostic() {
     # install Vim plugin for surrounding text with parens, brackets, quotes, xml tags and more
     install_vim_plugin "tpope/vim-surround.git"
 
+    # install Emmet (lets you write HTML code faster)
+    install_vim_plugin "mattn/emmet-vim.git"
+
 #    # install python libraries that the rope vim plugin will import
 #    # https://github.com/python-rope/rope
 #    sudo pip install rope ropevim
