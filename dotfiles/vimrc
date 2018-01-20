@@ -113,10 +113,6 @@ cmap w!! w !sudo tee > /dev/null %
 " Sets how many lines of history VIM has to remember
 set history=1000
 
-" Enable filetype plugins
-filetype plugin on
-filetype indent on
-
 "Always show current position
 set ruler
 
@@ -198,6 +194,14 @@ inoremap # X<BS>#
 " ^-- http://vim.wikia.com/wiki/Restoring_indent_after_typing_hash
 
 set wrap "Wrap lines
+
+
+" Augment vim configs for specific file extensions.
+" For example, *.js files use 2-space indentation.
+filetype plugin on
+
+" Indenting for specific file extensions (currently unused?)
+"filetype indent on
 
 
 """"""""""""""""""""""""""""""
