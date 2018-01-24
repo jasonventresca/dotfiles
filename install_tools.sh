@@ -20,7 +20,8 @@ install_mac() {
 
     brew update
     brew install vim git tmux bash-completion sl curl coreutils jq fpp diff-so-fancy
-    brew install gnu-sed --with-default-names # sed on Mac OS X sucks
+    brew install --with-default-names coreutils findutils gnu-tar gnu-sed gawk gnutls gnu-indent gnu-getopt
+    brew tap homebrew/dupes; brew install grep
     sudo easy_install pip
     sudo pip install Pygments
 }
