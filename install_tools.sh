@@ -61,6 +61,10 @@ install_platform_agnostic() {
     # install Emmet (lets you write HTML code faster)
     install_vim_plugin "mattn/emmet-vim.git"
 
+    # For Terraform files, enable HCL/JSON syntax highlighting.
+    # Also adds a :Terraform command that runs terraform, with tab completion of subcommands.
+    install_vim_plugin "hashivim/vim-terraform.git"
+
 #    # install python libraries that the rope vim plugin will import
 #    # https://github.com/python-rope/rope
 #    sudo pip install rope ropevim
