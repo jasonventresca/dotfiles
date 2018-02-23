@@ -79,7 +79,7 @@ alias cgrep='grep --color=always'
 alias grep_src_nojs="grep --include=\*.{py,sh,sql,god,rb,mak,ini,conf,crontab,yaml,yml} --include=requirements.txt"
 
 # some more ls aliases
-alias ll='ls -alF'
+alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
 alias lf='ll | grep "^-"' # files
@@ -99,7 +99,7 @@ alias cdo='cd /mnt/moatpro/ops'
 alias cdr='cd /mnt/moatpro/moatpro/moatpro/registry'
 alias cdmt='cd /mnt/moat/search/tasks/mturk'
 alias cdtp='cd /mnt/tagpipeline/tag_pipeline'
-alias cdmb='cd /mnt/moatbot'
+alias cdmb='cd /mnt/moatpro/moatpro.moatbot/moatpro/moatbot'
 alias cdmq='cd /mnt/mqueue'
 alias cdsw='cd /mnt/swfshots'
 alias cdlog='cd /mnt/log/apache2'
