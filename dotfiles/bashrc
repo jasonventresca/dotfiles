@@ -90,6 +90,7 @@ alias ld='ll | grep "^d"' # directories
 alias cdsp='cd /mnt/moatpro/scrapepipeline/scrapepipeline'
 alias cdm='cd /mnt/moatpro'
 alias cdmp='cd /mnt/moatpro/moatpro/moatpro'
+alias cdmb='cd /mnt/moatpro/moatpro.moatbot'
 alias cdmpo='cd /mnt/moatpro/moatpro/moatpro/ops'
 alias cde='cd /mnt/moatpro/scrapepipeline/scrapepipeline/etl'
 alias cdent='cd /mnt/moatpro/moatpro/moatpro/entities'
@@ -105,6 +106,7 @@ alias cdsw='cd /mnt/swfshots'
 alias cdlog='cd /mnt/log/apache2'
 alias cdpd='cd /usr/local/lib/python2.7/dist-packages/'
 alias cdu='cd /mnt/moatpro/moatpro/moatpro/util'
+alias cdud='cd $HOME/dev/udemy_react_101'
 alias apacherestart='sudo /etc/init.d/apache2 restart'
 alias bounce-codename='touch /mnt/codename/*.wsgi'
 alias memcachedrestart='sudo /etc/init.d/memcached restart'
@@ -159,6 +161,8 @@ alias role='cat /mnt/.installed_role'
 # ssh aliases
 alias scp='scp -o PermitLocalCommand=no'
 alias nssh='ssh -o PermitLocalCommand=no'
+alias mssh="ssh -o 'ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@pro-gateway.moat.com nc -q0 %h 22'"
+alias mnssh="ssh -o PermitLocalCommand=no -o 'ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@pro-gateway.moat.com nc -q0 %h 22'"
 alias kill-ssh-agent='ps aux | grep ssh-agent | grep -v grep | awk "{print \$2}" | xargs sudo kill'
 alias mqueue-tunnel='nssh -L 4321:127.0.0.1:80 10.159.169.84'
 
@@ -174,6 +178,8 @@ alias pssh="parallel-ssh -i $PSSH_ARGS"
 alias pscp="parallel-scp $PSSH_ARGS"
 alias pssh-h="parallel-ssh -i $PSSH_ARGS -h ~/hosts"
 alias pscp-h="parallel-scp $PSSH_ARGS -h ~/hosts"
+
+alias tf='terraform'
 
 editconfig() {
     # for editing dotfiles

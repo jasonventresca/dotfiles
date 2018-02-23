@@ -4,12 +4,21 @@ set -eu
 mkdir -p $REPO/bin # in case it's not there yet
 
 install_deb() {
-    sudo apt-get install -y vim git-core tmux build-essential bash-completion \
-                            sl curl python-pip npm exuberant-ctags
+    sudo apt-get install -y \
+        vim \
+        git-core \
+        tmux \
+        build-essential \
+        bash-completion \
+        sl \
+        curl \
+        python-pip \
+        npm \
+        exuberant-ctags \
+        tree
+
     sudo pip install Pygments
-    # TODO - Remove the version freeze once the issue #251 is fixed.
-    #        https://github.com/so-fancy/diff-so-fancy/issues/251
-    sudo npm install -g diff-so-fancy@1.0.0
+    sudo npm install -g diff-so-fancy
 
     sudo $REPO/install_fpp_ubuntu.sh
 }
@@ -19,8 +28,21 @@ install_mac() {
     which brew >/dev/null || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
     brew update
-    brew install vim git tmux bash-completion sl curl coreutils jq fpp diff-so-fancy
-    brew install gnu-sed --with-default-names # sed on Mac OS X sucks
+    brew install \
+        vim \
+        git \
+        tmux \
+        bash-completion \
+        sl \
+        curl \
+        coreutils \
+        jq \
+        fpp \
+        diff-so-fancy \
+        tree
+
+    brew install --with-default-names coreutils findutils gnu-tar gnu-sed gawk gnutls gnu-indent gnu-getopt
+    brew tap homebrew/dupes; brew install grep
     sudo easy_install pip
     sudo pip install Pygments
 }
@@ -56,6 +78,13 @@ install_platform_agnostic() {
 
     # install Vim plugin for surrounding text with parens, brackets, quotes, xml tags and more
     install_vim_plugin "tpope/vim-surround.git"
+
+    # install Emmet (lets you write HTML code faster)
+    install_vim_plugin "mattn/emmet-vim.git"
+
+    # For Terraform files, enable HCL/JSON syntax highlighting.
+    # Also adds a :Terraform command that runs terraform, with tab completion of subcommands.
+    install_vim_plugin "hashivim/vim-terraform.git"
 
 #    # install python libraries that the rope vim plugin will import
 #    # https://github.com/python-rope/rope
