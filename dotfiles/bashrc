@@ -107,6 +107,7 @@ alias cdlog='cd /mnt/log/apache2'
 alias cdpd='cd /usr/local/lib/python2.7/dist-packages/'
 alias cdu='cd /mnt/moatpro/moatpro/moatpro/util'
 alias cdud='cd $HOME/dev/udemy_react_101'
+alias cdd='cd /mnt/moatpro/pageintel/dyn'
 alias src-bash='source $DOTFILES/bashrc'
 alias apacherestart='sudo /etc/init.d/apache2 restart'
 alias bounce-codename='touch /mnt/codename/*.wsgi'
@@ -117,6 +118,8 @@ alias toggle='. ~/toggle/toggle.sh'
 alias instance_id='curl "http://169.254.169.254/latest/meta-data/instance-id"'
 alias fact="elinks -dump randomfunfacts.com | sed -n '/^| /p' | tr -d \|"
 alias tmux="TERM=screen-256color-bce tmux -f $DOTFILES/tmux.conf"
+alias tmux-set-scrollback='tmux set-option -g history-limit' # e.g. tmux-set-scrollback 1000
+alias tmux-get-scrollback='tmux show-options -g | grep history-limit'
 alias ufilext='xargs -n1 basename | cut -d. -f2 | sort | uniq' # unique file extensions among a list of file paths, e.g. $ grep -rl 'DBSession' $REPOS | ufilext
 alias elb_hosts='iam0 && /mnt/moatpro/ops/_common/elb_hosts.py'
 
