@@ -94,6 +94,7 @@ alias cdmb='cd /mnt/moatpro/moatpro.moatbot'
 alias cdmpo='cd /mnt/moatpro/moatpro/moatpro/ops'
 alias cde='cd /mnt/moatpro/scrapepipeline/scrapepipeline/etl'
 alias cdent='cd /mnt/moatpro/moatpro/moatpro/entities'
+alias cdemr='cd /mnt/moatpro/ops/aws-moat/emr'
 alias cdc='echo "(assuming you meant \`cdw\`)" ; cdw'
 alias cdw='cd /mnt/moatpro/moatpro.web/moatpro/web'
 alias cdo='cd /mnt/moatpro/ops'
@@ -483,3 +484,6 @@ function ec2-meta() {
 }
 alias inst-id="ec2-meta instance-id"
 alias iam-info="ec2-meta iam/info"
+
+export SUBLIME_APP='/Applications/Sublime Text 2.app'
+alias subl_open="open -a \"${SUBLIME_APP}\""

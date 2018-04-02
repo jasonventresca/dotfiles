@@ -67,6 +67,13 @@ Host moat-ads2
     SendEnv AWS_*
     SendEnv GIT_*
 
+Host moat-joeb-dev
+    ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@gateway.moat.com nc -q0 %h 22
+    User jasonventresca
+    HostName 10.0.63.125
+    SendEnv AWS_*
+    SendEnv GIT_*
+
 
 Host bingo.local
     User mike
