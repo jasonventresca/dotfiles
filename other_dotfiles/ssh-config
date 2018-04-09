@@ -2,7 +2,7 @@ Host github.com
     StrictHostKeyChecking no
 
 Host moat-jason
-    HostName 10.0.10.103
+    HostName 10.0.1.40
 
 Host moat-staging5
     HostName 10.0.112.214
