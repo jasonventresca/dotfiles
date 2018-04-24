@@ -263,7 +263,10 @@ alias repos-branches='for repo in $(repos-installed) ; do echo "$repo : $(git -C
 
 alias remove_dd_agent='sudo apt-get remove datadog-agent -y'
 
-INPUTRC=$DOTFILES/inputrc
+function latest() {
+    ls -t $1 | head -n 1
+}
+
 
 export GIT_AUTHOR_NAME=Jason Ventresca
 export GIT_COMMITTER_NAME=Jason Ventresca
