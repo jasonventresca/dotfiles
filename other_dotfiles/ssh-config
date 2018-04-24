@@ -2,10 +2,7 @@ Host github.com
     StrictHostKeyChecking no
 
 Host moat-jason
-    HostName 10.0.23.111
-
-Host moat-jason-old
-    HostName 10.0.1.51
+    HostName 10.0.1.40
 
 Host moat-staging5
     HostName 10.0.112.214
@@ -64,6 +61,13 @@ Host moat-ads2
     HostName 10.0.99.131
     ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@gateway.moat.com nc -q0 %h 22
     User ubuntu
+    SendEnv AWS_*
+    SendEnv GIT_*
+
+Host moat-joeb-dev
+    ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@gateway.moat.com nc -q0 %h 22
+    User jasonventresca
+    HostName 10.0.63.125
     SendEnv AWS_*
     SendEnv GIT_*
 
