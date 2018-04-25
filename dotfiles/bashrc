@@ -265,9 +265,10 @@ alias repos-branches='for repo in $(repos-installed) ; do echo "$repo : $(git -C
 alias remove_dd_agent='sudo apt-get remove datadog-agent -y'
 
 function latest() {
-    ls -t $1 | head -n 1
+    ls -lht $1 | head -n 1 | awk '{print $9}'
 }
 
+alias etl-tail='tail -f -n30 $(latest /mnt/tmp/ENSURE-TEMPORARY-etl.py-\*)'
 
 export GIT_AUTHOR_NAME=Jason Ventresca
 export GIT_COMMITTER_NAME=Jason Ventresca
