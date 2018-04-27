@@ -158,7 +158,7 @@ alias ms-accounts='mysql -h codename-accounts.moat.co -u codename -pbigmoat126 c
 alias pg-cn='PGPASSWORD=bigmoat126 psql -d tsdb -U codename -h '
 alias pg-cnl='PGPASSWORD=bigmoat126 psql -d tsdb -U codename -h $(ip-int)'
 alias pg-u='psql -d codename_cache -U ubuntu'
-alias pg-rds='PGPASSWORD=bigmoat126 psql -h search-rds-prod.moat.co -U rcodename -d moatpro'
+alias pg-rds='PGPASSWORD=bigmoat126 psql -h search-rds-prod.moat.co -U codename -d moatpro'
 WEB_TRAFFIC='psql --dbname=postgres://codeload:bigpass126@10.165.87.173:5432/pro'
 
 alias box='cat /mnt/.box_name'
@@ -265,7 +265,11 @@ alias repos-branches='for repo in $(repos-installed) ; do echo "$repo : $(git -C
 
 alias remove_dd_agent='sudo apt-get remove datadog-agent -y'
 
-INPUTRC=$DOTFILES/inputrc
+function latest() {
+    ls -lht $1 | head -n 1 | awk '{print $9}'
+}
+
+alias etl-tail='tail -f -n30 $(latest /mnt/tmp/ENSURE-TEMPORARY-etl.py-\*)'
 
 export GIT_AUTHOR_NAME=Jason Ventresca
 export GIT_COMMITTER_NAME=Jason Ventresca
