@@ -1,0 +1,6 @@
+bin/jsonp-multi
+dotfiles/.lesshst
+dotfiles/.viminfo
+dotfiles/vim/.netrwhist
+dotfiles/vim/autoload
+dotfiles/vim/bundle
