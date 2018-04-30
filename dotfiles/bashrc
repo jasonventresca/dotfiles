@@ -259,6 +259,9 @@ export EDITOR=vim
 alias vim='REAL_HOME=$HOME HOME=$DOTFILES vim'
 alias sudovim='sudo REAL_HOME=$HOME HOME=$DOTFILES vim'
 
+# customize bash readline
+INPUTRC=$DOTFILES/inputrc
+
 alias repos-installed='echo moatpro ; cat /mnt/moatpro/ops/$(cat /mnt/.installed_role)/REPOS | cut -f 2 -d "/" | cut -f 1 -d "."'
 alias repos-installed-paths='repos-installed | xargs -I{} echo /mnt/{}'
 alias repos-branches='for repo in $(repos-installed) ; do echo "$repo : $(git -C /mnt/$repo branch | grep '"'"'^*'"'"' | cut -f 2 -d '"'"' '"'"' )" ; done'
