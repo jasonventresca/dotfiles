@@ -291,7 +291,7 @@ export REPOS='/mnt/moatpro /mnt/moatpanel /mnt/swfshots /mnt/tagpipeline /mnt/mo
 export RDS_SEARCH_PATHS='/mnt/tagpipeline /mnt/moat/search/tasks/mturk /mnt/moat/search/turk-reviewer /mnt/swfshots /mnt/moatpro /mnt/mqueue'
 
 # for OSS project
-export IREQ='--include=requirements.txt --include=setup.py'
+export IREQ='--include=requirements*.txt --include=setup.py'
 export PIP_FREEZE=/mnt/oss_tools/pro_repos_pip_deps/pip_freeze
 export S3_LIC='s3://prod_an.live.data/licenses'
 
