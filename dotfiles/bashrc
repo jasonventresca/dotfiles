@@ -76,8 +76,7 @@ fi
 
 alias grep='grep --color=auto'
 alias cgrep='grep --color=always'
-alias grep_src_nojs="grep --include=\*.{py,sh,sql,god,rb,mak,ini,conf,crontab,yaml,yml} --include=requirements.txt"
-alias grep_node="grep --exclude-dir=node_modules"
+alias grep_src="grep -rI --exclude-dir=node_modules"
 
 # some more ls aliases
 alias ll='ls -alFh'
