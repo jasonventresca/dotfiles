@@ -30,6 +30,11 @@ map * :let @/ = '\<'.expand('<cword>').'\>'\|set hlsearch<C-M>
 map g* :let @/ = expand('<cword>')\|set hlsearch<C-M>
 
 
+" CtrlP settings
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_by_filename = 1
+
+
 " Disabled this one because I couldn't type 'fl' (e.g. as in 'float') without calling Flake8 :)
 " cmap fl call Flake8()
 
