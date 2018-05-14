@@ -48,8 +48,8 @@ install_mac() {
 }
 
 install_vim_plugin() {
-    project="$1"
-    cd $VIM_DIR/bundle && git clone git://github.com/$project
+    local project="$1"
+    cd ${VIM_DIR}/bundle && git clone "git@github.com:${project}"
 }
 
 install_platform_agnostic() {
@@ -85,6 +85,8 @@ install_platform_agnostic() {
     # For Terraform files, enable HCL/JSON syntax highlighting.
     # Also adds a :Terraform command that runs terraform, with tab completion of subcommands.
     install_vim_plugin "hashivim/vim-terraform.git"
+
+    install_vim_plugin "ctrlpvim/ctrlp.vim.git"
 
 #    # install python libraries that the rope vim plugin will import
 #    # https://github.com/python-rope/rope
