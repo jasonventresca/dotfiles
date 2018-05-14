@@ -4,3 +4,4 @@ dotfiles/.viminfo
 dotfiles/vim/.netrwhist
 dotfiles/vim/autoload
 dotfiles/vim/bundle
+dotfiles/.cache
