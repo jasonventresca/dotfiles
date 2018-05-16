@@ -8,6 +8,7 @@ install_deb() {
         vim \
         git-core \
         tmux \
+        exuberant-ctags \
         build-essential \
         bash-completion \
         sl \

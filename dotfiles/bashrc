@@ -273,6 +273,7 @@ function latest() {
 }
 
 alias etl-tail='tail -f -n30 $(latest /mnt/tmp/ENSURE-TEMPORARY-etl.py-\*)'
+alias ensure='/mnt/moatpro/moatpro/moatpro/registry/ensure.sh'
 
 export GIT_AUTHOR_NAME=Jason Ventresca
 export GIT_COMMITTER_NAME=Jason Ventresca
