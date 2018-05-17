@@ -22,7 +22,10 @@ nnoremap <C-H> <C-W><C-H>
 
 " Ctrl-P settings
 map ff :CtrlP<.><cr>
+map fd :CtrlP<.><cr>
 let g:ctrlp_user_command = 'find %s \( -path "*\.git/*" -o -path "*/node_modules/*" -o -path "*/__pycache__/*" -o -name "*.pyc" \) -prune -o -type f -print'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_by_filename = 1
 
 set tags=$HOME/.py-ctags
 
@@ -32,11 +35,6 @@ packadd! matchit
 " http://superuser.com/a/255120
 map * :let @/ = '\<'.expand('<cword>').'\>'\|set hlsearch<C-M>
 map g* :let @/ = expand('<cword>')\|set hlsearch<C-M>
-
-
-" CtrlP settings
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_by_filename = 1
 
 
 " Disabled this one because I couldn't type 'fl' (e.g. as in 'float') without calling Flake8 :)

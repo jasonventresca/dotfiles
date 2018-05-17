@@ -76,8 +76,8 @@ fi
 
 alias grep='grep --color=auto'
 alias cgrep='grep --color=always'
-alias grep_src="grep -rI --exclude-dir={node_modules,.webassets-cache}"
-alias g=grep_src
+alias g="grep -rI --exclude-dir={node_modules,.webassets-cache,.git}"
+alias grep_src=g
 
 # some more ls aliases
 alias ll='ls -alFh'
