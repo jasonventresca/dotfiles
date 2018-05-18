@@ -78,14 +78,14 @@ Host bingo.local
     SendEnv AWS_*
     SendEnv GIT_*
     PermitLocalCommand yes
-    LocalCommand $DOTFILES/../remote_install_dotfiles.sh %n %p
+    LocalCommand $DOTFILES/../setup/dotfiles_remote.sh %n %p
 
 Host foodieland
     HostName 52.201.92.223
     User ubuntu
     IdentityFile ~/.ssh/foodieland.pem
     PermitLocalCommand yes
-    LocalCommand $DOTFILES/../remote_install_dotfiles.sh %n %p
+    LocalCommand $DOTFILES/../setup/dotfiles_remote.sh %n %p
     ForwardAgent yes
 
 Host pro-gateway.moat.com pro-classic-gateway.moat.com gateway.moat.com
@@ -104,7 +104,7 @@ Host 10.*.*.* moat-*
     SendEnv AWS_*
     SendEnv GIT_*
     PermitLocalCommand yes
-    LocalCommand $DOTFILES/../remote_install_dotfiles.sh %n %p
+    LocalCommand $DOTFILES/../setup/dotfiles_remote.sh %n %p
 
 Host 10.*.*.* !10.0.*.* !10.1.*.*
     ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@pro-classic-gateway.moat.com nc -q0 %h 22

@@ -23,9 +23,9 @@ install_deb() {
     sudo pip install Pygments
     sudo npm install -g diff-so-fancy
 
-    sudo $REPO/install_fpp_ubuntu.sh
+    sudo $REPO/setup/debian/fpp.sh
 
-    sudo $REPO/install_ctags_linux.sh
+    sudo $REPO/setup/linux/ctags.sh
 }
 
 install_mac() {

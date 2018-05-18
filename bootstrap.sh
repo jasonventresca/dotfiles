@@ -44,9 +44,9 @@ else
 fi
 
 echo "Installing dev tools..."
-$REPO/install_dev_tools.sh
+$REPO/setup/dev_tools.sh
 
 echo "Installing dotfiles..."
-$REPO/install_dotfiles.sh
+$REPO/setup/dotfiles.sh
 
 echo "OK, done!"
