@@ -3,9 +3,6 @@ set -eu
 
 REPO=$HOME/dotfiles.jason_ventresca
 
-echo "Installing dev tools"
-$REPO/install_tools.sh
-
 source $REPO/util/platform.sh
 
 if is_macOS ; then

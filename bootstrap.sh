@@ -25,23 +25,28 @@ install_git() {
 }
 
 if [ -d $REPO ] ; then
-    echo "Dotfiles already installed. Checking for updates..."
+    echo "Dotfiles repo already cloned. Pulling any updates..."
     cd $REPO && git pull origin master
 
 else
-    echo "Dotfiles not installed yet."
+    echo "Dotfiles repo does not exist locally."
     # install git if not already
     if ! git --version 1>/dev/null 2>/dev/null ; then
         install_git
     fi
 
-    echo "Downloading dotfiles now..."
-
+    echo "Cloning dotfiles..."
     git clone $REMOTE $REPO
 
     cd $REPO && git remote set-url origin $REMOTE
+
+    echo "Dotfiles cloned successfully."
 fi
 
-$REPO/install.sh
+echo "Installing dev tools..."
+$REPO/install_dev_tools.sh
+
+echo "Installing dotfiles..."
+$REPO/install_dotfiles.sh
 
 echo "OK, done!"
