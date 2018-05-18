@@ -3,6 +3,10 @@ set -eu
 
 mkdir -p $REPO/bin # in case it's not there yet
 
+THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+source $THIS_DIR/util/platform.sh
+
 install_deb() {
     sudo apt-get install -y \
         vim \
@@ -100,10 +104,12 @@ install_platform_agnostic() {
 
 ERROR_MSG="ERROR: not all dev tools were installed!"
 
-if uname | grep -i darwin >/dev/null ; then
+if is_macOS ; then
     install_mac || echo $ERROR_MSG
-else
+
+elif is_Linux ; then
     install_deb || echo $ERROR_MSG
+
 fi
 
 install_platform_agnostic || echo $ERROR_MSG

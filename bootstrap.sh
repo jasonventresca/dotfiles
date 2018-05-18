@@ -1,14 +1,33 @@
 #!/bin/bash
 set -eu
-export REPO=$HOME/dotfiles.jason_ventresca
+
 REMOTE='git@github.com:jasonventresca/dotfiles.git'
 
+############################################################
+# TODO: The following exists in util/platform.sh.
+#       Rather than duplicating it here, maybe we should do
+#       something like:
+#       source <(curl "github.com/path/to/raw/platform.sh")
+PLATFORM_MACOS='Darwin'
+PLATFORM_LINUX='Linux'
+
+function is_macOS() {
+    [[ $(uname) = ${PLATFORM_MACOS} ]]
+}
+
+function is_Linux() {
+    [[ $(uname) = ${PLATFORM_LINUX} ]]
+}
+############################################################
+
+THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source $THIS_DIR/util/platform.sh
+
 install_git() {
-    if uname | grep -i darwin >/dev/null ; then
-        # Mac OS X
+    if is_macOS ; then
         brew install git
-    else
-        # Ubuntu
+
+    elif is_Linux ; then
         sudo apt-get install -y git-core
     fi
 }
@@ -16,6 +35,7 @@ install_git() {
 if [ -d $REPO ] ; then
     echo "Dotfiles already installed. Checking for updates..."
     cd $REPO && git pull origin master
+
 else
     echo "Dotfiles not installed yet."
     # install git if not already
