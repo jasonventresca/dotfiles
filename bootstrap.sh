@@ -3,25 +3,17 @@ set -eu
 
 REMOTE='git@github.com:jasonventresca/dotfiles.git'
 
-############################################################
-# TODO: The following exists in util/platform.sh.
-#       Rather than duplicating it here, maybe we should do
-#       something like:
-#       source <(curl "github.com/path/to/raw/platform.sh")
-PLATFORM_MACOS='Darwin'
-PLATFORM_LINUX='Linux'
+# Source bash files directly from github (via the "raw" feature).
+function import_from_github() {
+    local rel_path="$1"
 
-function is_macOS() {
-    [[ $(uname) = ${PLATFORM_MACOS} ]]
+    local url_base='https://raw.githubusercontent.com/jasonventresca/dotfiles/master'
+    source <(curl "${url_base}/${rel_path}" 2>/dev/null)
 }
 
-function is_Linux() {
-    [[ $(uname) = ${PLATFORM_LINUX} ]]
-}
-############################################################
+import_from_github util/vars.sh
+import_from_github util/platform.sh
 
-THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-source $THIS_DIR/util/platform.sh
 
 install_git() {
     if is_macOS ; then
