@@ -3,6 +3,9 @@ set -eu
 
 # https://github.com/universal-ctags/ctags
 
+# TODO: this is not for all Linux, only debian
+sudo apt-get install -y autoconf
+
 (
     cd $HOME
     git clone 'https://github.com/universal-ctags/ctags.git'
