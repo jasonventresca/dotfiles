@@ -1,9 +1,9 @@
 #!/bin/bash
 set -eu
 
-THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+REPO=$HOME/dotfiles.jason_ventresca
 
-source $THIS_DIR/util/platform.sh
+source $REPO/util/platform.sh
 
 function install_linux() {
     (

@@ -1,11 +1,11 @@
 #!/bin/bash
 set -eu
 
+REPO=$HOME/dotfiles.jason_ventresca
+
 mkdir -p $REPO/bin # in case it's not there yet
 
-THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-source $THIS_DIR/util/platform.sh
+source $REPO/util/platform.sh
 
 install_deb() {
     sudo apt-get install -y \
