@@ -12,20 +12,20 @@ install_deb() {
         vim \
         git-core \
         tmux \
-        exuberant-ctags \
         build-essential \
         bash-completion \
         sl \
         curl \
         python-pip \
         npm \
-        exuberant-ctags \
         tree
 
     sudo pip install Pygments
     sudo npm install -g diff-so-fancy
 
     sudo $REPO/install_fpp_ubuntu.sh
+
+    sudo $REPO/install_ctags_linux.sh
 }
 
 install_mac() {
@@ -48,6 +48,10 @@ install_mac() {
 
     brew install --with-default-names coreutils findutils gnu-tar gnu-sed gawk gnutls gnu-indent gnu-getopt
     brew tap homebrew/dupes; brew install grep
+
+    # https://github.com/universal-ctags/homebrew-universal-ctags
+    brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+
     sudo easy_install pip
     sudo pip install Pygments
 }
