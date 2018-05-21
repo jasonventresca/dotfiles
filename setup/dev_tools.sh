@@ -25,7 +25,11 @@ install_deb() {
 
     sudo $REPO/setup/debian/fpp.sh
 
-    sudo $REPO/setup/linux/ctags.sh
+    # TODO: Enable this when universal-ctags becomes a stable Debian/Ubuntu package
+    #       (It's currently "unstable" at https://packages.debian.org/sid/editors/universal-ctags)
+    #       The line below was disabled because it takes ~40s to build from source, and I don't
+    #       want to wait that long most of the time I'm ssh'ing to a new box.
+    # sudo $REPO/setup/linux/ctags.sh
 }
 
 install_mac() {
