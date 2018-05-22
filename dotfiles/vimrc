@@ -29,6 +29,10 @@ let g:ctrlp_by_filename = 1
 
 set tags=$HOME/.py-ctags
 
+" When using :checktime, automatically re-load files that have changed
+" outside of Vim, but whose Vim buffers are clean.
+set autoread
+
 packadd! matchit
 
 " Highlight search term without jumping to the next occurrence
