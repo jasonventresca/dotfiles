@@ -1,6 +1,6 @@
 DOT_JV='dotfiles.jason_ventresca'
 export DOTFILES=$HOME/$DOT_JV/dotfiles
-export PATH=$PATH:$HOME/$DOT_JV/bin
+export PATH="$HOME/$DOT_JV/bin":"$PATH"
 export REGISTRY='/mnt/moatpro/moatpro/moatpro/registry'
 
 # If not running interactively, don't do anything

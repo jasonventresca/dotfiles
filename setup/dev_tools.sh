@@ -21,7 +21,6 @@ install_deb() {
         tree
 
     sudo pip install Pygments
-    sudo npm install -g diff-so-fancy
 
     sudo $REPO/setup/debian/fpp.sh
 
@@ -47,7 +46,6 @@ install_mac() {
         coreutils \
         jq \
         fpp \
-        diff-so-fancy \
         tree
 
     brew install --with-default-names coreutils findutils gnu-tar gnu-sed gawk gnutls gnu-indent gnu-getopt
