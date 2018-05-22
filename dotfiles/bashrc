@@ -422,7 +422,7 @@ EOT
 }
 
 function py-workon() {
-    source /mnt/moatpro/ops/_common/venv_workon.sh $1
+    source /mnt/moatpro/ops/_common/py_venv/workon.sh $1
 }
 
 function ivim() {
