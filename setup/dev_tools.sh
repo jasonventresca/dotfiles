@@ -69,6 +69,9 @@ install_platform_agnostic() {
     [[ -e $REPO/bin/jsonp-multi ]] || \
             ln -s $REPO/scripts/linewise_json_pretty.py $REPO/bin/jsonp-multi
 
+    # diff-so-fancy, for nicer looking git diffs.
+    $REPO/setup/all/diff-so-fancy.sh
+
     # install pathogen for Vim
     # https://github.com/tpope/vim-pathogen
     if ! [[ -e $VIM_DIR/autoload/pathogen.vim ]]; then
