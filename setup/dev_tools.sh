@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eu
+set -eux
 
 REPO=$HOME/dotfiles.jason_ventresca
 
@@ -60,7 +60,9 @@ install_mac() {
 
 install_vim_plugin() {
     local project="$1"
-    cd ${VIM_DIR}/bundle && git clone "git@github.com:${project}"
+    if ! [[ -d "$VIM_DIR/bundle/$project" ]] ; then
+        cd ${VIM_DIR}/bundle && git clone "git@github.com:${project}"
+    fi
 }
 
 install_platform_agnostic() {

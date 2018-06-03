@@ -1,5 +1,6 @@
 Host github.com
     StrictHostKeyChecking no
+    IdentityFile ~/.ssh/id_rsa_github_personal
 
 Host moat-jason
     HostName 10.0.1.40

@@ -33,7 +33,7 @@ set tags=$HOME/.py-ctags
 " outside of Vim, but whose Vim buffers are clean.
 set autoread
 
-packadd! matchit
+"packadd! matchit
 
 " Highlight search term without jumping to the next occurrence
 " http://superuser.com/a/255120
