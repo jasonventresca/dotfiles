@@ -26,8 +26,8 @@ map fd :CtrlP<.><cr>
 let g:ctrlp_user_command = 'find $REPOS $DOTFILES/.. $HOME/dev/udemy_react_101 %s \( -path "*\.git/*" -o -path "*/node_modules/*" -o -path "*/__pycache__/*" -o -name "*.pyc" \) -prune -o -type f -print | sort | uniq'
 let g:ctrlp_by_filename = 0
 let g:ctrlp_regexp = 1
+" The setting below is useless, since we're using ctrlp_user_command.
 "let g:ctrlp_working_path_mode = 'ra'
-"set wildignore+=*/.git/*,*/node_modules/*,*/__pycache__/,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk
 
 
 set tags=$HOME/.py-ctags
@@ -36,7 +36,7 @@ set tags=$HOME/.py-ctags
 " outside of Vim, but whose Vim buffers are clean.
 set autoread
 
-packadd! matchit
+"packadd! matchit
 
 " Highlight search term without jumping to the next occurrence
 " http://superuser.com/a/255120
