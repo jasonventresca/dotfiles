@@ -106,6 +106,8 @@ Host 10.*.*.* moat-*
     SendEnv GIT_*
     PermitLocalCommand yes
     LocalCommand $DOTFILES/../setup/dotfiles_remote.sh %n %p
+    UserKnownHostsFile=/dev/null
+    StrictHostKeyChecking=no
 
 Host 10.*.*.* !10.0.*.* !10.1.*.*
     ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@pro-classic-gateway.moat.com nc -q0 %h 22
