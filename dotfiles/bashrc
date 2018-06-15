@@ -102,6 +102,8 @@ alias cdo='cd /mnt/moatpro/ops'
 alias cdr='cd /mnt/moatpro/moatpro/moatpro/registry'
 alias cdmt='cd /mnt/moat/search/tasks/mturk'
 alias cdtp='cd /mnt/tagpipeline/tag_pipeline'
+alias cdt='cd /mnt/moatpro/ops/aws-moat/terraform'
+alias cdtt='cd /mnt/moatpro/ops/aws-moat/terraform/test'
 alias cdmb='cd /mnt/moatpro/moatpro.moatbot/moatpro/moatbot'
 alias cdmq='cd /mnt/mqueue'
 alias cdsw='cd /mnt/swfshots'
@@ -265,7 +267,9 @@ INPUTRC=$DOTFILES/inputrc
 
 alias repos-installed='echo moatpro ; cat /mnt/moatpro/ops/$(cat /mnt/.installed_role)/REPOS | cut -f 2 -d "/" | cut -f 1 -d "."'
 alias repos-installed-paths='repos-installed | xargs -I{} echo /mnt/{}'
-alias repos-branches='for repo in $(repos-installed) ; do echo "$repo : $(git -C /mnt/$repo branch | grep '"'"'^*'"'"' | cut -f 2 -d '"'"' '"'"' )" ; done'
+alias all-repos-branches='for repo in ${REPOS} ; do echo ${repo} : $(git -C $repo branch  | grep ^\* | cut -f 2 -d " ") ; done'
+alias repos-branches='for repo in $(repos-installed) ; do echo ${repo} : $(git -C /mnt/${repo} branch | grep ^\* | cut -f 2 -d " ") ; done'
+alias all-repos-status='for repo in ${REPOS} ; do git -C $repo status ; done'
 
 alias remove_dd_agent='sudo apt-get remove datadog-agent -y'
 
