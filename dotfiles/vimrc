@@ -20,6 +20,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+
 " Ctrl-P settings
 map ff :CtrlP<.><cr>
 map fd :CtrlP<.><cr>
@@ -29,6 +30,10 @@ let g:ctrlp_regexp = 1
 " The setting below is useless, since we're using ctrlp_user_command.
 "let g:ctrlp_working_path_mode = 'ra'
 " Can use this to clear the CtrlP cache while vim is open - :CtrlPClearCache
+
+
+" Buffer management
+map bb :buffers<CR>:buffer<Space>
 
 
 set tags=$HOME/.py-ctags
