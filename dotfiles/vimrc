@@ -28,6 +28,7 @@ let g:ctrlp_by_filename = 0
 let g:ctrlp_regexp = 1
 " The setting below is useless, since we're using ctrlp_user_command.
 "let g:ctrlp_working_path_mode = 'ra'
+" Can use this to clear the CtrlP cache while vim is open - :CtrlPClearCache
 
 
 set tags=$HOME/.py-ctags

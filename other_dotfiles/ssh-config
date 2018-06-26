@@ -9,6 +9,10 @@ Host moat-analytics-dev
     HostName 10.0.159.213
     ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@gateway.moat.com nc -q0 %h 22
 
+Host moat-nado-staging
+    HostName 10.0.84.230
+    ProxyCommand ssh -i ~/.ssh/id_rsa ubuntu@nhtjsonp-gateway.moat.com nc -q0 %h 22
+
 Host moat-staging5
     HostName 10.0.112.214
 
