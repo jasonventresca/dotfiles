@@ -33,7 +33,7 @@ let g:ctrlp_regexp = 1
 
 
 " Buffer management
-map bb :buffers<CR>:buffer<Space>
+map bf :buffers<CR>:buffer<Space>
 
 
 set tags=$HOME/.py-ctags
