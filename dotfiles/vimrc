@@ -24,7 +24,7 @@ nnoremap <C-H> <C-W><C-H>
 " Ctrl-P settings
 map ff :CtrlP<.><cr>
 map fd :CtrlP<.><cr>
-let g:ctrlp_user_command = 'find $REPOS $DOTFILES/.. $HOME/dev/udemy_react_101 /mnt/v2.5 %s \( -path "*\.git/*" -o -path "*/node_modules/*" -o -path "*/__pycache__/*" -o -name "*.pyc" \) -prune -o -type f -print | sort | uniq'
+let g:ctrlp_user_command = 'find $REPOS $DOTFILES/.. $HOME/dev/udemy_react_101 $HOME/v2.5 %s \( -path "*\.git/*" -o -path "*/node_modules/*" -o -path "*/__pycache__/*" -o -name "*.pyc" \) -prune -o -type f -print | sort | uniq'
 let g:ctrlp_by_filename = 0
 let g:ctrlp_regexp = 1
 " The setting below is useless, since we're using ctrlp_user_command.
