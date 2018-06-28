@@ -156,12 +156,10 @@ alias luc="/mnt/moatpro/ops/_common/local_update_code.py"
 # some common RDBMS commands
 alias mamp_mysql=/Applications/MAMP/Library/bin/mysql
 alias mamp_mysql_root='/Applications/MAMP/Library/bin/mysql -u root -proot'
-alias ms-search='mysql -h db.moat.co -u codename -pbigmoat126'
-alias ms-accounts='mysql -h codename-accounts.moat.co -u codename -pbigmoat126 codename_accounts'
-alias pg-cn='PGPASSWORD=bigmoat126 psql -d tsdb -U codename -h '
-alias pg-cnl='PGPASSWORD=bigmoat126 psql -d tsdb -U postgres -h localhost'
+alias pg-cn='psql -d tsdb -U codename -h '
+alias pg-cnl='psql -d tsdb -U postgres -h localhost'
 alias pg-u='psql -d codename_cache -U ubuntu'
-alias pg-rds='PGPASSWORD=bigmoat126 psql -h search-rds-prod.moat.co -U codename -d moatpro'
+alias pg-rds='psql -h search-rds-prod.moat.co -U codename -d moatpro'
 WEB_TRAFFIC='psql --dbname=postgres://codeload:bigpass126@10.165.87.173:5432/pro'
 
 alias box='cat /mnt/.box_name'
