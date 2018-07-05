@@ -61,7 +61,7 @@ install_mac() {
 install_vim_plugin() {
     local project="$1"
     if ! [[ -d "$VIM_DIR/bundle/$project" ]] ; then
-        cd ${VIM_DIR}/bundle && git clone "git@github.com:${project}"
+        cd ${VIM_DIR}/bundle && git clone "git@github.com:${project}.git"
     fi
 }
 
@@ -82,34 +82,36 @@ install_platform_agnostic() {
     fi
 
     # install Vim plugin for aligning text (Tabular.vim)
-    install_vim_plugin "godlygeek/tabular.git"
+    install_vim_plugin "godlygeek/tabular"
 
     # install fugitive Vim plugin
-    install_vim_plugin "tpope/vim-fugitive.git"
+    install_vim_plugin "tpope/vim-fugitive"
     vim -u NONE -c "helptags vim-fugitive/doc" -c q
 
     # install flake8 and Vim plugin
     sudo pip install flake8
-    install_vim_plugin "nvie/vim-flake8.git"
+    install_vim_plugin "nvie/vim-flake8"
 
     # install Vim plugin for surrounding text with parens, brackets, quotes, xml tags and more
-    install_vim_plugin "tpope/vim-surround.git"
+    install_vim_plugin "tpope/vim-surround"
 
     # install Emmet (lets you write HTML code faster)
-    install_vim_plugin "mattn/emmet-vim.git"
+    install_vim_plugin "mattn/emmet-vim"
 
     # For Terraform files, enable HCL/JSON syntax highlighting.
     # Also adds a :Terraform command that runs terraform, with tab completion of subcommands.
-    install_vim_plugin "hashivim/vim-terraform.git"
+    install_vim_plugin "hashivim/vim-terraform"
 
-    install_vim_plugin "ctrlpvim/ctrlp.vim.git"
+    install_vim_plugin "ctrlpvim/ctrlp.vim"
+
+    install_vim_plugin "jeetsukumaran/vim-buffergator"
 
 #    # install python libraries that the rope vim plugin will import
 #    # https://github.com/python-rope/rope
 #    sudo pip install rope ropevim
 #
 #    # install Vim plugin for rope python tools
-#    cd $VIM_DIR/bundle && git clone 'https://github.com/python-rope/ropevim.git'
+#    install_vim_plugin "python-rope/ropevim"
 
 }
 
