@@ -35,6 +35,7 @@ let g:ctrlp_regexp = 1
 " Buffer management - use <Leader> is for vim-buffergator.
 map bf <Leader>b
 imap bf <Leader>b
+let g:buffergator_viewport_split_policy="B"
 
 
 set tags=$HOME/.py-ctags
