@@ -181,7 +181,9 @@ alias notes='cd ~/Dropbox/moat_notes && ls -lht | head -n40'
 alias notes40='cd ~/Dropbox/moat_notes && ls -lht | head -n40'
 alias clockout='head -n40 ~/Dropbox/moat_notes/status'
 
-alias md='markdown_edit --preview'
+function md() {
+    markserv $@ -l
+}
 
 # parallel-ssh/scp aliases
 PSSH_ARGS='-v -p8 --timeout=10 -O PermitLocalCommand=no -O StrictHostKeyChecking=no'

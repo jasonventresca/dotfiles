@@ -46,7 +46,8 @@ install_mac() {
         coreutils \
         jq \
         fpp \
-        tree
+        tree \
+        node
 
     brew install --with-default-names coreutils findutils gnu-tar gnu-sed gawk gnutls gnu-indent gnu-getopt
     brew tap homebrew/dupes; brew install grep
@@ -105,6 +106,10 @@ install_platform_agnostic() {
     install_vim_plugin "ctrlpvim/ctrlp.vim"
 
     install_vim_plugin "jeetsukumaran/vim-buffergator"
+
+    # TODO: Is this too slow?
+    #       Maybe should only do if not already installed.
+    sudo npm install -g markserv
 
 #    # install python libraries that the rope vim plugin will import
 #    # https://github.com/python-rope/rope
