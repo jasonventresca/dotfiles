@@ -57,6 +57,9 @@ install_mac() {
 
     sudo easy_install pip
     sudo pip install Pygments
+
+    # This is platform-agnostic; however I typically only use this tool on my Mac.
+    sudo npm install -g markserv
 }
 
 install_vim_plugin() {
@@ -106,10 +109,6 @@ install_platform_agnostic() {
     install_vim_plugin "ctrlpvim/ctrlp.vim"
 
     install_vim_plugin "jeetsukumaran/vim-buffergator"
-
-    # TODO: Is this too slow?
-    #       Maybe should only do if not already installed.
-    sudo npm install -g markserv
 
 #    # install python libraries that the rope vim plugin will import
 #    # https://github.com/python-rope/rope
