@@ -161,6 +161,8 @@ alias pg-cnl='psql -d tsdb -U postgres -h localhost'
 alias pg-u='psql -d codename_cache -U ubuntu'
 alias pg-rds='psql -h search-rds-prod.moat.co -U codename -d moatpro'
 WEB_TRAFFIC='psql --dbname=postgres://codeload:bigpass126@10.165.87.173:5432/pro'
+alias pg-primary='psql -h postgres.moat.com -d analytics -U analytics'
+alias pg-decanter='psql -h 10.0.62.179 -d decanter -U analytics'
 
 alias box='cat /mnt/.box_name'
 alias role='cat /mnt/.installed_role'
