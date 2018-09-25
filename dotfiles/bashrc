@@ -88,6 +88,8 @@ alias ld='ll | grep "^d"' # directories
 
 
 # some miscellaneous aliases
+alias cdv='cd $HOME/v2.5'
+alias cdn='cd $HOME/v2.5/nhtjsonp'
 alias cdsp='cd /mnt/moatpro/scrapepipeline/scrapepipeline'
 alias cdm='cd /mnt/moatpro'
 alias cdmp='cd /mnt/moatpro/moatpro/moatpro'
