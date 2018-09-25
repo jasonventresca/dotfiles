@@ -179,6 +179,7 @@ alias ssh-vagrant-cachebuild-worker="cd ~/vagrant/cachebuild-worker && ssh ubunt
 
 alias notes='cd ~/Dropbox/moat_notes && tree -Drt | head -n 40'
 alias clockout='head -n40 ~/Dropbox/moat_notes/status'
+alias mtg-notes="${DOTFILES}/../scripts/mtg_notes_this_week.py"
 
 function md() {
     markserv $@ -l
