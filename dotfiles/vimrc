@@ -14,6 +14,7 @@ set number
 set cursorline
 set backspace=indent,eol,start
 set colorcolumn=101
+set modeline
 hi ColorColumn ctermbg=Blue
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
