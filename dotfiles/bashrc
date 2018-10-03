@@ -1,6 +1,6 @@
 DOT_JV='dotfiles.jason_ventresca'
 export DOTFILES=$HOME/$DOT_JV/dotfiles
-export PATH="$HOME/$DOT_JV/bin":"$PATH":"/Users/jasonventresca/Library/Python/3.7/bin":"/home/ubuntu/.local"
+export PATH="$HOME/$DOT_JV/bin":"$PATH":"/Users/jasonventresca/Library/Python/3.7/bin":"/home/ubuntu/.local/bin"
 export REGISTRY='/mnt/moatpro/moatpro/moatpro/registry'
 
 # If not running interactively, don't do anything
