@@ -10,7 +10,7 @@ MTG_DIR = '/Users/jasonventresca/Dropbox/moat_notes/mtg/standup'
 def get_monday(dt=None):
     dt = dt or datetime.now()
     return dt - timedelta(days=(
-        dt.weekday() - 1
+        dt.weekday()
     ))
 
 
