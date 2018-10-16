@@ -114,12 +114,14 @@ install_platform_agnostic() {
 
     install_vim_plugin "jeetsukumaran/vim-buffergator"
 
-#    # install python libraries that the rope vim plugin will import
-#    # https://github.com/python-rope/rope
-#    sudo pip install rope ropevim
-#
-#    # install Vim plugin for rope python tools
-#    install_vim_plugin "python-rope/ropevim"
+    ## install python libraries that the rope vim plugin will import
+    ## https://github.com/python-rope/rope
+    #sudo pip install rope ropevim
+
+    ## install Vim plugin for rope python tools
+    #install_vim_plugin "python-rope/ropevim"
+
+    sudo gem install terraform_landscape
 
 }
 
