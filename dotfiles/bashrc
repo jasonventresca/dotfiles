@@ -198,6 +198,10 @@ alias vshield-stop='sudo /usr/local/McAfee/AntiMalware/VSControl stopoas'
 alias vshield-start='sudo /usr/local/McAfee/AntiMalware/VSControl startoas'
 
 alias tf='terraform'
+alias tfp='tf validate && tf fmt && tf plan -out=tfplan'
+alias tfpl='tf validate && tf fmt && tf plan -out=tfplan | landscape'
+function tfpt { tf plan -target="$1" -out=tfplan; }
+function tfptl { tf plan -target="$1" -out=tfplan | landscape; }
 
 editconfig() {
     # for editing dotfiles
