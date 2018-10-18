@@ -172,10 +172,8 @@ alias role='cat /mnt/.installed_role'
 # ssh aliases
 alias scp='scp -o PermitLocalCommand=no'
 alias nssh='ssh -o PermitLocalCommand=no'
-alias mssh="ssh -o 'ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@pro-gateway.moat.com nc -q0 %h 22'"
-alias mnssh="ssh -o PermitLocalCommand=no -o 'ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@pro-gateway.moat.com nc -q0 %h 22'"
-alias ssha='ssh -o "ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@gateway.moat.com nc -q0 %h 22"'
-alias nssha='nssh -o "ProxyCommand ssh -i ~/.ssh/id_rsa jasonventresca@gateway.moat.com nc -q0 %h 22"'
+alias sshp='ssh -o "ProxyCommand ssh -i ~/.ssh/id_rsa pro-gateway.moat.com nc -q0 %h 22"'
+alias nsshp='nssh -o "ProxyCommand ssh -i ~/.ssh/id_rsa pro-gateway.moat.com nc -q0 %h 22"'
 alias kill-ssh-agent='ps aux | grep ssh-agent | grep -v grep | awk "{print \$2}" | xargs sudo kill'
 alias mqueue-tunnel='nssh -L 4321:127.0.0.1:80 10.159.169.84'
 
