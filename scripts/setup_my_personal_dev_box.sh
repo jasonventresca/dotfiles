@@ -14,16 +14,16 @@ set -eu
 
 echo "disabling wacky git and vim aliases in bashrc that re-point \$HOME"
 sed -i \
-    -e 's/\(alias git=.*\)/#\1 # Disabled by setup_my_analytics_box.sh/' \
-    -e 's/\(alias vim=.*\)/#\1 # Disabled by setup_my_analytics_box.sh/' \
-    -e 's/\(alias sudovim=.*\)/#\1 # Disabled by setup_my_analytics_box.sh/' \
-    /home/ubuntu/dotfiles.jason_ventresca/dotfiles/bashrc
+    -e 's/\(alias git=.*\)/#\1 # Disabled by setup_my_personal_dev_box.sh/' \
+    -e 's/\(alias vim=.*\)/#\1 # Disabled by setup_my_personal_dev_box.sh/' \
+    -e 's/\(alias sudovim=.*\)/#\1 # Disabled by setup_my_personal_dev_box.sh/' \
+    ${HOME}/dotfiles.jason_ventresca/dotfiles/bashrc
 
 
 echo "symlink'ing git and vim dotfiles from home dir into jv's dotfiles repo"
-ln -sf /home/ubuntu/dotfiles.jason_ventresca/dotfiles/gitconfig ~/.gitconfig
-ln -sf /home/ubuntu/dotfiles.jason_ventresca/dotfiles/vimrc ~/.vimrc
-rm -rf ~/.vim && ln -s /home/ubuntu/dotfiles.jason_ventresca/dotfiles/vim ~/.vim
+ln -sf ${HOME}/dotfiles.jason_ventresca/dotfiles/gitconfig ~/.gitconfig
+ln -sf ${HOME}/dotfiles.jason_ventresca/dotfiles/vimrc ~/.vimrc
+rm -rf ~/.vim && ln -s ${HOME}/dotfiles.jason_ventresca/dotfiles/vim ~/.vim
 
 echo "done :)"
 echo
