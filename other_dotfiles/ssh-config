@@ -89,8 +89,5 @@ Host 10.*.*.* moat-*
     StrictHostKeyChecking=no
     IdentityFile ~/.ssh/id_rsa
 
-Host 10.*.*.* !10.0.*.* !10.1.*.*
-    ProxyCommand ssh pro-classic-gateway.moat.com nc -q0 %h 22
-
-Host 10.0.*.* 10.1.*.* moat-*
+Host 10.*.*.* moat-*
     ProxyCommand ssh gateway.moat.com nc -q0 %h 22

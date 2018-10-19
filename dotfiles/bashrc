@@ -172,8 +172,8 @@ alias role='cat /mnt/.installed_role'
 # ssh aliases
 alias scp='scp -o PermitLocalCommand=no'
 alias nssh='ssh -o PermitLocalCommand=no'
-alias sshp='ssh -o "ProxyCommand ssh -i ~/.ssh/id_rsa pro-gateway.moat.com nc -q0 %h 22"'
-alias nsshp='nssh -o "ProxyCommand ssh -i ~/.ssh/id_rsa pro-gateway.moat.com nc -q0 %h 22"'
+alias sshp='ssh -o "ProxyCommand ssh pro-gateway.moat.com nc -q0 %h 22"'
+alias nsshp='nssh -o "ProxyCommand ssh pro-gateway.moat.com nc -q0 %h 22"'
 alias kill-ssh-agent='ps aux | grep ssh-agent | grep -v grep | awk "{print \$2}" | xargs sudo kill'
 alias mqueue-tunnel='nssh -L 4321:127.0.0.1:80 10.159.169.84'
 
@@ -189,10 +189,11 @@ function md() {
 
 # parallel-ssh/scp aliases
 PSSH_ARGS='-v -p8 --timeout=10 -O PermitLocalCommand=no -O StrictHostKeyChecking=no'
-alias pssh="parallel-ssh -i $PSSH_ARGS"
-alias pscp="parallel-scp $PSSH_ARGS"
-alias pssh-h="parallel-ssh -i $PSSH_ARGS -h ~/hosts"
-alias pscp-h="parallel-scp $PSSH_ARGS -h ~/hosts"
+PRO_GW_ARGS='-O "ProxyCommand ssh pro-gateway.moat.com nc -q0 %h 22"'
+alias pssh="parallel-ssh -i ${PSSH_ARGS}"
+alias pscp="parallel-scp ${PSSH_ARGS}"
+alias psshp="parallel-ssh -i ${PSSH_ARGS} ${PRO_GW_ARGS}"
+alias pscpp="parallel-scp ${PSSH_ARGS} ${PRO_GW_ARGS}"
 
 alias vshield-stop='sudo /usr/local/McAfee/AntiMalware/VSControl stopoas'
 alias vshield-start='sudo /usr/local/McAfee/AntiMalware/VSControl startoas'
