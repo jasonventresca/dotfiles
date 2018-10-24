@@ -1,7 +1,16 @@
 #!/bin/bash
 set -eu
 
-HOST=$1
-PORT=$2
+HOST="${1}"
+PORT="${2}"
+shift
+shift
+SSH_OPTS="${@:-}"
 
-ssh -o PermitLocalCommand=no ubuntu@$HOST -p $PORT 'wget --no-check-certificate https://github.com/jasonventresca/dotfiles/raw/master/bootstrap.sh -O - | bash'
+BOOTSTRAP_SCRIPT_URL='https://github.com/jasonventresca/dotfiles/raw/master/bootstrap.sh'
+
+ssh \
+    -o PermitLocalCommand=no \
+    ${SSH_OPTS} \
+    ubuntu@${HOST} -p ${PORT} \
+    "wget --no-check-certificate ${BOOTSTRAP_SCRIPT_URL} -O - | bash"
