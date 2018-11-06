@@ -512,6 +512,6 @@ function ec2-meta() {
 alias inst-id="ec2-meta instance-id"
 alias iam-info="ec2-meta iam/info"
 
-export SUBLIME_APP='/Applications/Sublime Text 2.app'
+export SUBLIME_APP='/Applications/Sublime Text.app'
 alias subl_open="open -a \"${SUBLIME_APP}\""
 export d='/mnt/data'
