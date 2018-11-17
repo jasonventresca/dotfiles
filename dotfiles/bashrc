@@ -180,7 +180,8 @@ alias mqueue-tunnel='nssh -L 4321:127.0.0.1:80 10.159.169.84'
 alias ssh-vagrant-cachebuild-worker="cd ~/vagrant/cachebuild-worker && ssh ubuntu@127.0.0.1 -p 2222 -o ForwardAgent=yes -o 'SendEnv AWS_\*' -o 'SendEnv GIT_\*' -o Compression=yes -o DSAAuthentication=yes -o LogLevel=FATAL -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -i /Users/jasonventresca/.vagrant.d/boxes/cachebuild-worker/0/virtualbox/vagrant_private_key"
 
 alias notes='cd ~/Dropbox/moat_notes && tree -Drt | head -n 20'
-alias notes-edit='cd ~/Dropbox/moat_notes && vim goals_weekly.txt standup/{brand_safety,prebid,nadosquad}_standup.txt'
+#alias notes-edit='cd ~/Dropbox/moat_notes && vim goals_weekly.txt standup/{prebid,nadosquad,brand_safety}_standup.txt'
+alias notes-edit='cd ~/Dropbox/moat_notes && vim goals_weekly.txt standup/{our_team,brand_safety}_standup.txt'
 alias clockout='head -n40 ~/Dropbox/moat_notes/status'
 alias mtg-notes="${DOTFILES}/../scripts/mtg_notes_this_week.py"
 
