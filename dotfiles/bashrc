@@ -296,10 +296,11 @@ function latest() {
 alias etl-tail='tail -f -n30 $(latest /mnt/tmp/ENSURE-TEMPORARY-etl.py-\*)'
 alias ensure='/mnt/moatpro/moatpro/moatpro/registry/ensure.sh'
 
-export GIT_AUTHOR_NAME=Jason Ventresca
-export GIT_COMMITTER_NAME=Jason Ventresca
-export GIT_COMMITTER_EMAIL=jasonventresca@gmail.com
-export GIT_AUTHOR_EMAIL=jasonventresca@gmail.com
+export GIT_AUTHOR_NAME='Jason Ventresca'
+export GIT_COMMITTER_NAME='Jason Ventresca'
+# TODO: Should use my personal gmail if not on a work machine.
+export GIT_COMMITTER_EMAIL='jason.ventresca@oracle.com'
+export GIT_AUTHOR_EMAIL='jason.ventresca@oracle.com'
 
 # Ready-to-use <Tab> character via ANSI C quoting (see http://askubuntu.com/a/53096)
 export T=$'\t'
