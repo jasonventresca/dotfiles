@@ -1,6 +1,6 @@
 DOT_JV='dotfiles.jason_ventresca'
 export DOTFILES=$HOME/$DOT_JV/dotfiles
-export PATH="$HOME/$DOT_JV/bin":"$PATH":"/Users/jasonventresca/Library/Python/3.7/bin":"/home/ubuntu/.local/bin"
+export PATH="$HOME/$DOT_JV/bin":"$PATH":"/Users/jventres/Library/Python/3.7/bin":"/Users/jventres/Library/Python/2.7/bin":"/Users/jasonventresca/Library/Python/3.7/bin":"/home/ubuntu/.local/bin"
 export REGISTRY='/mnt/moatpro/moatpro/moatpro/registry'
 
 # If not running interactively, don't do anything
@@ -162,7 +162,7 @@ alias pg-cn='psql -d tsdb -U codename -h '
 alias pg-cnl='psql -d tsdb -U postgres -h localhost'
 alias pg-u='psql -d codename_cache -U ubuntu'
 alias pg-rds='psql -h search-rds-prod.moat.co -U codename -d moatpro'
-WEB_TRAFFIC='psql --dbname=postgres://codeload:bigpass126@10.165.87.173:5432/pro'
+WEB_TRAFFIC='psql --dbname=postgres://codeload@10.165.87.173:5432/pro'
 alias pg-primary='psql -h postgres.moat.com -d analytics -U analytics'
 alias pg-decanter='psql -h 10.0.62.179 -d decanter -U analytics'
 
