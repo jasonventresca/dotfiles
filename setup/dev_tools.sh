@@ -17,6 +17,7 @@ install_deb() {
         sl \
         curl \
         python-pip \
+        ruby-dev \
         npm \
         tree
 
