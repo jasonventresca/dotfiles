@@ -122,7 +122,8 @@ install_platform_agnostic() {
     ## install Vim plugin for rope python tools
     #install_vim_plugin "python-rope/ropevim"
 
-    sudo gem install terraform_landscape
+    ## temporarily disabled because this requires a newer version of Ruby - should be easy to get working, if i actually want it
+    #sudo gem install terraform_landscape
 
 }
 
