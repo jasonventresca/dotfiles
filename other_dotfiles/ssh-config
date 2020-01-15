@@ -50,7 +50,7 @@ Host moat-confluence
 
 Host moat-integrations
     User jasonventresca
-    HostName 10.0.59.181
+    HostName 10.0.38.193
 
 Host moat-js-staging
     HostName 10.181.166.47
@@ -83,6 +83,8 @@ Host 10.*.*.* moat-*
     ForwardAgent yes
     SendEnv AWS_*
     SendEnv GIT_*
+    SendEnv PGPASSWORD
+    SendEnv TF_VAR_PAGERDUTY_ACCESS_KEY
     #PermitLocalCommand yes
     #LocalCommand $DOTFILES/../setup/dotfiles_remote.sh %n %p
     UserKnownHostsFile=/dev/null
