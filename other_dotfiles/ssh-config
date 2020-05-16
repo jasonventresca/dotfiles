@@ -60,7 +60,8 @@ Host moat-ads2
     User ubuntu
 
 Host foodieland
-    HostName 52.201.92.223
+    HostName 54.157.57.133
+#   HostName 52.201.92.223 # old t2.micro server
     User ubuntu
     IdentityFile ~/.ssh/foodieland.pem
     PermitLocalCommand yes
