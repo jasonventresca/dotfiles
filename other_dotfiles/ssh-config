@@ -10,7 +10,6 @@ Host moat-pro-dev
     ProxyCommand ssh pro-gateway.moat.com nc -q0 %h 22
 
 Host moat-ana-dev
-    # HostName 10.0.159.213 # old dev box (to be terminated by Nov 20)
     HostName 10.0.139.210
 
 Host moat-pagerduty
@@ -60,7 +59,8 @@ Host moat-ads2
     User ubuntu
 
 Host foodieland
-    HostName 52.201.92.223
+    HostName 54.157.57.133
+#   HostName 52.201.92.223 # old t2.micro server
     User ubuntu
     IdentityFile ~/.ssh/foodieland.pem
     PermitLocalCommand yes
