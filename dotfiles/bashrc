@@ -315,7 +315,7 @@ export s3_ident_prod='s3://search-archives/cachebuild_files_tsdb'
 #    whatis $(ls -1 /usr/share/man/man?/ | gshuf -n1 | cut -d. -f1) # Mac OS X
 #echo ""
 
-export REPOS='/mnt/moatpro /mnt/moatpanel /mnt/swfshots /mnt/tagpipeline /mnt/moat /mnt/mqueue'
+export REPOS="$(echo /mnt/{moatpro,moatpanel,swfshots,tagpipeline,moat,mqueue} $HOME/{v2.5,page-intelligence,go-pixel-server,go-tails,goctopus,gps-config-bundler,elide,slam})"
 export RDS_SEARCH_PATHS='/mnt/tagpipeline /mnt/moat/search/tasks/mturk /mnt/moat/search/turk-reviewer /mnt/swfshots /mnt/moatpro /mnt/mqueue'
 
 # for OSS project
