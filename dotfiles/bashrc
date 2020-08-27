@@ -326,6 +326,13 @@ export S3_LIC='s3://prod_an.live.data/licenses'
 
 shopt -s histverify
 
+function jira-tabs-print () {
+    latest_tabs_export=$(ls -t $HOME/Downloads/cluster-windows*json | head -1)
+
+    cat "${latest_tabs_export}" \
+        | jq --raw-output '.[].tabs[] | (.url + " - " + .title)'
+}
+
 function ssh-reagent () {
     export SSH_AUTH_SOCK=$( find /tmp/ssh-* -user `whoami` -name agent\* -printf '%T@ %p\n' 2>/dev/null | \
                             sort -k 1 -nr | sed 's/^[^ ]* //' | head -n 1 )
