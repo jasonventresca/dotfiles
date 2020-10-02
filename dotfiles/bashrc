@@ -527,3 +527,14 @@ alias iam-info="ec2-meta iam/info"
 export SUBLIME_APP='/Applications/Sublime Text.app'
 alias subl_open="open -a \"${SUBLIME_APP}\""
 export d='/mnt/data'
+
+function fetch-repos() {
+    local repos="${@}"
+
+    for repo in $repos; do
+        cd "${repo}"
+        echo "fetching ${repo} ..."
+        git fetch >/dev/null
+    done
+    echo "--- success! ---"
+}
