@@ -12,6 +12,9 @@ Host moat-pro-dev
 Host moat-ana-dev
     HostName 10.0.139.210
 
+Host moat-ana-dev-1804
+    HostName 10.0.147.219
+
 Host moat-pagerduty
     HostName 10.0.202.91
 
