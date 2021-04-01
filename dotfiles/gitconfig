@@ -38,3 +38,11 @@
     log = diff-so-fancy | less
     show = diff-so-fancy | less
     diff = diff-so-fancy | less
+
+
+# Go development @ Moat
+# See https://confluence.moat.com/x/wAfGBQ
+[url "git@gitlab.oracledatacloud.com:"]
+    insteadOf = https://gitlab.oracledatacloud.com
+[url "git@gitlab.oracledatacloud.com:"]
+    insteadOf = https://oracle.com

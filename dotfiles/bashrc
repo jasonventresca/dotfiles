@@ -317,6 +317,7 @@ export s3_ident_prod='s3://search-archives/cachebuild_files_tsdb'
 
 export PIXEL_SERVER_REPOS="$(echo $HOME/{go-pixel-server,go-tails,goctopus,gps-config-bundler,elide,slam,tf_61_pixie_staging})"
 export REPOS="$(echo $HOME/{moatpro,moatpanel,swfshots,tagpipeline,moat,mqueue} $HOME/{v2.5,page-intelligence} ${PIXEL_SERVER_REPOS})"
+export ILF_TREES="$(echo $HOME/{sessionizer,incr-shipper,grapeshot_lookups,v2.5/projector})" # but also v2.5/projector @ projector-develop
 export RDS_SEARCH_PATHS='/mnt/tagpipeline /mnt/moat/search/tasks/mturk /mnt/moat/search/turk-reviewer /mnt/swfshots /mnt/moatpro /mnt/mqueue'
 
 # for OSS project
@@ -538,3 +539,9 @@ function fetch-repos() {
     done
     echo "--- success! ---"
 }
+
+# Go development @ Moat
+# See https://confluence.moat.com/x/wAfGBQ
+export GOPRIVATE=github.com,gitlab.oracledatacloud.com,git.odc.im
+export GO111MODULE=auto
+

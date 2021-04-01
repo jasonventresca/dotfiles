@@ -115,6 +115,10 @@ install_platform_agnostic() {
 
     install_vim_plugin "jeetsukumaran/vim-buffergator"
 
+    install_vim_plugin "autozimu/LanguageClient-neovim"
+    "$VIM_DIR/bundle/LanguageClient-neovim/install.sh" # run the install script to build the binary
+
+
     ## install python libraries that the rope vim plugin will import
     ## https://github.com/python-rope/rope
     #sudo pip install rope ropevim
