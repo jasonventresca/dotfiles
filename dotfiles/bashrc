@@ -540,6 +540,14 @@ function fetch-repos() {
     echo "--- success! ---"
 }
 
+function query-moat-api() {
+    api_endpoint="${1}"
+
+    curl -s \
+        -H "Authorization: Bearer ${MOAT_API_TOKEN}" \
+        "https://api.moat.com${api_endpoint}"
+}
+
 # Go development @ Moat
 # See https://confluence.moat.com/x/wAfGBQ
 export GOPRIVATE=github.com,gitlab.oracledatacloud.com,git.odc.im
