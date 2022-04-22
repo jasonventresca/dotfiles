@@ -13,7 +13,7 @@ cmap <C-O> <C-R>
 set number
 set cursorline
 set backspace=indent,eol,start
-set colorcolumn=101
+"set colorcolumn=101
 set modeline
 hi ColorColumn ctermbg=Blue
 nnoremap <C-J> <C-W><C-J>
@@ -369,14 +369,4 @@ endfunction
 if &diff
     colorscheme torte
 endif
-
-
-let g:LanguageClient_serverCommands = {
-    \ 'go': ['~/go/bin/gopls'],
-    \ 'python': ['pyls'],
-    \ }
-
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 

@@ -529,6 +529,13 @@ export SUBLIME_APP='/Applications/Sublime Text.app'
 alias subl_open="open -a \"${SUBLIME_APP}\""
 export d='/mnt/data'
 
+CYBEREASON_MODULES='/Library/LaunchDaemons/com.cybereason.activeprobe.plist /Library/LaunchDaemons/com.cybereason.av.sext.plist'
+alias gofast="sudo launchctl unload $CYBEREASON_MODULES"
+alias goslow="sudo launchctl load $CYBEREASON_MODULES"
+alias cr-status="cat /usr/local/cybereason/av_status.json"
+
+alias crlogs='tail -f /usr/local/cybereason/Logs/{CrAv.log,CybereasonActiveProbe.log}'
+
 function fetch-repos() {
     local repos="${@}"
 
