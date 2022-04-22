@@ -220,14 +220,12 @@ else
    export SSH_AGENT_PID=$ssh_agent_ps
 fi
 
-ssh-add ~/.ssh/id_rsa_github_personal
+ssh-add ~/.ssh/id_rsa_github_personal 2>/dev/null
 if [[ $(uname) = 'Darwin' ]] ; then
     # Only add this ssh key if we're on the Mac.
-    ssh-add ~/.ssh/id_rsa
+    ssh-add ~/.ssh/id_rsa  2>/dev/null
 fi
-ssh-add ~/.ssh/mar-2011.pem
-ssh-add ~/.ssh/nov-2010.pem
-ssh-add ~/.ssh/moatbot.pem # this is "moat-deploy" user on git@github.com
+ssh-add ~/.ssh/mar-2011.pem 2>/dev/null
 
 # aliases for discovery of ec2 instances
 alias prod-ws='pls_ec2 | grep codename-webserver\\s\*prod | grep prod-\\d'
