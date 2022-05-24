@@ -314,8 +314,9 @@ export s3_ident_prod='s3://search-archives/cachebuild_files_tsdb'
 #echo ""
 
 export PIXEL_SERVER_REPOS="$(echo $HOME/{go-pixel-server,go-tails,goctopus,gps-config-bundler,elide,slam,tf_61_pixie_staging})"
-export REPOS="$(echo $HOME/{moatpro,moatpanel,swfshots,tagpipeline,moat,mqueue} $HOME/{v2.5,page-intelligence} ${PIXEL_SERVER_REPOS})"
+export REPOS="$(echo $HOME/repos/v2.5 ${PIXEL_SERVER_REPOS} ${ASI_TREES})"
 export ILF_TREES="$(echo $HOME/{sessionizer,incr-shipper,grapeshot_lookups,v2.5/projector})" # but also v2.5/projector @ projector-develop
+export ASI_TREES="$HOME/repos/v2.5/util/adserver $HOME/repos/v2.5/adserver_scripts $HOME/repos/dataimport_airflow $HOME/repos/adserver_etl $HOME/repos/configuru $HOME/repos/configuruclient"
 export RDS_SEARCH_PATHS='/mnt/tagpipeline /mnt/moat/search/tasks/mturk /mnt/moat/search/turk-reviewer /mnt/swfshots /mnt/moatpro /mnt/mqueue'
 
 # for OSS project
