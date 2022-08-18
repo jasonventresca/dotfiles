@@ -164,6 +164,7 @@ alias pg-u='psql -d codename_cache -U ubuntu'
 alias pg-rds='psql -h search-rds-prod.moat.co -U codename -d moatpro'
 WEB_TRAFFIC='psql --dbname=postgres://codeload@10.165.87.173:5432/pro'
 alias pg-primary='psql -h postgres.moat.com -d analytics -U analytics'
+alias pg-primary-replica='psql -h postgres-replica.moat.com -d analytics -U analytics'
 alias pg-decanter='psql -h 10.0.62.179 -d decanter -U analytics'
 
 alias box='cat /mnt/.box_name'
