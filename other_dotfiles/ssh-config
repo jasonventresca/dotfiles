@@ -11,6 +11,7 @@ Host moat-pro-dev
 
 Host moat-ana-dev
     HostName 10.150.42.115
+    User jason.ventresca
 
 Host moat-pagerduty
     HostName 10.0.202.91
@@ -75,7 +76,7 @@ Host gateway.moat.com pro-gateway.moat.com pro-classic-gateway.moat.com
     IdentityFile ~/.ssh/id_rsa
 
 Host *
-    User ubuntu
+    User ubuntu # TODO - replace with 'jason.ventresca'
     SendEnv LC_jason_ventresca
     UseRoaming no
 
