@@ -281,11 +281,6 @@ alias sudovim='sudo REAL_HOME=$HOME HOME=$DOTFILES vim'
 # customize bash readline
 INPUTRC=$DOTFILES/inputrc
 
-alias repos-installed='echo moatpro ; cat /mnt/moatpro/ops/$(cat /mnt/.installed_role)/REPOS | cut -f 2 -d "/" | cut -f 1 -d "."'
-alias repos-installed-paths='repos-installed | xargs -I{} echo /mnt/{}'
-alias all-repos-branches='for repo in ${REPOS} ; do echo ${repo} : $(git -C $repo branch  | grep ^\* | cut -f 2 -d " ") ; done'
-alias repos-branches='for repo in $(repos-installed) ; do echo ${repo} : $(git -C /mnt/${repo} branch | grep ^\* | cut -f 2 -d " ") ; done'
-alias all-repos-status='for repo in ${REPOS} ; do git -C $repo status ; done'
 
 alias remove_dd_agent='sudo apt-get remove datadog-agent -y'
 
@@ -315,10 +310,30 @@ export s3_ident_prod='s3://search-archives/cachebuild_files_tsdb'
 #echo ""
 
 export PIXEL_SERVER_REPOS="$(echo $HOME/{go-pixel-server,go-tails,goctopus,gps-config-bundler,elide,slam,tf_61_pixie_staging})"
-export REPOS="$(echo $HOME/repos/v2.5 ${PIXEL_SERVER_REPOS} ${ASI_TREES})"
 export ILF_TREES="$(echo $HOME/{sessionizer,incr-shipper,grapeshot_lookups,v2.5/projector})" # but also v2.5/projector @ projector-develop
-export ASI_TREES="$HOME/repos/v2.5/util/adserver $HOME/repos/v2.5/adserver_scripts $HOME/repos/dataimport_airflow $HOME/repos/adserver_etl $HOME/repos/configuru $HOME/repos/configuruclient"
-export RDS_SEARCH_PATHS='/mnt/tagpipeline /mnt/moat/search/tasks/mturk /mnt/moat/search/turk-reviewer /mnt/swfshots /mnt/moatpro /mnt/mqueue'
+export ASI_TREES="
+    $HOME/repos/v2.5/util/adserver
+    $HOME/repos/v2.5/adserver_scripts
+    $HOME/repos/dataimport_airflow
+    $HOME/repos/adserver_etl
+    $HOME/repos/configuru
+    $HOME/repos/configuruclient
+    $HOME/repos/analytics-labels-database
+    $HOME/repos/pg-logical-poc
+"
+export OTHER_REPOS="
+    $HOME/repos/v2.5
+    $HOME/repos/yi-etl
+    $HOME/repos/inventory_intel
+    $HOME/repos/team_phoenix
+    $HOME/repos/phoenix-unified-deployment
+    $HOME/repos/moat_tools
+    $HOME/repos/infrastructure
+"
+export REPOS="
+    ${ASI_TREES}
+    ${OTHER_REPOS}
+"
 
 # for OSS project
 export IREQ='--include=requirements*.txt --include=setup.py'
@@ -534,7 +549,7 @@ alias gofast="sudo launchctl unload $CYBEREASON_MODULES"
 alias goslow="sudo launchctl load $CYBEREASON_MODULES"
 alias cr-status="cat /usr/local/cybereason/av_status.json"
 
-alias cr-logs='tail -f /usr/local/cybereason/Logs/{CrAv.log,CybereasonActiveProbe.log}
+alias cr-logs='tail -f /usr/local/cybereason/Logs/{CrAv.log,CybereasonActiveProbe.log}'
 
 function fetch-repos() {
     local repos="${@}"
