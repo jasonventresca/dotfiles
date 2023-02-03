@@ -2,16 +2,9 @@ Host github.com gitlab.oracledatacloud.com
     StrictHostKeyChecking no
     IdentityFile ~/.ssh/id_rsa_github_personal
 
-Host moat-inv-intel-dev-jason
-    HostName 10.150.38.234
-
-Host moat-pro-dev
-    HostName 10.0.24.117
-    ProxyCommand ssh pro-gateway.moat.com nc -q0 %h 22
-
 Host moat-ana-dev
     HostName 10.150.42.115
-    User jason.ventresca
+    #User jason.ventresca
 
 Host moat-pagerduty
     HostName 10.0.202.91
@@ -39,14 +32,6 @@ Host moat-mturk-jobs
 Host moat-mturk-web
     HostName 10.0.37.213
     ProxyCommand ssh pro-gateway.moat.com nc -q0 %h 22
-
-Host moat-jira
-    HostName 10.33.162.138
-    ProxyCommand ssh pro-classic-gateway.moat.com nc -q0 %h 22
-
-Host moat-confluence
-    HostName 10.111.216.155
-    ProxyCommand ssh pro-classic-gateway.moat.com nc -q0 %h 22
 
 Host moat-integrations
     User jasonventresca

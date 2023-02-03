@@ -314,15 +314,18 @@ export ILF_TREES="$(echo $HOME/{sessionizer,incr-shipper,grapeshot_lookups,v2.5/
 export ASI_TREES="
     $HOME/repos/v2.5/util/adserver
     $HOME/repos/v2.5/adserver_scripts
-    $HOME/repos/dataimport_airflow
     $HOME/repos/adserver_etl
+    $HOME/repos/dataimport_airflow
     $HOME/repos/configuru
     $HOME/repos/configuruclient
     $HOME/repos/analytics-labels-database
     $HOME/repos/pg-logical-poc
 "
 export OTHER_REPOS="
-    $HOME/repos/v2.5
+    $HOME/repos/v2.5/nhtjsonp
+    $HOME/repos/v2.5/lld
+    $HOME/repos/v2.5/ftpbox
+    $HOME/repos/v2.5/ops_web
     $HOME/repos/yi-etl
     $HOME/repos/inventory_intel
     $HOME/repos/team_phoenix
