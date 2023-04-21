@@ -5,9 +5,15 @@ Host github.com gitlab.oracledatacloud.com
 Host moat-ana-dev
     HostName 10.150.42.115
 
+Host moat-adserver-scripts
+    HostName 10.150.58.169
+
 Host moat-integrations
     User jasonventresca
     HostName 10.0.38.193
+
+Host moat-ftp
+    HostName 10.0.62.234
 
 Host gateway gateway.moat.com pro-gateway.moat.com pro-classic-gateway.moat.com
     User jasonventresca
