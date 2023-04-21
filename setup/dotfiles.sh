@@ -15,6 +15,9 @@ elif is_Linux ; then
     if ! grep -F "$append_str" $HOME/.bash_profile >/dev/null ; then
         echo "Linux detected. Appending magic to $HOME/.bash_profile..."
         echo $append_str >>$HOME/.bash_profile
+
+        echo "Appending the usage of .bashrc to .bash_profile, too..."
+        echo "source $HOME/.bashrc" >>$HOME/.bash_profile
     fi
 fi
 
