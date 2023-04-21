@@ -27,6 +27,7 @@ Host moat-web-traffic-cache
 Host *
     User ubuntu # TODO - replace with 'jason.ventresca'
     SendEnv LC_jason_ventresca
+    SendEnv AWS_jason_ventresca
     UseRoaming no
 
 Host 10.*.*.* moat-*
