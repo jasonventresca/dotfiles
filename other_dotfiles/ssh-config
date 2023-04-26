@@ -12,6 +12,10 @@ Host moat-integrations
     User jasonventresca
     HostName 10.0.38.193
 
+Host moat-int-staging
+  Hostname 10.150.37.50
+  User ubuntu
+
 Host moat-ftp
     HostName 10.0.62.234
 
