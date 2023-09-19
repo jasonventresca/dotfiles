@@ -2,6 +2,10 @@ Host github.com gitlab.oracledatacloud.com
     StrictHostKeyChecking no
     IdentityFile ~/.ssh/id_rsa_github_personal
 
+Host bastion-iad-odc
+    HostName bastion-iad.oracledatacloud.com
+    User jason.ventresca
+
 Host moat-ana-dev
     HostName 10.150.42.115
 

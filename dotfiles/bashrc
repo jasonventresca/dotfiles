@@ -194,6 +194,8 @@ if [[ $(uname) = 'Darwin' ]] ; then
 fi
 ssh-add ~/.ssh/mar-2011.pem 2>/dev/null
 
+alias socks5-proxy-odc-bastion='ssh -D 53974 -q -C -N bastion-iad-odc'
+
 # aliases for discovery of ec2 instances
 alias prod-ws='pls_ec2 | grep codename-webserver\\s\*prod | grep prod-\\d'
 alias prod-hot-db-hosts='iam0 && /mnt/moatpro/moatpro.db/moatpro/db/lib/host_util.py get | jq ".host_groups.prod_cache_readers_group"'
