@@ -13,12 +13,8 @@ Host moat-adserver-scripts
     HostName 10.150.58.169
 
 Host moat-integrations
-    User jasonventresca
-    HostName 10.0.38.193
-
-Host moat-int-staging
-  Hostname 10.150.37.50
-  User ubuntu
+    Hostname int-box.moat.com
+    User ubuntu
 
 Host moat-ftp
     HostName 10.0.62.234
@@ -43,6 +39,7 @@ Host *
     SendEnv LC_jason_ventresca
     SendEnv AWS_jason_ventresca
     UseRoaming no
+    ServerAliveInterval 120
 
 Host 10.*.*.* moat-*
     ForwardAgent yes
