@@ -5,6 +5,7 @@ Host github.com gitlab.oracledatacloud.com
 Host bastion-iad-odc
     HostName bastion-iad.oracledatacloud.com
     User jason.ventresca
+    ForwardAgent yes
 
 Host moat-ana-dev
     HostName 10.150.42.115
