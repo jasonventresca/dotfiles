@@ -17,3 +17,7 @@ alias ipython2="PYTHONPATH=/usr/local/lib/python2.7/site-packages:${PYTHONPATH} 
 # GNU manpages for programs that are GNU ones, and fallback to OSX manpages otherwise.
 # See https://gist.github.com/quickshiftin/9130153 for more info.
 alias man='_() { echo $1; man -M $(brew --prefix)/opt/coreutils/libexec/gnuman $1 1>/dev/null 2>&1;  if [ "$?" -eq 0 ]; then man -M $(brew --prefix)/opt/coreutils/libexec/gnuman $1; else man $1; fi }; _'
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/jventres/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

@@ -546,3 +546,8 @@ function query-moat-api() {
 export GOPRIVATE=github.com,gitlab.oracledatacloud.com,git.odc.im
 export GO111MODULE=auto
 
+# From https://confluence.oci.oraclecorp.com/display/GPU/Cluster+Networking+New+Hire+Onboarding
+export M3_HOME="/usr/local/Cellar/maven/3.9.8"
+export M3=$M3_HOME/bin
+export PATH=$M3:$PATH
+
