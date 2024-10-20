@@ -1,65 +1,9 @@
 Host github.com gitlab.oracledatacloud.com
     StrictHostKeyChecking no
-    IdentityFile ~/.ssh/id_rsa_github_personal
-
-Host bastion-iad-odc
-    HostName bastion-iad.oracledatacloud.com
-    User jason.ventresca
-    ForwardAgent yes
-
-Host moat-ana-dev
-    HostName 10.150.42.115
-
-Host moat-adserver-scripts
-    HostName 10.150.58.169
-
-Host moat-integrations
-    Hostname int-box.moat.com
-    User ubuntu
-
-Host moat-ftp
-    HostName 10.0.62.234
-
-Host gateway gateway.moat.com pro-gateway.moat.com pro-classic-gateway.moat.com
-    User jasonventresca
-    ForwardAgent yes
-    SendEnv AWS_*
-    SendEnv GIT_*
-    IdentityFile ~/.ssh/id_rsa
-
-Host moat-etl-jobs
-    HostName 10.0.47.188
-    ProxyCommand ssh pro-gateway.moat.com nc -q0 %h 22
-
-Host moat-web-traffic-cache
-    HostName 10.165.87.173
-    ProxyCommand ssh pro-classic-gateway.moat.com nc -q0 %h 22
+    IdentityFile ~/.ssh/id_ed25519_20-Oct-2024
 
 Host *
-    User ubuntu # TODO - replace with 'jason.ventresca'
     SendEnv LC_jason_ventresca
     SendEnv AWS_jason_ventresca
     UseRoaming no
     ServerAliveInterval 120
-
-Host 10.*.*.* moat-*
-    ForwardAgent yes
-    SendEnv AWS_*
-    SendEnv GIT_*
-    SendEnv PGPASSWORD
-    SendEnv TF_VAR_PAGERDUTY_ACCESS_KEY
-    #PermitLocalCommand yes
-    #LocalCommand $DOTFILES/../setup/dotfiles_remote.sh %n %p
-    UserKnownHostsFile=/dev/null
-    StrictHostKeyChecking=no
-    IdentityFile ~/.ssh/id_rsa
-    ProxyCommand ssh gateway.moat.com nc -q0 %h 22
-
-Host foodieland
-    HostName 54.157.57.133
-    User ubuntu
-    IdentityFile ~/.ssh/foodieland.pem
-    PermitLocalCommand yes
-    LocalCommand $DOTFILES/../setup/dotfiles_remote.sh %n %p
-    ForwardAgent yes
-
