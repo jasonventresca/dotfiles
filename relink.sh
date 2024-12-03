@@ -3,7 +3,7 @@
 # Use this file to (re)link your dotfiles from ~/dotfiles/dotfiles to ~
 
 # Vars
-dir=~/dotfiles/dotfiles
+dir=~/dotfiles.jason_ventresca/dotfiles
 old_dir=~/dotfiles.old
 files="zshrc gitconfig tmux.conf vim vimrc"
 
@@ -13,7 +13,7 @@ for file in $files; do
   fi
 
   echo "Creating symlink ~/.$file  -->  $dir/$file"
-  ln -s $dir/$file ~/.$file
+  ln -fs $dir/$file ~/.$file
 done
 
 
