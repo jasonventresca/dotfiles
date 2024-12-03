@@ -50,7 +50,7 @@ alias ld='ll | grep "^d"' # directories
 
 
 # some miscellaneous aliases
-alias src-bash='source $DOTFILES/bashrc'
+alias src-zsh='source $DOTFILES/zshrc'
 alias dotfiles-reload='git -C $DOTFILES pull origin master && src-bash'
 alias instance_id='curl "http://169.254.169.254/latest/meta-data/instance-id"'
 alias fact="elinks -dump randomfunfacts.com | sed -n '/^| /p' | tr -d \|"

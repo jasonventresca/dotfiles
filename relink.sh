@@ -5,7 +5,7 @@
 # Vars
 dir=~/dotfiles/dotfiles
 old_dir=~/dotfiles.old
-files="bashrc gitconfig tmux.conf vim vimrc"
+files="zshrc gitconfig tmux.conf vim vimrc"
 
 for file in $files; do
   if [ -e ~/.$file ]; then

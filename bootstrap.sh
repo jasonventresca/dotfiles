@@ -1,7 +1,8 @@
 #!/bin/bash
-set -eu
+set -eux
 
 REMOTE='git@github.com:jasonventresca/dotfiles.git'
+REPO="$HOME/dotfiles.jason_ventresca"
 
 # Source bash files directly from github (via the "raw" feature).
 function import_from_github() {
