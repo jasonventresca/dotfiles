@@ -4,7 +4,6 @@ Host zachary # OCI VM shape: 4 core ARM, 24GB memory, 50GB disk @ $2.00/mo
 
 Host github.com gitlab.oracledatacloud.com
     StrictHostKeyChecking no
-    IdentityFile id_ed25519_02-Dec-2024
 
 Host *
     SendEnv LC_jason_ventresca
