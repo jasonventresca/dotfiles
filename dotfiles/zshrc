@@ -1,6 +1,6 @@
 DOT_JV='dotfiles.jason_ventresca'
 export DOTFILES=$HOME/$DOT_JV/dotfiles
-export PATH="$HOME/$DOT_JV/bin":"$PATH":"/Users/jventres/Library/Python/3.11/bin": "/Users/jventres/Library/Python/3.7/bin":"/Users/jventres/Library/Python/2.7/bin":"/Users/jasonventresca/Library/Python/3.7/bin":"/home/ubuntu/.local/bin":"/usr/local/opt/libpq/bin"
+export PATH="$HOME/$DOT_JV/bin:$PATH:/Users/jventres/Library/Python/3.11/bin: /Users/jventres/Library/Python/3.7/bin:/Users/jventres/Library/Python/2.7/bin:/Users/jasonventresca/Library/Python/3.7/bin:/home/ubuntu/.local/bin:/usr/local/opt/libpq/bin"
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -10,15 +10,11 @@ export PATH="$HOME/$DOT_JV/bin":"$PATH":"/Users/jventres/Library/Python/3.11/bin
 HISTCONTROL=ignoredups:ignorespace
 
 # append to the history file, don't overwrite it
-shopt -s histappend
+setopt APPEND_HISTORY
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
-
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -73,7 +69,7 @@ alias svc-which='ps aux | grep -i -e apache -e python -e couch -e memcache -e my
 alias git="HOME=$DOTFILES git"
 alias gits='git status'
 alias gitsa='pushd .; cdmp; gits; popd;'
-alias gitc='git commit -a'
+alias gitc='git commit'
 alias gitco='git checkout'
 alias gitd='git diff --find-renames'
 alias gitds='git diff --staged --find-renames'
@@ -114,13 +110,13 @@ editconfig() {
 }
 
 ssh_agent_ps=$(ps x | grep ssh-agent | grep -v grep | awk '{ print $1 }')
-if [ "$ssh_agent_ps" == "" ]; then
-   eval `ssh-agent -s`
+if [[ -z $ssh_agent_ps ]]; then
+   eval $(ssh-agent -s)
 else
    export SSH_AGENT_PID=$ssh_agent_ps
 fi
 
-ssh-add --apple-use-keychain $HOME/.ssh/id_ed25519_20-Oct-2024
+ssh-add --apple-use-keychain $HOME/.ssh/id_ed25519_02-Dec-2024
 
 
 # aliases for obtaining external and internal ip
@@ -141,13 +137,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
-fi
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
 fi
 
 # set vim as default editor for stuff like git commit messages
@@ -178,7 +167,8 @@ export IREQ='--include=requirements*.txt --include=setup.py'
 export PIP_FREEZE=/mnt/oss_tools/pro_repos_pip_deps/pip_freeze
 export S3_LIC='s3://prod_an.live.data/licenses'
 
-shopt -s histverify
+# Require an extra <Enter> press to execute history expansions (e.g. !!, !$)
+setopt hist_verify
 
 function jira-tabs-print () {
     latest_tabs_export=$(ls -t $HOME/Downloads/cluster-windows*json | head -1)
@@ -364,3 +354,29 @@ export M3_HOME="/usr/local/Cellar/maven/3.9.8"
 export M3=$M3_HOME/bin
 export PATH=$M3:$PATH
 
+# Enable vi editing mode
+bindkey -v
+
+# Custom key bindings for vi-insert mode
+function enter-vi-command-mode() { zle vi-cmd-mode; }
+function reverse-search-history() { zle history-incremental-search-backward; }
+function alias-expand-line() { zle alias-expand-line; }
+
+bindkey -M viins 'jj' enter-vi-command-mode  # Map "jj" to vi movement mode (equivalent to <Esc>)
+bindkey -M viins 'jrr' reverse-search-history  # Map "jrr" to reverse history search
+bindkey -M viins 'jae' alias-expand-line  # Map "jae" to alias-expand-line
+bindkey -M viins '^L' clear-screen  # Ctrl+L to clear screen
+
+# Optional: Uncomment these lines to enable backward-kill-word and history-search-backward
+# bindkey -M viins '^W' backward-kill-word  # Map Ctrl+W to backward-kill-word
+# bindkey -M viins '^P' up-line-or-history  # Map Ctrl+P to history-search-backward
+
+# Custom key bindings for vi-command mode
+bindkey -M vicmd '^L' clear-screen  # Ctrl+L to clear screen in command mode
+
+# Ensure the functions are properly exposed for zle
+zle -N enter-vi-command-mode
+zle -N reverse-search-history
+zle -N alias-expand-line
+
+source $HOME/dev/hubble/commands.zsh
