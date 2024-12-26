@@ -1,6 +1,7 @@
 Host zachary # OCI VM shape: 4 core ARM, 24GB memory, 50GB disk @ $2.00/mo
     Hostname 129.146.161.61
     User ubuntu
+    ForwardAgent yes
 
 Host github.com gitlab.oracledatacloud.com
     StrictHostKeyChecking no
