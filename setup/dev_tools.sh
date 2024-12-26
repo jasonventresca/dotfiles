@@ -21,9 +21,12 @@ install_deb() {
         npm \
         tree
 
-    # https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
-    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+    # Install node.js
+    sudo apt-get install -y curl
+    curl -fsSL https://deb.nodesource.com/setup_23.x -o nodesource_setup.sh
+    sudo -E bash nodesource_setup.sh
     sudo apt-get install -y nodejs
+    node -v
 
     sudo pip install Pygments
 
