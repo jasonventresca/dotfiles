@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eux
+set -eu
 
 REPO=$HOME/dotfiles.jason_ventresca
 
@@ -22,21 +22,12 @@ install_deb() {
         tree
 
     # Install node.js
-    sudo apt-get install -y curl
     curl -fsSL https://deb.nodesource.com/setup_23.x -o nodesource_setup.sh
     sudo -E bash nodesource_setup.sh
     sudo apt-get install -y nodejs
     node -v
 
-    sudo pip install Pygments
-
     sudo $REPO/setup/debian/fpp.sh
-
-    # TODO: Enable this when universal-ctags becomes a stable Debian/Ubuntu package
-    #       (It's currently "unstable" at https://packages.debian.org/sid/editors/universal-ctags)
-    #       The line below was disabled because it takes ~40s to build from source, and I don't
-    #       want to wait that long most of the time I'm ssh'ing to a new box.
-    # sudo $REPO/setup/linux/ctags.sh
 }
 
 install_mac() {
@@ -57,23 +48,26 @@ install_mac() {
         tree \
         node
 
-    brew install --with-default-names coreutils findutils gnu-tar gnu-sed gawk gnutls gnu-indent gnu-getopt
-    brew tap homebrew/dupes; brew install grep
-
-    # https://github.com/universal-ctags/homebrew-universal-ctags
-    brew install --HEAD universal-ctags/universal-ctags/universal-ctags
-
-    sudo easy_install pip
-    sudo pip install Pygments
-
-    # This is platform-agnostic; however I typically only use this tool on my Mac.
-    sudo npm install -g markserv
+    # This setup assumes we're using GNU bash v5+ from Homebrew
+    # Check if bash is from Homebrew
+    if [[ "$(which bash)" != "/opt/homebrew/bin/bash" ]]; then
+        echo
+        echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        echo "ERROR: GNU bash from Homebrew is not installed or not in PATH"
+        echo "Please follow the following instructions, then re-run this script:"
+        echo " -> https://stackoverflow.com/a/77052639 <- "
+        echo
+        echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        echo
+        return 1
+    fi
 }
 
 install_vim_plugin() {
     local project="$1"
-    if ! [[ -d "$VIM_DIR/bundle/$project" ]] ; then
-        cd ${VIM_DIR}/bundle && git clone "git@github.com:${project}.git"
+    local repo_name=$(echo "$project" | cut -d'/' -f2-)
+    if ! [[ -d "$VIM_DIR/bundle/$repo_name" ]] ; then
+        git -C ${VIM_DIR}/bundle clone "git@github.com:${project}.git"
     fi
 }
 
@@ -100,10 +94,6 @@ install_platform_agnostic() {
     install_vim_plugin "tpope/vim-fugitive"
     vim -u NONE -c "helptags vim-fugitive/doc" -c q
 
-    # install flake8 and Vim plugin
-    sudo pip install flake8
-    install_vim_plugin "nvie/vim-flake8"
-
     # install Vim plugin for surrounding text with parens, brackets, quotes, xml tags and more
     install_vim_plugin "tpope/vim-surround"
 
@@ -118,27 +108,20 @@ install_platform_agnostic() {
 
     install_vim_plugin "jeetsukumaran/vim-buffergator"
 
-
-    ## install python libraries that the rope vim plugin will import
-    ## https://github.com/python-rope/rope
-    #sudo pip install rope ropevim
-
-    ## install Vim plugin for rope python tools
-    #install_vim_plugin "python-rope/ropevim"
-
-    ## temporarily disabled because this requires a newer version of Ruby - should be easy to get working, if i actually want it
-    #sudo gem install terraform_landscape
-
 }
 
-ERROR_MSG="ERROR: not all dev tools were installed!"
+function error_msg() {
+    echo
+    echo "ERROR: not all dev tools were installed!"
+    echo
+}
 
 if is_macOS ; then
-    install_mac || echo $ERROR_MSG
+    install_mac || error_msg
 
 elif is_Linux ; then
-    install_deb || echo $ERROR_MSG
+    install_deb || error_msg
 
 fi
 
-install_platform_agnostic || echo $ERROR_MSG
+install_platform_agnostic || error_msg
