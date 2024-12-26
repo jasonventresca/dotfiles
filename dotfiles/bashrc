@@ -1,7 +1,6 @@
 DOT_JV='dotfiles.jason_ventresca'
 export DOTFILES=$HOME/$DOT_JV/dotfiles
-export PATH="$HOME/$DOT_JV/bin:$PATH:/Users/jventres/Library/Python/3.11/bin: /Users/jventres/Library/Python/3.7/bin:/Users/jventres/Library/Python/2.7/bin:/Users/jasonventresca/Library/Python/3.7/bin:/home/ubuntu/.local/bin:/usr/local/opt/libpq/bin"
-
+export PATH="$HOME/$DOT_JV/bin":"$PATH"
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -10,11 +9,15 @@ export PATH="$HOME/$DOT_JV/bin:$PATH:/Users/jventres/Library/Python/3.11/bin: /U
 HISTCONTROL=ignoredups:ignorespace
 
 # append to the history file, don't overwrite it
-setopt APPEND_HISTORY
+shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -46,7 +49,7 @@ alias ld='ll | grep "^d"' # directories
 
 
 # some miscellaneous aliases
-alias src-zsh='source $DOTFILES/zshrc'
+alias source-bashrc='source $DOTFILES/bashrc'
 alias dotfiles-reload='git -C $DOTFILES pull origin master && src-bash'
 alias instance_id='curl "http://169.254.169.254/latest/meta-data/instance-id"'
 alias fact="elinks -dump randomfunfacts.com | sed -n '/^| /p' | tr -d \|"
@@ -103,15 +106,15 @@ alias tfpl='tf validate && tf fmt && tf plan -out=tfplan | landscape'
 function tfpt { tf plan -target="$1" -out=tfplan; }
 function tfptl { tf plan -target="$1" -out=tfplan | landscape; }
 
-editconfig() {
+function edit-config() {
     # for editing dotfiles
     local config_file=$1
     vim $DOTFILES/$config_file
 }
 
 ssh_agent_ps=$(ps x | grep ssh-agent | grep -v grep | awk '{ print $1 }')
-if [[ -z $ssh_agent_ps ]]; then
-   eval $(ssh-agent -s)
+if [ "$ssh_agent_ps" == "" ]; then
+   eval `ssh-agent -s`
 else
    export SSH_AGENT_PID=$ssh_agent_ps
 fi
@@ -139,6 +142,13 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+
 # set vim as default editor for stuff like git commit messages
 export VISUAL=vim
 export EDITOR=vim
@@ -153,22 +163,10 @@ function latest() {
     ls -lht $1 | head -n 1 | awk '{print $9}'
 }
 
-export GIT_AUTHOR_NAME='Jason Ventresca'
-export GIT_COMMITTER_NAME='Jason Ventresca'
-# TODO: Should use my personal gmail if not on a work machine.
-export GIT_COMMITTER_EMAIL='jason.ventresca@oracle.com'
-export GIT_AUTHOR_EMAIL='jason.ventresca@oracle.com'
-
 # Ready-to-use <Tab> character via ANSI C quoting (see http://askubuntu.com/a/53096)
 export T=$'\t'
 
-# for OSS project
-export IREQ='--include=requirements*.txt --include=setup.py'
-export PIP_FREEZE=/mnt/oss_tools/pro_repos_pip_deps/pip_freeze
-export S3_LIC='s3://prod_an.live.data/licenses'
-
-# Require an extra <Enter> press to execute history expansions (e.g. !!, !$)
-setopt hist_verify
+shopt -s histverify
 
 function jira-tabs-print () {
     latest_tabs_export=$(ls -t $HOME/Downloads/cluster-windows*json | head -1)
@@ -348,35 +346,5 @@ function fetch-repos() {
     done
     echo "--- success! ---"
 }
-
-# From https://confluence.oci.oraclecorp.com/display/GPU/Cluster+Networking+New+Hire+Onboarding
-export M3_HOME="/usr/local/Cellar/maven/3.9.8"
-export M3=$M3_HOME/bin
-export PATH=$M3:$PATH
-
-## Enable vi editing mode
-#bindkey -v
-#
-## Custom key bindings for vi-insert mode
-#function enter-vi-command-mode() { zle vi-cmd-mode; }
-#function reverse-search-history() { zle history-incremental-search-backward; }
-#function alias-expand-line() { zle alias-expand-line; }
-#
-#bindkey -M viins 'jj' enter-vi-command-mode  # Map "jj" to vi movement mode (equivalent to <Esc>)
-#bindkey -M viins 'jrr' reverse-search-history  # Map "jrr" to reverse history search
-#bindkey -M viins 'jae' alias-expand-line  # Map "jae" to alias-expand-line
-#bindkey -M viins '^L' clear-screen  # Ctrl+L to clear screen
-#
-## Optional: Uncomment these lines to enable backward-kill-word and history-search-backward
-## bindkey -M viins '^W' backward-kill-word  # Map Ctrl+W to backward-kill-word
-## bindkey -M viins '^P' up-line-or-history  # Map Ctrl+P to history-search-backward
-#
-## Custom key bindings for vi-command mode
-#bindkey -M vicmd '^L' clear-screen  # Ctrl+L to clear screen in command mode
-#
-## Ensure the functions are properly exposed for zle
-#zle -N enter-vi-command-mode
-#zle -N reverse-search-history
-#zle -N alias-expand-line
 
 source $HOME/dev/hubble/commands.zsh
