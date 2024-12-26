@@ -7,6 +7,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 export LC_jason_ventresca=yes
 export AWS_jason_ventresca=yes
 
+ssh-add --apple-use-keychain $HOME/.ssh/id_ed25519_02-Dec-2024
+
 source $HOME/dotfiles.jason_ventresca/dotfiles/bashrc
 
 # Short of learning how to actually configure OSX, here's a hacky way to use
