@@ -6,9 +6,9 @@ REPO=$HOME/dotfiles.jason_ventresca
 source $REPO/util/platform.sh
 
 if is_macOS ; then
-    echo "Mac OS X detected. Symlinking $HOME/.profile => $REPO/dotfiles/profile"
-    rm -f $HOME/.profile
-    ln -s $REPO/dotfiles/profile $HOME/.profile
+    echo "Mac OS X detected. Symlinking $HOME/.bash_profile => $REPO/dotfiles/bash_profile"
+    rm -f $HOME/.bash_profile
+    ln -s $REPO/dotfiles/bash_profile $HOME/.bash_profile
 
 elif is_Linux ; then
     append_str='[[ -n $LC_jason_ventresca || -n $AWS_jason_ventresca ]] && source $HOME/dotfiles.jason_ventresca/dotfiles/bashrc || source $HOME/.bashrc'

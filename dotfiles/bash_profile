@@ -2,6 +2,8 @@
 alias parallel-ssh="$(which pssh)"
 alias parallel-scp="$(which pscp)"
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 export LC_jason_ventresca=yes
 export AWS_jason_ventresca=yes
 
