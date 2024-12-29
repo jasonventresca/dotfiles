@@ -344,4 +344,4 @@ function fetch-repos() {
     echo "--- success! ---"
 }
 
-source $HOME/dev/hubble/commands.zsh
+source $HOME/dev/hubble/commands.sh

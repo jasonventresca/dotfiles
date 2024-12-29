@@ -10,5 +10,7 @@ Host *
     SendEnv LC_jason_ventresca
     SendEnv AWS_jason_ventresca
     UseRoaming no
-    ServerAliveInterval 120
+    ServerAliveInterval 3600
+    ServerAliveCountMax 6
+    ConnectTimeout 21600
     IdentityFile ~/.ssh/id_ed25519_02-Dec-2024
