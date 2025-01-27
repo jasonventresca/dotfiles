@@ -77,8 +77,8 @@ alias gitco='git checkout'
 alias gitd='git diff --find-renames'
 alias gitds='git diff --staged --find-renames'
 alias gitdh='git diff HEAD'
-# temporarily disable diff-so-fancy (e.g. if you want to parse the output of git diff)
-alias git-no-diff-so-fancy='git -c pager.log=less -c pager.show=less -c pager.diff=less'
+# git diff without `diff-so-fancy` (e.g. if you want to parse the output of git diff)
+alias git-plain-diff='git -c pager.log=less -c pager.show=less -c pager.diff=less'
 
 
 # ssh aliases
@@ -345,3 +345,6 @@ function fetch-repos() {
 }
 
 source $HOME/dev/hubble/commands.sh
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/jasonventresca/.lmstudio/bin"

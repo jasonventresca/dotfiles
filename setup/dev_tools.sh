@@ -28,6 +28,8 @@ install_deb() {
     node -v
 
     sudo $REPO/setup/debian/fpp.sh
+
+    npm install diff-so-fancy
 }
 
 install_mac() {
@@ -46,7 +48,8 @@ install_mac() {
         jq \
         fpp \
         tree \
-        node
+        node \
+        diff-so-fancy
 
     # This setup assumes we're using GNU bash v5+ from Homebrew
     # Check if bash is from Homebrew
@@ -76,9 +79,6 @@ install_platform_agnostic() {
 
     [[ -e $REPO/bin/jsonp-multi ]] || \
             ln -s $REPO/scripts/linewise_json_pretty.py $REPO/bin/jsonp-multi
-
-    # diff-so-fancy, for nicer looking git diffs.
-    $REPO/setup/all/diff-so-fancy.sh
 
     # install pathogen for Vim
     # https://github.com/tpope/vim-pathogen
