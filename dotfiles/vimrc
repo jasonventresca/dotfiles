@@ -349,7 +349,7 @@ function! TsvEditor()
 endfunction
 
 function! CsvEditor()
-    execute "%!column -t -n -s ','"
+    execute "%!column -ts ,"
     call StickyHeader()
 endfunction
 

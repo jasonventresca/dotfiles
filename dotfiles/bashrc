@@ -346,5 +346,11 @@ function fetch-repos() {
 
 source $HOME/dev/hubble/commands.sh
 
+alias cd-dea='cd $HOME/dev/deep-end/deepend-agent'
+alias cd-deb='cd $HOME/dev/deep-end/deepend-agent/src/deepend_backend'
+alias cd-des='cd $HOME/dev/deep-end/deepend-agent/src/deepend_backend/secrets'
+alias de-todos="grep -rI 'TODO' $HOME/dev/deep-end/deepend-agent/src/{deepend_backend,tests}"
+alias de-todo-categories="grep -rI '### TODO' /Users/jasonventresca/dev/deep-end/deepend-agent/README.md | grep -o 'TODO.*'"
+
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/jasonventresca/.lmstudio/bin"
