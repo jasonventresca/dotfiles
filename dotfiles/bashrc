@@ -1,6 +1,7 @@
 DOT_JV='dotfiles.jason_ventresca'
 export DOTFILES=$HOME/$DOT_JV/dotfiles
 export PATH="$HOME/$DOT_JV/bin":"$PATH"
+export PATH="$HOME/.local/bin":"$PATH"
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
