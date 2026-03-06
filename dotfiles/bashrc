@@ -356,6 +356,12 @@ alias grep-js="grep --exclude-dir={.next,.git,node_modules}"
 alias grep-py="grep --exclude-dir=.pytest_cache"
 alias cleanup-merged-branches="$HOME/dev/git-tools/cleanup-merged-branches.sh"
 
+# Git Worktrees
+alias wt='git worktree'
+function cd-wt() {
+    cd "${HOME}/dev/git-worktrees/${1}"
+}
+
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/jasonventresca/.lmstudio/bin"

@@ -18,3 +18,4 @@ alias man='_() { echo $1; man -M $(brew --prefix)/opt/coreutils/libexec/gnuman $
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/jasonventresca/.lmstudio/bin"
+export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
