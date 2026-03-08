@@ -365,3 +365,9 @@ function cd-wt() {
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/jasonventresca/.lmstudio/bin"
+
+# DuckDB - https://duckdb.org/docs/installation/
+export PATH='/home/ubuntu/.duckdb/cli/latest':$PATH
+
+# Poetry
+export PATH="/home/ubuntu/.local/bin:$PATH"
