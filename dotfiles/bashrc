@@ -347,6 +347,7 @@ function fetch-repos() {
 
 source $HOME/dev/hubble/commands.sh
 
+alias cd-ps='cd $HOME/dev/podcast-sharing-app/backend-api'
 alias cd-dea='cd $HOME/dev/deep-end/deepend-agent'
 alias cd-deb='cd $HOME/dev/deep-end/deepend-agent/src/deepend_backend'
 alias cd-des='cd $HOME/dev/deep-end/deepend-agent/src/deepend_backend/secrets'
