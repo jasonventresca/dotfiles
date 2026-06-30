@@ -49,7 +49,8 @@ install_mac() {
         fpp \
         tree \
         node \
-        diff-so-fancy
+        diff-so-fancy \
+        gh
 
     # This setup assumes we're using GNU bash v5+ from Homebrew
     # Check if bash is from Homebrew

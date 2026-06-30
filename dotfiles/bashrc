@@ -2,6 +2,7 @@ DOT_JV='dotfiles.jason_ventresca'
 export DOTFILES=$HOME/$DOT_JV/dotfiles
 export PATH="$HOME/$DOT_JV/bin":"$PATH"
 export PATH="$HOME/.local/bin":"$PATH"
+export AWS_PROFILE=default-mfa
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -345,7 +346,10 @@ function fetch-repos() {
     echo "--- success! ---"
 }
 
-source $HOME/dev/hubble/commands.sh
+if [ -f $HOME/dev/hubble/commands.sh ]
+then
+    source $HOME/dev/hubble/commands.sh
+fi
 
 alias cd-ps='cd $HOME/dev/podcast-sharing-app/backend-api'
 alias cd-dea='cd $HOME/dev/deep-end/deepend-agent'
