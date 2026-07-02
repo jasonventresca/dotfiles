@@ -50,20 +50,27 @@ install_mac() {
         tree \
         node \
         diff-so-fancy \
-        gh
+        gh \
+        zsh-autosuggestions \
+        zsh-syntax-highlighting \
+        starship
 
-    # This setup assumes we're using GNU bash v5+ from Homebrew
-    # Check if bash is from Homebrew
+    # Oh My Zsh (used by dotfiles/zshrc if present)
+    if [[ ! -d $HOME/.oh-my-zsh ]]; then
+        RUNZSH=no KEEP_ZSHRC=yes sh -c \
+            "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
+            "" --unattended
+    fi
+
+    # GNU bash v5+ from Homebrew is only needed if you use bash as your shell;
+    # the zsh that ships with macOS is fully supported.
     if [[ "$(which bash)" != "/opt/homebrew/bin/bash" ]]; then
         echo
-        echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-        echo "ERROR: GNU bash from Homebrew is not installed or not in PATH"
-        echo "Please follow the following instructions, then re-run this script:"
+        echo "NOTE: GNU bash from Homebrew is not installed or not in PATH."
+        echo "That's fine if you're using zsh (the macOS default shell)."
+        echo "To use bash as your shell instead, see:"
         echo " -> https://stackoverflow.com/a/77052639 <- "
         echo
-        echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-        echo
-        return 1
     fi
 }
 

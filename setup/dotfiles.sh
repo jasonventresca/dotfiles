@@ -6,9 +6,18 @@ REPO=$HOME/dotfiles.jason_ventresca
 source $REPO/util/platform.sh
 
 if is_macOS ; then
-    echo "Mac OS X detected. Symlinking $HOME/.bash_profile => $REPO/dotfiles/bash_profile"
-    rm -f $HOME/.bash_profile
-    ln -s $REPO/dotfiles/bash_profile $HOME/.bash_profile
+    echo "Mac OS X detected. Symlinking bash and zsh entry points..."
+    old_dir=$HOME/dotfiles.old
+    mkdir -p $old_dir
+    for file in bash_profile zprofile zshrc; do
+        # back up any pre-existing real file (not a symlink) before replacing it
+        if [ -e $HOME/.$file ] && [ ! -L $HOME/.$file ]; then
+            mv $HOME/.$file $old_dir/.$file
+        fi
+        echo "Symlinking $HOME/.$file => $REPO/dotfiles/$file"
+        rm -f $HOME/.$file
+        ln -s $REPO/dotfiles/$file $HOME/.$file
+    done
 
 elif is_Linux ; then
     append_str='[[ -n $LC_jason_ventresca || -n $AWS_jason_ventresca ]] && source $HOME/dotfiles.jason_ventresca/dotfiles/bashrc || source $HOME/.bashrc'

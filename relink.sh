@@ -5,7 +5,9 @@
 # Vars
 dir=~/dotfiles.jason_ventresca/dotfiles
 old_dir=~/dotfiles.old
-files="gitconfig inputrc tmux.conf vim vimrc bashrc"
+files="gitconfig inputrc tmux.conf vim vimrc bashrc zshrc"
+
+mkdir -p $old_dir
 
 for file in $files; do
   if [ -e ~/.$file ]; then

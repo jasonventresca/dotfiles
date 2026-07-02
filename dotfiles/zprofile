@@ -1,0 +1,4 @@
+# Mac-specific configuration for zsh login shells.
+# zsh sources ~/.zshrc after this file for interactive shells, so the
+# interactive config lives in zshrc.
+source $HOME/dotfiles.jason_ventresca/dotfiles/profile_macos.sh
