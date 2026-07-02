@@ -22,19 +22,21 @@ mv dotfiles dotfiles.jason_ventresca
   Homebrew on macOS or apt on Debian/Ubuntu, plus Vim plugins (pathogen,
   fugitive, ctrlp, ...). On macOS it also installs the zsh niceties:
   Oh My Zsh, zsh-autosuggestions, zsh-syntax-highlighting, and starship.
-- `setup/dotfiles.sh` — wires up the shell entry points. On macOS it symlinks
-  `~/.bash_profile`, `~/.zprofile`, and `~/.zshrc` into this repo. On Linux it
+- `setup/dotfiles.sh` — runs `link_everything.sh` (below), and on Linux also
   appends a guarded `source` line to `~/.bash_profile`.
 
-Any pre-existing real files (not symlinks) are backed up to `~/dotfiles.old/`
+All symlinking lives in one script, which is idempotent — re-run it any time
+to relink:
+
+```
+./link_everything.sh
+```
+
+It links the core dotfiles (`~/.vimrc`, `~/.tmux.conf`, `~/.gitconfig`,
+`~/.inputrc`, `~/.bashrc`, `~/.zshrc`, ...), `~/.ssh/config`, and — on macOS —
+the login-shell entry points (`~/.bash_profile`, `~/.zprofile`). Any
+pre-existing real files (not symlinks) are backed up to `~/dotfiles.old/`
 before being replaced.
-
-To symlink the remaining dotfiles (`~/.vimrc`, `~/.tmux.conf`,
-`~/.gitconfig`, `~/.inputrc`, `~/.bashrc`, `~/.zshrc`, ...):
-
-```
-./relink.sh
-```
 
 To bootstrap a remote Ubuntu host over ssh:
 
@@ -59,7 +61,7 @@ Repo layout
 
 ```
 bootstrap.sh              One-shot setup: dev tools + dotfile symlinks
-relink.sh                 (Re)symlink ~/.vimrc, ~/.tmux.conf, etc. into the repo
+link_everything.sh        (Re)symlink all dotfiles + ~/.ssh/config into $HOME
 bin/                      Small executables, added to PATH by shell_common.sh
 dotfiles/                 The actual dotfiles (symlink targets)
   shell_common.sh         Aliases/functions/exports shared by bash AND zsh
@@ -73,8 +75,9 @@ dotfiles/                 The actual dotfiles (symlink targets)
                           these bindings natively with bindkey
   vimrc, vim/             Vim config and plugins (pathogen-managed)
   tmux.conf, gitconfig    tmux and git config
-other_dotfiles/           Configs that aren't simple $HOME symlinks
-                          (iTerm2 plist, ssh config)
+other_dotfiles/           Configs that don't live directly in $HOME
+                          (ssh-config → ~/.ssh/config; iTerm2 plist, managed
+                          by the setup/macos/iterm2_prefs*.sh scripts)
 scripts/                  Standalone utility scripts (Python)
 setup/                    Installation scripts
   dev_tools.sh            Package + plugin installation (macOS and Debian)
@@ -127,7 +130,7 @@ Developing on this repo
 Because `~/.zshrc` etc. are symlinks, edits to files under `dotfiles/` take
 effect in your next shell (or immediately via `source-rc`) — there is no
 build or install step for config-only changes. New *files* need wiring in
-`setup/dotfiles.sh` or `relink.sh`.
+`link_everything.sh`.
 
 Before committing shell changes, sanity-check both shells:
 

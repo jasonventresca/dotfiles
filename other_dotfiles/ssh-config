@@ -1,16 +1,27 @@
+# Symlinked to ~/.ssh/config by link_everything.sh
+
+# Personal GitHub account (jasonventresca). Point personal repos' remotes at
+# this alias, e.g.:
+#   git remote set-url origin git@github.com-personal:jasonventresca/dotfiles.git
+Host github.com-personal
+    HostName github.com
+    IdentityFile ~/.ssh/personal
+    IdentitiesOnly yes
+
+# Work GitHub account (jason-candor) is the default for github.com
+Host github.com
+    IdentityFile ~/.ssh/candor
+    IdentitiesOnly yes
+
 Host zachary # OCI VM shape: 4 core ARM, 24GB memory, 50GB disk @ $2.00/mo
     Hostname 129.146.161.61
     User ubuntu
     ForwardAgent yes
 
-Host github.com gitlab.oracledatacloud.com
-    StrictHostKeyChecking no
-
 Host *
+    # These env vars gate the sourcing of my bashrc on shared Linux hosts
+    # (see setup/dotfiles.sh)
     SendEnv LC_jason_ventresca
     SendEnv AWS_jason_ventresca
-    UseRoaming no
     ServerAliveInterval 30
     ServerAliveCountMax 4
-    ConnectTimeout 21600
-    IdentityFile ~/.ssh/id_ed25519_02-Dec-2024
